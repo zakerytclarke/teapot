@@ -1,7 +1,7 @@
 # Teapot AI
 Customer interactions cost on average $6 per call. Let us help you get that down to $0.50.
 
-<img src='./logo.gif'>
+<img src='./logo.gif' style="width:100px;position:absolute;top:10px;right:10px;">
 
 ## Contact our Sales team today 
 sales@teapotai.com
