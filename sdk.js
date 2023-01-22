@@ -19,10 +19,11 @@ var SESSION = {};
 onload();
 
 async function onload(){
-    fetch(`api/create?client_id=${CONFIG.client_id}`).then((response) => response.json()).then(function(response){
-        SESSION=response;
-        renderMessages();
-    });
+    SESSION = {
+        'chats':[
+            {'bot':'Hi, I am Teapot AI, how can I help you?'},
+        ]
+    }
 }
 
 function renderMessages(){
@@ -45,9 +46,8 @@ function renderMessages(){
 function sendMessage(){
     var message = document.getElementById("teapot-chat-box").value;
     document.getElementById("teapot-chat-box").value="";
-    fetch(`api/interact?session_id=${SESSION.id}&message=${message}`).then((response) => response.json()).then(function(response){
-        SESSION=response;
-        renderMessages();
-    });
+    SESSION.chats.append({
+        'user':message
+    })
 
 }
