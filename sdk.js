@@ -1,4 +1,5 @@
 var teapot_wrapper = document.createElement("div");
+teapot_wrapper.id="teapot-chat-wrapper";
 teapot_wrapper.innerHTML=`
 <style>
 #teapot-chat-wrapper{
@@ -53,14 +54,13 @@ teapot_wrapper.innerHTML=`
     background-color:#1982FC;
 }
 </style>
-<div id="teapot-chat-wrapper">
-    <div id="teapot-chat-header">
-        Realtor AI
-    </div>
-    <div id="teapot-chat-messages">
-    </div>
-    <input id="teapot-chat-box" type="text"><button onclick="sendMessage()">Send</button>
+
+<div id="teapot-chat-header">
+    Realtor AI
 </div>
+<div id="teapot-chat-messages">
+</div>
+<input id="teapot-chat-box" type="text"><button onclick="sendMessage()">Send</button>
 `;
 document.getElementById("teapot").after(teapot_wrapper);
 
