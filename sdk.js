@@ -1,4 +1,5 @@
-document.getElementById("teapot").innerHTML +=`
+var teapot_wrapper = document.createElement("div");
+teapot_wrapper.innerHTML=`
 <div id="teapot-chat-wrapper">
     <div id="teapot-chat-header">
         Realtor AI
@@ -8,6 +9,7 @@ document.getElementById("teapot").innerHTML +=`
     <input id="teapot-chat-box" type="text"><button onclick="sendMessage()">Send</button>
 </div>
 `;
+document.getElementById("teapot").after(teapot_wrapper)
 
 var CONFIG = {
     client_id:'realtor'
