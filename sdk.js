@@ -4,6 +4,7 @@ teapot_wrapper.innerHTML=`
 <style>
 #teapot-chat-wrapper{
     width:80%;
+    min-height:400px;
     border-radius:2vw;
     background-color:#d2d4da;
     text-align:center;
