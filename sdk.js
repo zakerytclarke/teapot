@@ -65,14 +65,13 @@ teapot_wrapper.innerHTML=`
 `;
 document.getElementById("teapot").after(teapot_wrapper);
 
+var teapot;
 
-
-var teapot = new Teapot('chatter');
 
 onload();
 
 async function onload(){
-    
+    teapot = new Teapot('chatter');
 }
 
 function renderMessages(){
