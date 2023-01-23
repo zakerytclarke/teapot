@@ -72,6 +72,7 @@ onload();
 
 async function onload(){
     teapot = new Teapot('chatter');
+    renderMessages()
 }
 
 function renderMessages(){
