@@ -2,12 +2,14 @@
 
 <style>
 body{
-    font-size:200%;
+    font-size:150%;
 }
 </style>
 
+<i>Your customers communicate in natural language... start talking to them that way</i>
+
 # Solutions
-- Effortlessly chedule appointments
+- Effortlessly schedule appointments
 - Answer complex questions from your data
 - Give up to date information from your website 
 
