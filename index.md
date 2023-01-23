@@ -13,6 +13,8 @@ body{
 - Answer complex questions from your data
 - Give up to date information from your website 
 
+---
+
 # How it works
 
 <img src="./diagram.png" style="border-radius:2vmin;"/>
@@ -35,6 +37,8 @@ Teapot keeps track of customers and their visits. It can remember names, and pre
 
 <img src="./marketing_customer.png" style="border-radius:2vmin;"/>
 
+---
+
 # Example- Chatter Bot
 <b>Chatter bot</b> | <b>Appointment Assistant</b> | <b>Leasing Agent</b>
 
@@ -42,6 +46,8 @@ Teapot keeps track of customers and their visits. It can remember names, and pre
 <script src="./teapot.js"></script>
 <script id="teapot" src="./sdk.js"></script>
 
+
+---
 
 # Contact our Sales team today 
 sales@teapotai.com
