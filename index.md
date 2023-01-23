@@ -6,7 +6,7 @@ body{
 }
 </style>
 
-<i>Your customers communicate in natural language... start talking to them that way</i>
+___Your customers communicate in natural language... start talking to them like they do__
 
 # Solutions
 - Effortlessly schedule appointments
