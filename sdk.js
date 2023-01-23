@@ -57,7 +57,7 @@ teapot_wrapper.innerHTML=`
 </style>
 
 <div id="teapot-chat-header">
-    Realtor AI
+    Teapot AI 
 </div>
 <div id="teapot-chat-messages">
 </div>
