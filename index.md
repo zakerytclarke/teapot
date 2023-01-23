@@ -6,16 +6,19 @@
 - Give up to date information from your website 
 
 # How it works
-<img src="./diagram.png" />
+<img src="./diagram.png" style="border-radius:2vmin;"/>
 
 ## Teapot understands you Intent
 Teapot uses an advanced AI trained on thousands of conversations that can understand the context behind what your customer is trying to accomplish, in natural language.
+<img src="./marketing_intent.png" style="border-radius:2vmin;"/>
 
 ## Teapot understand your content
 Teapot automatically crawls your website to pull relevant info into our search engine.
+<img src="./marketing_content.png" style="border-radius:2vmin;"/>
 
 ## Teapot understands your Customer 
 Teapot keeps track of customers and their visits. It can remember names, and previous interactions to tailor your customer service experience to each person's needs.
+<img src="./marketing_customer.png" style="border-radius:2vmin;"/>
 
 # Example- Chatter Bot
 <b>Chatter bot</b> | <b>Appointment Assistant</b> | <b>Leasing Agent</b>
