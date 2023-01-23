@@ -1,4 +1,4 @@
-<img src='./logo.gif' style="width:100px;position:absolute;top:10px;right:10px;">
+<img src='./logo.gif' style="border:0;box-shadow:none;border-radius:50%;width:100px;position:fixed;top:10px;right:10px;">
 
 ## Contact our Sales team today 
 sales@teapotai.com
