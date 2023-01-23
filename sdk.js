@@ -86,7 +86,7 @@ function renderMessages(){
 
         if(teapot.chats[i].from=="Bot"){
             document.getElementById("teapot-chat-messages").innerHTML += `
-                <p class="message messageUser">${teapot.chats[i].message}</p>
+                <p class="message messageBot">${teapot.chats[i].message}</p>
             `;
         }
 

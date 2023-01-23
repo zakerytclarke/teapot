@@ -68,7 +68,7 @@ class Teapot {
         var result = await query(this.config.description + "\n" + this.config.priming + "===\n\n" + this.config.context + "\n" + this.getChatsText() + "Bot: ")
         this.chats.push({
             from:'Bot',
-            message:message
+            message:result
         })
     }
 }
