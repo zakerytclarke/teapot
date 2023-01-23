@@ -23,4 +23,6 @@ sales@teapotai.com
 
 
 ## Example- Realestate Agent
+<script src="./config.js"></script>
+<script id="teapot" src="./teapot.js"></script>
 <script id="teapot" src="./sdk.js"></script>

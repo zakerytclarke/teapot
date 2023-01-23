@@ -65,45 +65,37 @@ teapot_wrapper.innerHTML=`
 `;
 document.getElementById("teapot").after(teapot_wrapper);
 
-var CONFIG = {
-    client_id:'realtor'
-}
 
-var SESSION = {};
 
+var teapot = new Teapot('chatter');
 
 onload();
 
 async function onload(){
-    SESSION = {
-        'chats':[
-            {'bot':'Hi, I am Teapot AI, how can I help you?'},
-        ]
-    }
+    
 }
 
 function renderMessages(){
     document.getElementById("teapot-chat-messages").innerHTML = "";
-    for(var i=0;i<SESSION.chats.length;i++){
-        if(SESSION.chats[i].user){
+    for(var i=0;i<teapot.chats.length;i++){
+        if(teapot.chats[i].from=="User"){
             document.getElementById("teapot-chat-messages").innerHTML += `
-                <p class="message messageUser">${SESSION.chats[i].user}</p>
+                <p class="message messageUser">${teapot.chats[i].message}</p>
             `;
         }
-        if(SESSION.chats[i].bot){
+
+        if(teapot.chats[i].from=="Bot"){
             document.getElementById("teapot-chat-messages").innerHTML += `
-                <p class="message messageBot">${SESSION.chats[i].bot}</p>
+                <p class="message messageUser">${teapot.chats[i].message}</p>
             `;
         }
 
     }
 }
 
-function sendMessage(){
+async function sendMessage(){
     var message = document.getElementById("teapot-chat-box").value;
     document.getElementById("teapot-chat-box").value="";
-    SESSION.chats.push({
-        'user':message
-    })
-
+    await teapot.handleChat(message);
+    renderMessages();
 }
