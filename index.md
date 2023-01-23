@@ -1,8 +1,8 @@
-<img src='./logo.gif' style="border:0;box-shadow:none;border-radius:50%;width:100px;position:fixed;top:10px;right:10px;">
+<img src='./logo.gif' style="border:0;box-shadow:none;border-radius:50%;width:100px;position:fixed;top:10px;right:10px;" />
 
 
 ## How it works
-<img src="./diagram.png>
+<img src="./diagram.png" />
 
 ### Teapot understands you Intent
 Teapot has an advanced AI trained on thousands of conversations that can understand the context behind what your customer is trying to accomplish.
