@@ -71,7 +71,7 @@ var teapot;
 onload();
 
 async function onload(){
-    teapot = new Teapot('realtor');
+    teapot = new Teapot('chatterbot');
     renderMessages()
 }
 
