@@ -37,9 +37,8 @@ class ChatApp:
     def handleChat(self, text):
         relevant_document = self.search.parse(text)
         print(relevant_document.content)
-        import ipdb
-        ipdb.set_trace()
         print(text)
 
 chatbot = ChatApp("gaonurri")
-chatbot.handleChat("Can I see your drinks menu?")
+while True:
+    chatbot.handleChat(input("?"))
