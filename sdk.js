@@ -10,6 +10,7 @@ teapot_wrapper.innerHTML=`
     text-align:center;
     text-shadow:none;
     min-width:600px;
+    font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
 }
 #teapot-chat-wrapper input{
     border-radius:1vw;
@@ -37,6 +38,7 @@ teapot_wrapper.innerHTML=`
  border-radius:0.5vw;  
  
  padding:20px;
+ min-height:300px;
 }
 
 .message{
@@ -71,7 +73,7 @@ var teapot;
 onload();
 
 async function onload(){
-    teapot = new Teapot('chatterbot');
+    teapot = new Teapot('chatter');
     renderMessages()
 }
 
