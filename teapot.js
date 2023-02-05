@@ -18,6 +18,30 @@ async function query_hugging(data) {
 	return result[0].generated_text.replace(data,"").split("User:")[0];
 }
 
+async function query_forefront(data) {
+	const response = await fetch(
+		"https://shared-api.forefront.link/organization/Rb6PHWZExYgI/gpt-j-6b-vanilla/completions/2JrDQ5BhJAm6",
+		{
+			headers: {
+                "Authorization": "Bearer 82940da568924bb08a0edb3b",
+                "Content-Type": "application/json"
+            },
+			method: "POST",
+			body: JSON.stringify({
+                "text": data,
+                "top_p": 1,
+                "top_k": 40,
+                "temperature": 0.7,
+                "repetition_penalty":  1,
+                "length": 50,
+                "stop_sequences": ["User:","Bot:"]
+                }),
+		}
+	);
+	const result = await response.json();
+	return result.result[0].completion;
+}
+
 async function query_chai(data) {
 	const response = await fetch("https://model-api-shdxwd54ta-nw.a.run.app/generate/gptj", {
         "headers": {
@@ -72,7 +96,7 @@ class Teapot {
             from:'User',
             message:message
         })
-        var result = await query_chai(this.config.description + "\n" + this.config.priming + "===\n\n" + this.config.context + "\n" + this.getChatsText() + "Bot: ")
+        var result = await query_forefront(this.config.description + "\n" + this.config.priming + "\n\n" + this.config.context + "\n" + this.getChatsText() + "Bot: ")
         this.chats.push({
             from:'Bot',
             message:result

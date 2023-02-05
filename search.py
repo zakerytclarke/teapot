@@ -1,6 +1,7 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
 from sklearn.pipeline import Pipeline
+import re
 class Document:
     content=""
     tags=[]
@@ -21,7 +22,8 @@ class Search:
     def addDocument(self,contents,tags=[],metadata={}):
         self.documents.append(Document(contents,tags,metadata))
     def train(self):
-        self.tokenizer = self.tokenizer.fit(list(map(lambda x:x.content,self.documents)))
+        
+        self.tokenizer = self.tokenizer.fit(list(map(lambda x:re.sub('[^0-9a-zA-Z]+', ' ', x.content),self.documents)))
         tokens = self.tokenizer.transform(list(map(lambda x:x.content,self.documents)))
         self.model = self.model.fit(tokens)
 

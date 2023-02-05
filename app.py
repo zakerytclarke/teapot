@@ -26,7 +26,7 @@ class ChatApp:
             # For Image content
             for image in page_json.get('images'):
                 if image.get('alt'):
-                    self.search.addDocument(f"{image.get('caption')}",['image'],{'url':image.get('url'),'parent_url':page})
+                    self.search.addDocument(f"{image.get('caption')+image.get('url')}",['image'],{'url':image.get('url'),'parent_url':page})
 
             # For document content
             for doc in page_json.get('documents'):
