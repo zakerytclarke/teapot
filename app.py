@@ -1,11 +1,45 @@
+import requests
 import json
 from search import Search
+from config import get_template
+
+
+def query_forefront(data):
+    headers = {
+    "Authorization": "Bearer 82940da568924bb08a0edb3b",
+    "Content-Type": "application/json"
+    }
+
+    body = {
+        "text": data,
+        "top_p": 1,
+        "top_k": 40,
+        "temperature": 0.7,
+        "repetition_penalty":  1,
+        "length": 50,
+        "stop_sequences": ["User:","Bot:"]
+    }
+
+    res = requests.post(
+        "https://shared-api.forefront.link/organization/Rb6PHWZExYgI/gpt-j-6b-vanilla/completions/2JrDQ5BhJAm6",
+        json=body,
+        headers=headers
+    )
+
+    result = res.json()
+
+    return result.get('result')[0].get('completion').strip()
+    
 
 class ChatApp:
     def __init__(self,config_id):
         f = open (f'./configs/{config_id}.json', "r")
         self.config = json.loads(f.read())
         f.close()
+        self.template = get_template(self.config.get('template'))
+        self.chats = [
+            {'from':'Bot','message':self.template.get('intro')},
+        ]
 
         # Generate Search 
         self.search = Search()
@@ -34,11 +68,24 @@ class ChatApp:
         
         self.search.train()
 
-    def handleChat(self, text):
-        relevant_document = self.search.parse(text)
-        print(relevant_document.content)
-        print(text)
+    def getChatsText(self):
+        return "\n".join(list(map(lambda x: f"{x.get('from')}: {x.get('message')}",self.chats)))
 
-chatbot = ChatApp("gaonurri")
+
+    def handleChat(self, text):
+        relevant_documents = self.search.get_top_results(text,1)
+
+        search_info = '\n'.join(list(map(lambda x:x.content, relevant_documents)))
+        print(f"Info:{search_info}")
+
+        self.chats.append({'from':"User",'message':text})
+        text_query = self.template.get('description') + "\n" + self.template.get('priming') + "\n\n" + self.template.get('context') + "\n" + self.getChatsText() + "Info:" + search_info +"\n"+ "Bot: "
+        result = query_forefront(text_query)
+        self.chats.append({'from':"Bot",'message':result})
+        return result
+        import ipdb
+        ipdb.set_trace()
+        
+chatbot = ChatApp("uberduck")
 while True:
-    chatbot.handleChat(input("?"))
+    print(f"Bot:{chatbot.handleChat(input('User:'))}")

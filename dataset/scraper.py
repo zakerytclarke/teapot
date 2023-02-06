@@ -141,4 +141,4 @@ def getWebsiteInfo(business_name, base_url,page_limit=10):
     f.close()
     return result
 
-getWebsiteInfo("uberduck","https://uberduck.ai/",3)
+getWebsiteInfo("boucher","https://www.boucherco.com/",7)

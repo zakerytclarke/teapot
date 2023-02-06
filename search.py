@@ -31,6 +31,10 @@ class Search:
     def parse(self,text):
         neighbors = self.model.kneighbors(self.tokenizer.transform([text]),1,return_distance=False)[0]
         return self.documents[neighbors[0]]
+
+    def get_top_results(self,text, n):
+        neighbors = self.model.kneighbors(self.tokenizer.transform([text]),n,return_distance=False)
+        return list(map(lambda i:self.documents[i],neighbors.tolist()[0]))
         
 # search = Search()
 # search.addDocument("Thomas Jefferson (April 13, 1743[a] - July 4, 1826) was an American statesman, diplomat, lawyer, architect, philosopher, slaver, and Founding Father who served as the third president of the United States from 1801 to 1809. He was previously the nation's second vice president under John Adams and the first United States secretary of state under George Washington. The principal author of the Declaration of Independence, Jefferson was a proponent of democracy, republicanism, and individual rights, motivating American colonists to break from the Kingdom of Great Britain and form a new nation. He produced formative documents and decisions at state, national, and international levels.")

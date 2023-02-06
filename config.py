@@ -19,16 +19,24 @@ TEMPLATES = {
         'priming':"A chatbot for a restaraunt called Gaonurri that schedules reservations\n\nBot: Hi there, welcome to Gaonurri. How can I help you?\nUser: What is your phone number?\nInfo: Prefer to make your reservation by phone? You can make a reservation by calling us at (212) 971-9045.\nBot: Our phone number is 212-971-9045\nUser: What is your instagram?\nInfo: Link for instagram: http://instagram.com/gaonnurinyc\nBot: You can follow us on instagram at http://instagram.com/gaonnurinyc\nUser: Great, and what time do you open on Monday?\nInfo: Dinner Monday-Thursday 5:30pm-11:30pm Friday-Sunday 5:00pm-12:00am\nBot: We are open from 5:30pm-11:30pm on Monday.\nUser: Thanks, that is all I needed.\nBot: Have a good day!\n\n===\n\n",
         'context':"",
         'intro':"Hi there, welcome to Gaonurri. How can I help you?"
+    },
+    'faq':{
+        'title':"FAQ AI",
+        'description':"A chatbot answering questions about a company",
+        'priming':"Bot: Hi there, welcome to Gaonurri. How can I help you?\nUser: What is your phone number?\nInfo: Prefer to make your reservation by phone? You can make a reservation by calling us at (212) 971-9045.\nBot: Our phone number is 212-971-9045\nUser: What is your instagram?\nInfo: Link for instagram: http://instagram.com/gaonnurinyc\nBot: You can follow us on instagram at http://instagram.com/gaonnurinyc\nUser: Great, and what time do you open on Monday?\nInfo: Dinner Monday-Thursday 5:30pm-11:30pm Friday-Sunday 5:00pm-12:00am\nBot: We are open from 5:30pm-11:30pm on Monday.\nUser: Thanks, that is all I needed.\nBot: Have a good day!\n\n===\n\n",
+        'context':"",
+        'intro':"Hi there, how can I help you?"
     }
 }
 
 CLIENTS = {
     'chatter':'chatter',
-    'realtor':'realtor'
+    'realtor':'realtor',
+    'reservation':'reservation',
+    'faq':'faq'
 }
 
 
 
-function get_template(client_id){
-    return TEMPLATES[CLIENTS[client_id]];
-}
+def get_template(client_id):
+    return TEMPLATES[CLIENTS[client_id]]
