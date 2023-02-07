@@ -9,7 +9,7 @@ def create_deployment(customer_name, customer_url, deployment_type):
         "name":customer_name,
         "template":deployment_type,
         "entities":[],
-        "website":getWebsiteInfo(customer_url, 10)
+        "website":getWebsiteInfo(customer_url, 50)
     }
     f = open(f"./configs/{customer_name}.json", "w")
     f.write(json.dumps(result, indent=4))

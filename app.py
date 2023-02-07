@@ -76,11 +76,12 @@ class ChatApp:
 
 
     def handleChat(self, text):
-        relevant_documents = self.search.get_top_results(text,3)
+        relevant_documents = self.search.get_top_results(text,50)
 
         search_info = '\n'.join(list(map(lambda x:x.content, relevant_documents)))
         print(f"Info:{search_info}")
-
+        import ipdb
+        ipdb.set_trace()
         self.chats.append({'from':"User",'message':text})
         text_query = self.template.get('description') + "\n" + self.template.get('priming') + "\n\n" + self.template.get('context') + "\n" + self.getChatsText() + "Info:" + search_info +"\n"+ "Bot: "
         result = query_forefront(text_query)
