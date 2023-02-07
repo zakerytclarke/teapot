@@ -1,0 +1,129 @@
+{
+    "name": "sloperealty",
+    "template": "reservation",
+    "entities": [],
+    "website": {
+        "title": "",
+        "base_url": "http://www.sloperealty.com/",
+        "description": "",
+        "pages": {
+            "http://www.sloperealty.com/": {
+                "title": "Slope Realty",
+                "content": [],
+                "images": [
+                    {
+                        "url": "http://www.sloperealty.com/images/icon-twitter.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "http://www.sloperealty.com/images/logo.jpg",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "http://www.sloperealty.com/about.aspx": {
+                "title": "Slope Realty",
+                "content": [],
+                "images": [
+                    {
+                        "url": "http://www.sloperealty.com/images/icon-twitter.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "http://www.sloperealty.com/images/logo.jpg",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "http://www.sloperealty.com/rentals.aspx": {
+                "title": "Slope Realty",
+                "content": [],
+                "images": [
+                    {
+                        "url": "http://www.sloperealty.com/images/icon-twitter.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "http://www.sloperealty.com/images/logo.jpg",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "http://www.sloperealty.com/sales.aspx": {
+                "title": "Slope Realty",
+                "content": [],
+                "images": [
+                    {
+                        "url": "http://www.sloperealty.com/images/icon-twitter.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "http://www.sloperealty.com/images/logo.jpg",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "http://www.sloperealty.com/investment.aspx": {
+                "title": "Slope Realty",
+                "content": [],
+                "images": [
+                    {
+                        "url": "http://www.sloperealty.com/images/icon-twitter.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "http://www.sloperealty.com/images/logo.jpg",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "http://www.sloperealty.com/contact.aspx": {
+                "title": "Slope Realty",
+                "content": [],
+                "images": [
+                    {
+                        "url": "http://www.sloperealty.com/images/icon-twitter.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "http://www.sloperealty.com/images/logo.jpg",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            }
+        },
+        "contact": {
+            "phone": "",
+            "address": ""
+        },
+        "social": {
+            "facebook": [],
+            "instagram": [],
+            "twitter": [
+                "http://twitter.com/#!/SlopeRealty"
+            ],
+            "youtube": [
+                "http://twitter.com/#!/SlopeRealty"
+            ],
+            "tiktok": [
+                "http://twitter.com/#!/SlopeRealty"
+            ]
+        },
+        "documents": [],
+        "links": [
+            "http://www.sloperealty.com/investment.aspx",
+            "http://www.sloperealty.com/about.aspx",
+            "http://www.sloperealty.com/",
+            "http://twitter.com/#!/SlopeRealty",
+            "http://www.sloperealty.com/sales.aspx",
+            "http://www.sloperealty.com/rentals.aspx",
+            "http://www.sloperealty.com/contact.aspx"
+        ]
+    }
+}

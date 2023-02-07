@@ -31,7 +31,7 @@ class Scraper():
         self.browser.close()
 
     async def parsePage(self,url,page_limit):
-        if page_limit == 0:
+        if len(self.parsed.get('pages').keys()) >= page_limit:
             return self.parsed
         print(url)
         await self.page.goto(url)
@@ -110,7 +110,7 @@ class Scraper():
                 # Don't parse already parsed pages
                 if link not in list(self.parsed.get('pages').keys()):
                     if link not in document_links:
-                        await self.parsePage(link,page_limit-1) 
+                        await self.parsePage(link,page_limit) 
 
 
         
@@ -126,19 +126,15 @@ async def scrape(url, page_limit):
 
 
     web_scraper = Scraper(url, page)
-
-    result = await web_scraper.parsePage(url,page_limit)
-    
+    try:
+        result = await web_scraper.parsePage(url,page_limit)
+    except:
+        result = web_scraper.parsed
     await browser.close()
 
     return result 
 
 
-def getWebsiteInfo(business_name, base_url,page_limit=10):
+def getWebsiteInfo(base_url,page_limit=10):
     result = asyncio.get_event_loop().run_until_complete(scrape(base_url,page_limit))
-    f = open(f"./businesses/{business_name}.json", "w")
-    f.write(json.dumps(result, indent=4))
-    f.close()
     return result
-
-getWebsiteInfo("boucher","https://www.boucherco.com/",7)

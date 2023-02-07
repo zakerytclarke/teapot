@@ -22,13 +22,9 @@ TEMPLATES = {
     }
 }
 
-CLIENTS = {
-    'chatter':'chatter',
-    'realtor':'realtor'
-}
 
 
 
 function get_template(client_id){
-    return TEMPLATES[CLIENTS[client_id]];
+    return CLIENTS[client_id];
 }

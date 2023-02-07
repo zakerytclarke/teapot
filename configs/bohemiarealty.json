@@ -1,0 +1,1227 @@
+{
+    "name": "bohemiarealty",
+    "template": "faq",
+    "entities": [],
+    "website": {
+        "title": "",
+        "base_url": "https://www.bohemiarealtygroup.com/",
+        "description": "",
+        "pages": {
+            "https://www.bohemiarealtygroup.com/": {
+                "title": "NYC Real Estate Sales & Rentals | Bohemia Realty Group",
+                "content": [
+                    "Enter your address here."
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/",
+                        "caption": "18 East 132nd Street - 2 Bedroom $350,000"
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/",
+                        "caption": "3686 Broadway - 6 Bedroom $2,795,000"
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/",
+                        "caption": "3602 Tibbett Avenue - 3 Bedroom $1,995,000"
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/",
+                        "caption": "263 Bennett Ave Unit 6B - 3 Bedroom $610,000"
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/",
+                        "caption": "18 East 132nd Street - 2 Bedroom $350,000"
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/",
+                        "caption": "3686 Broadway - 6 Bedroom $2,795,000"
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/",
+                        "caption": "3602 Tibbett Avenue - 3 Bedroom $1,995,000"
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/",
+                        "caption": "263 Bennett Ave Unit 6B - 3 Bedroom $610,000"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/theme_photo/image/247113/optimized_2a9beb64876b7340f70a3cf98207f823.png?width=1920&optimize=low&auto=webp",
+                        "caption": "18 East 132nd Street - 2 Bedroom $350,000"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9MrF/ak03z04uh/IMG_1371%20copy_final.jpg",
+                        "caption": "Featured Property image for 320 Manhattan Ave"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5599_22628.jpg",
+                        "caption": "Featured Property image for 202 East 13th Street"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o922X/mj4ehoigz/501%20interior%20with%20terrace%202_done2.jpg",
+                        "caption": "Featured Property image for 667 Ridge Hill Blvd"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9DhF/llbbld8ex/362%20Living%20Room_final2.jpg",
+                        "caption": "Featured Property image for 362 Saint Nicholas Ave"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9HUB/qitmm8q68/1a30c7c1be917ae8c94aef5c9203cb36.jpeg",
+                        "caption": "Featured Property image for 10 West 135th Street"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001cCado/fye3p3m2z/02_304W151stSt_21_6_mls_finalCC.jpg",
+                        "caption": "Featured Property image for 304 W 151st St"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9MrF/ak03z04uh/IMG_1371%20copy_final.jpg",
+                        "caption": "Featured Property image for 320 Manhattan Ave"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5599_22628.jpg",
+                        "caption": "Featured Property image for 202 East 13th Street"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o922X/mj4ehoigz/501%20interior%20with%20terrace%202_done2.jpg",
+                        "caption": "Featured Property image for 667 Ridge Hill Blvd"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9DhF/llbbld8ex/362%20Living%20Room_final2.jpg",
+                        "caption": "Featured Property image for 362 Saint Nicholas Ave"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9HUB/qitmm8q68/1a30c7c1be917ae8c94aef5c9203cb36.jpeg",
+                        "caption": "Featured Property image for 10 West 135th Street"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001cCado/fye3p3m2z/02_304W151stSt_21_6_mls_finalCC.jpg",
+                        "caption": "Featured Property image for 304 W 151st St"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9MrF/ak03z04uh/IMG_1371%20copy_final.jpg",
+                        "caption": "Featured Property image for 320 Manhattan Ave"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5599_22628.jpg",
+                        "caption": "Featured Property image for 202 East 13th Street"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/area_profile/gallery_image/32660/optimized_d3cff850e8650ad0b580b4fd14ce729f.png?width=767&optimize=low&auto=webp",
+                        "caption": "featured area for Upper Manhattan"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/area_profile/gallery_image/32355/optimized_baf50ca0bd296c8af8132e4d60031f1d.png?width=767&optimize=low&auto=webp",
+                        "caption": "featured area for Upper West Side & Manhattan Valley"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/area_profile/gallery_image/32888/optimized_9ccc11b3874cd1e9624dc72a5117aae7.jpg?width=767&optimize=low&auto=webp",
+                        "caption": "featured area for Upper East Side"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/area_profile/gallery_image/32893/optimized_7db5c55c02335802f3cb5e85bc8d733b.png?width=767&optimize=low&auto=webp",
+                        "caption": "featured area for Brooklyn"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/area_profile/gallery_image/32895/optimized_8fcb2c97beab44c728c3e998e4e78128.png?width=767&optimize=low&auto=webp",
+                        "caption": "featured area for The Bronx"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/area_profile/gallery_image/32894/optimized_5d76f6f4bc4d3da901a30ebbd4ad7e2d.png?width=767&optimize=low&auto=webp",
+                        "caption": "featured area for Queens"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "https://www.bohemiarealtygroup.com/users/new": {
+                "title": "Sign Up",
+                "content": [
+                    "What are you interested in?",
+                    "",
+                    "Already working with an agent?",
+                    "",
+                    "Already a user? Sign In here."
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "https://www.bohemiarealtygroup.com/login": {
+                "title": "Log In",
+                "content": [
+                    "Sign up to personalize your experience:",
+                    "\n        Don't have an account? Create one here.\n      ",
+                    "\n        Forgot your password?\n      "
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn2.scdn5.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn2.scdn5.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "https://www.bohemiarealtygroup.com/featured": {
+                "title": "Exclusive Properties | Bohemia Realty Group",
+                "content": [
+                    "\u00a9 2023 Bohemia Realty Group.",
+                    "Information was last updated on February 07, 2023 05:39 PM",
+                    "",
+                    "Enter the email you used to create your account, and we will send you a link to reset your password."
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5599_22628.jpg",
+                        "caption": "Property photo for 202 East 13th Street, #4B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9OhJ/q223i5ad2/DSC_0089.jpg",
+                        "caption": "Property photo for 555 W 151 St, #64, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9MrF/ak03z04uh/IMG_1371%20copy_final.jpg",
+                        "caption": "Property photo for 320 Manhattan Ave, #9, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9MfE/2knfy2in3/03_304W151stSt_21_9_mls_final.jpg",
+                        "caption": "Property photo for 304 W 151st St, #21, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001cCado/fye3p3m2z/02_304W151stSt_21_6_mls_finalCC.jpg",
+                        "caption": "Property photo for 304 W 151st St, #21, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9Jpf/eavqrqjhz/IMG_1771.jpg",
+                        "caption": "Property photo for 270 Fort Washington Ave, #41, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001YegIt/oygc15kfx/140%204F%20-%20lv-k.jpg",
+                        "caption": "Property photo for 150 W 140th St, #4A, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9HUB/qitmm8q68/1a30c7c1be917ae8c94aef5c9203cb36.jpeg",
+                        "caption": "Property photo for 10 West 135th Street, #08U, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9HD0/ej4q5hld0/416941764.jpg",
+                        "caption": "Property photo for 3600 Broadway, #24, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/6770_21804.jpg",
+                        "caption": "Property photo for 72 West 108th Street, #3C, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9FYo/kla7guoly/03_3333Broadway_B15A_9_final.jpg",
+                        "caption": "Property photo for 3333 Broadway, #D9K, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9DhF/llbbld8ex/362%20Living%20Room_final2.jpg",
+                        "caption": "Property photo for 362 Saint Nicholas Ave, #9B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jdTPo/mfdxm3iv8/0acfbdd4bb8e05faabae8b3a622d34d2-se_extra_large_1500_800.jpg",
+                        "caption": "Property photo for 2395 Palisade Ave, #604, Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o92r4/6fo1nx8wn/DSC_0005%20Final.jpg",
+                        "caption": "Property photo for 200 W 145th St, #9, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o929E/0io7a4f52/DSC_0003%20copy_final%20%281%29.jpg",
+                        "caption": "Property photo for 3924 Broadway, #3A, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o922X/mj4ehoigz/501%20interior%20with%20terrace%202_done2.jpg",
+                        "caption": "Property photo for 667 Ridge Hill Blvd, #501, New York City, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bweoz/dmb82oebm/Web_03%20final%2002.jpg",
+                        "caption": "Property photo for 2101 Frederick Douglass Blvd, #5B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bwTdo/76xddm9yb/IMG_6317.jpg",
+                        "caption": "Property photo for 60-55 59th Dr, #HOUSE, Maspeth, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jdnfQ/izfe0tts1/18_E_132nd_2A_Living_Dining_1_Staged.jpg",
+                        "caption": "Property photo for 18 E 132 St, #2A, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001havQA/1cg8mzkej/66_Overlook_Terrace_8K_Living_Room_Only_Staged.jpg",
+                        "caption": "Property photo for 66 Overlook Ter, #8K, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001hZiEK/e3t25k20u/0480f1de199996f57c7c5f0b53c441b1-se_extra_large_1500_800.jpg",
+                        "caption": "Property photo for 3600 Broadway, #24, New York, NY"
+                    },
+                    {
+                        "url": "https://00b2a18a1244e27e512f-9c2afc0b16b4a75dfb88c20943bb1815.ssl.cf1.rackcdn.com/map_icons/Transparent.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/transparent.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/undo_poly.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "Company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "https://www.bohemiarealtygroup.com/homes-for-sale-new-york-city": {
+                "title": "Homes for Sale in New York City | Bohemia Realty",
+                "content": [
+                    "New York ",
+                    "New York ",
+                    "\u00a9 2023 Bohemia Realty Group.",
+                    "Information was last updated on February 07, 2023 05:39 PM",
+                    "\u00a9 2023 OneKey MLS\u2122. All Rights Reserved. ",
+                    "The data relating to real estate for sale on this website comes in part from the IDX Program of OneKey\u2122 MLS.",
+                    "The source of the displayed data is either the property owner or public record provided by non-governmental third parties. It is believed to be reliable but not guaranteed. This information is provided exclusively for consumers\u2019 personal, non-commercial use.",
+                    "OneKey\u2122 MLS data last updated on February 07, 2023 06:33 PM",
+                    "The data on this website relating to real estate for sale comes in part from the IDX Program of the Real Estate Board of New York RLS.",
+                    "All information is believed accurate but not guaranteed. The properties displayed may not be all of the properties available through the IDX Program. Any use of this site other than by potential buyers or sellers is strictly prohibited.",
+                    "",
+                    "\u00a9 2023 Real Estate Board of New York RLS.",
+                    "Real Estate Board of New York RLS data last updated on February 07, 2023 06:38 PM.",
+                    "",
+                    "Enter the email you used to create your account, and we will send you a link to reset your password."
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9IlR/clpkln5hh/20230124_121705.jpg",
+                        "caption": "Property photo for 29 W 138 St, #2D, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o963v/ippgb6r92/302%20LR_final.jpg",
+                        "caption": "Property photo for 302 W 102 St, #3, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jfBi5/z8p39mfxu/1.jpg",
+                        "caption": "Property photo for 3602 Tibbett Ave, #House, Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bx2m2/a5ltwatz8/102522_Caitlyn%20Santander_FINAL_IMG_0007-HDR.jpg",
+                        "caption": "Property photo for 117-01 Park Ln S, #D4A, Queens, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bweoz/dmb82oebm/Web_03%20final%2002.jpg",
+                        "caption": "Property photo for 2101 Frederick Douglass Blvd, #5B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bwTdo/76xddm9yb/IMG_6317.jpg",
+                        "caption": "Property photo for 60-55 59th Dr, #HOUSE, Maspeth, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bwNgP/vv9t1ogtj/1885_Adam_Clayton_Powell_5C_Parlour_1_Staged.jpg",
+                        "caption": "Property photo for 1885 Adam Clayton Powell Jr Blvd, #5C, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001cD0bP/rp6b9txyb/1020_Grand_Concourse_19H_Bedroom_Corrected.jpg",
+                        "caption": "Property photo for 1020 Grand Concourse, #19H, Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jdnfQ/izfe0tts1/18_E_132nd_2A_Living_Dining_1_Staged.jpg",
+                        "caption": "Property photo for 18 E 132 St, #2A, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jdf1M/6w9cibyv4/Print_05.jpg",
+                        "caption": "Property photo for 302 Convent Ave, #36, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jdSzH/hkl5mj2ha/20220713_140740.jpg",
+                        "caption": "Property photo for 544 W 156 St, #4W, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001havQA/1cg8mzkej/66_Overlook_Terrace_8K_Living_Room_Only_Staged.jpg",
+                        "caption": "Property photo for 66 Overlook Ter, #8K, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001hahJE/z9ky2stbe/1.jpg",
+                        "caption": "Property photo for 3242 Tibbett Ave, #HOUSE, The Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001hZbhd/wempyzvwb/60_Cooper_St_Living_2_%2803%29_Corrected_4%20(1).jpg",
+                        "caption": "Property photo for 60 Cooper St, #1E, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001cD0bZ/s5unln984/1020_Grand_Concourse_19H_Living_Dining_Corrected.jpg",
+                        "caption": "Property photo for 1020 Grand Concourse, #19H, Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001cD3xL/fgtmycmqc/LR.jpg",
+                        "caption": "Property photo for 231 W 148th St, #2N, New York, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/themes/super_theme/no_image_thumb-495f5620a7b894bb0ee0d83e410ef546fd35d24a4413982fdffc31ed4173916e.png",
+                        "caption": "Property photo for 3245 PERRY Avenue, #3G, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/themes/super_theme/no_image_thumb-495f5620a7b894bb0ee0d83e410ef546fd35d24a4413982fdffc31ed4173916e.png",
+                        "caption": "Property photo for 330 E 38TH Street, #25K, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/themes/super_theme/no_image_thumb-495f5620a7b894bb0ee0d83e410ef546fd35d24a4413982fdffc31ed4173916e.png",
+                        "caption": "Property photo for 35 Park Avenue, #18-F, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://rebny.fastly.propertybase.com/properties/photos/c33fe78d3956f037d88f64cb0864de7b.jpg?width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 18 W 48th Street, #8-D, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://rebny.fastly.propertybase.com/properties/photos/8242faaff0d29cc1448fd9fe4b01fc06.jpg?width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 210 E 15TH Street, #1N, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://dvvjkgh94f2v6.fastly.propertybase.com/174ba08a/3457253/83dcefb7.jpeg?updated=1675812417&width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 219-17 74 Avenue, #443B1, Bayside, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/services/broker_reciprocity_logo_95-7772c406dd11313350990b8a0c55a339.jpg",
+                        "caption": "MLS attribution image"
+                    },
+                    {
+                        "url": "https://rebny.fastly.propertybase.com/properties/photos/764ad5952113de7437efe1b063f1c999.jpg?width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 130 WILLIAM Street, #21B, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://rebny.fastly.propertybase.com/properties/photos/abf2341c1c083b59d3847e02d745c5b1.jpg?width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 225 E 79th Street, #8-D, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/services/broker_reciprocity_logo_95-20dd15c94427cf5027c6ef3cdca76a2a8e90eaf17555fd2b7b8e997a0f3e9558.jpg",
+                        "caption": "Broker Reciprocity Logo"
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/services/rebny-7741f7d00607d3e6ef871c5bf1e3bc04067458cdb647f1d325d92545762da266.png",
+                        "caption": "Real Estate Board of New York RLS Logo"
+                    },
+                    {
+                        "url": "https://00b2a18a1244e27e512f-9c2afc0b16b4a75dfb88c20943bb1815.ssl.cf1.rackcdn.com/map_icons/Transparent.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/transparent.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/undo_poly.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "Company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "https://www.bohemiarealtygroup.com/apartments-for-rent-nyc": {
+                "title": "Apartments for Rent in NYC | Bohemia Realty Group",
+                "content": [
+                    "\u00a9 2023 Bohemia Realty Group.",
+                    "Information was last updated on February 07, 2023 05:39 PM",
+                    "",
+                    "Enter the email you used to create your account, and we will send you a link to reset your password."
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9TeT/olbsh6rh9/IMG_5435.JPG",
+                        "caption": "Property photo for 974 Saint Nicholas Ave, #4B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9TYV/kdyn2ay0h/IMG_2768.jpeg",
+                        "caption": "Property photo for 602 W 139th St, #3A, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9TVU/lrx8z7g2g/DSC_0144.jpeg",
+                        "caption": "Property photo for 605 W 141 St, #21, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9TRX/o40be8dth/Screenshot%202023-02-07%20at%2011.31.48%20AM.jpg",
+                        "caption": "Property photo for 529 W 151st St, #43, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9Smq/zdm3vlcau/image3%281%29_2.jpg",
+                        "caption": "Property photo for 601 W 163rd St, #3B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9SYB/58qyyq4k1/image4%20%281%29_2.jpg",
+                        "caption": "Property photo for 601 W 163rd St, #6H, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9S14/vk6b2wbrc/IMG_0510_edited.jpg",
+                        "caption": "Property photo for 601 W 163rd St, #3B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9S0z/hy1huagdv/unnamed%20%2815%29_edited.jpg",
+                        "caption": "Property photo for 601 W 163rd St, #6H, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9RD1/pgpbduphc/C1B93DFB-71C8-439E-9A5B-6995DE9AD97C.jpeg",
+                        "caption": "Property photo for 3333 Broadway, #C4C, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9RvL/1434nsiub/ac90a3a0aefa77101bb06638dbc52282.jpeg",
+                        "caption": "Property photo for 10 West 135th Street, #08U, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9ROT/ut0pk4rlp/IMG_2437.jpg",
+                        "caption": "Property photo for 157 E 57th St, #14D, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5220_23428.jpg",
+                        "caption": "Property photo for 47 East 1st Street, #1F, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5930_7851.JPG",
+                        "caption": "Property photo for 141 Ridge Street, #6, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5524_22750.jpg",
+                        "caption": "Property photo for 210 East 25th Street, #3RE, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5625_22954.jpg",
+                        "caption": "Property photo for 7 East 75th Street, #1C, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5366_3717.JPG",
+                        "caption": "Property photo for 277 East 10th Street, #7, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/6961_24278.jpg",
+                        "caption": "Property photo for 422 East 9th Street, #7, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5697_5764.JPG",
+                        "caption": "Property photo for 134 Orchard Street, #9, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5401_11779.jpg",
+                        "caption": "Property photo for 68 Clinton Street, #1B, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/6163_15181.jpg",
+                        "caption": "Property photo for 68 Clinton Street, #1A, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/6213_21003.jpg",
+                        "caption": "Property photo for 422 East 9th Street, #5, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/6545_20999.jpg",
+                        "caption": "Property photo for 382 East 10th Street, #2A, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5715_18574.jpg",
+                        "caption": "Property photo for 424 East 9th Street, #7, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5599_22628.jpg",
+                        "caption": "Property photo for 202 East 13th Street, #4B, New York, NY"
+                    },
+                    {
+                        "url": "https://00b2a18a1244e27e512f-9c2afc0b16b4a75dfb88c20943bb1815.ssl.cf1.rackcdn.com/map_icons/Transparent.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/transparent.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/undo_poly.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "Company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "https://www.bohemiarealtygroup.com/homes-for-sale-outside-nyc": {
+                "title": "Homes for Sale Outside of NYC",
+                "content": [
+                    "Outside NYC",
+                    "Nassau County",
+                    "Orange County",
+                    "Putnam County",
+                    "Rockland County",
+                    "Suffolk County",
+                    "Sullivan County",
+                    "Outside NYC",
+                    "Nassau County",
+                    "Orange County",
+                    "Putnam County",
+                    "Rockland County",
+                    "Suffolk County",
+                    "Sullivan County",
+                    "\u00a9 2023 Bohemia Realty Group.",
+                    "Information was last updated on February 07, 2023 05:40 PM",
+                    "\u00a9 2023 OneKey MLS\u2122. All Rights Reserved. ",
+                    "The data relating to real estate for sale on this website comes in part from the IDX Program of OneKey\u2122 MLS.",
+                    "The source of the displayed data is either the property owner or public record provided by non-governmental third parties. It is believed to be reliable but not guaranteed. This information is provided exclusively for consumers\u2019 personal, non-commercial use.",
+                    "OneKey\u2122 MLS data last updated on February 07, 2023 06:33 PM",
+                    "The data on this website relating to real estate for sale comes in part from the IDX Program of the Real Estate Board of New York RLS.",
+                    "All information is believed accurate but not guaranteed. The properties displayed may not be all of the properties available through the IDX Program. Any use of this site other than by potential buyers or sellers is strictly prohibited.",
+                    "",
+                    "\u00a9 2023 Real Estate Board of New York RLS.",
+                    "Real Estate Board of New York RLS data last updated on February 07, 2023 06:38 PM.",
+                    "",
+                    "Enter the email you used to create your account, and we will send you a link to reset your password."
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9IlR/clpkln5hh/20230124_121705.jpg",
+                        "caption": "Property photo for 29 W 138 St, #2D, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o963v/ippgb6r92/302%20LR_final.jpg",
+                        "caption": "Property photo for 302 W 102 St, #3, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jfBi5/z8p39mfxu/1.jpg",
+                        "caption": "Property photo for 3602 Tibbett Ave, #House, Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bx2m2/a5ltwatz8/102522_Caitlyn%20Santander_FINAL_IMG_0007-HDR.jpg",
+                        "caption": "Property photo for 117-01 Park Ln S, #D4A, Queens, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bweoz/dmb82oebm/Web_03%20final%2002.jpg",
+                        "caption": "Property photo for 2101 Frederick Douglass Blvd, #5B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bwTdo/76xddm9yb/IMG_6317.jpg",
+                        "caption": "Property photo for 60-55 59th Dr, #HOUSE, Maspeth, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001bwNgP/vv9t1ogtj/1885_Adam_Clayton_Powell_5C_Parlour_1_Staged.jpg",
+                        "caption": "Property photo for 1885 Adam Clayton Powell Jr Blvd, #5C, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001cD0bP/rp6b9txyb/1020_Grand_Concourse_19H_Bedroom_Corrected.jpg",
+                        "caption": "Property photo for 1020 Grand Concourse, #19H, Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jdnfQ/izfe0tts1/18_E_132nd_2A_Living_Dining_1_Staged.jpg",
+                        "caption": "Property photo for 18 E 132 St, #2A, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jdf1M/6w9cibyv4/Print_05.jpg",
+                        "caption": "Property photo for 302 Convent Ave, #36, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jdSzH/hkl5mj2ha/20220713_140740.jpg",
+                        "caption": "Property photo for 544 W 156 St, #4W, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001havQA/1cg8mzkej/66_Overlook_Terrace_8K_Living_Room_Only_Staged.jpg",
+                        "caption": "Property photo for 66 Overlook Ter, #8K, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001hahJE/z9ky2stbe/1.jpg",
+                        "caption": "Property photo for 3242 Tibbett Ave, #HOUSE, The Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001hZbhd/wempyzvwb/60_Cooper_St_Living_2_%2803%29_Corrected_4%20(1).jpg",
+                        "caption": "Property photo for 60 Cooper St, #1E, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001cD0bZ/s5unln984/1020_Grand_Concourse_19H_Living_Dining_Corrected.jpg",
+                        "caption": "Property photo for 1020 Grand Concourse, #19H, Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001cD3xL/fgtmycmqc/LR.jpg",
+                        "caption": "Property photo for 231 W 148th St, #2N, New York, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/themes/super_theme/no_image_thumb-495f5620a7b894bb0ee0d83e410ef546fd35d24a4413982fdffc31ed4173916e.png",
+                        "caption": "Property photo for 3245 PERRY Avenue, #3G, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://dvvjkgh94f2v6.fastly.propertybase.com/174ba08a/3457254/83dcefb7.jpeg?updated=1675812418&width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 136 Maida Avenue, Deer Park, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/services/broker_reciprocity_logo_95-7772c406dd11313350990b8a0c55a339.jpg",
+                        "caption": "MLS attribution image"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/themes/super_theme/no_image_thumb-495f5620a7b894bb0ee0d83e410ef546fd35d24a4413982fdffc31ed4173916e.png",
+                        "caption": "Property photo for 330 E 38TH Street, #25K, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/themes/super_theme/no_image_thumb-495f5620a7b894bb0ee0d83e410ef546fd35d24a4413982fdffc31ed4173916e.png",
+                        "caption": "Property photo for 35 Park Avenue, #18-F, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://rebny.fastly.propertybase.com/properties/photos/c33fe78d3956f037d88f64cb0864de7b.jpg?width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 18 W 48th Street, #8-D, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://dvvjkgh94f2v6.fastly.propertybase.com/174ba08a/H6231259/83dcefb7.jpeg?updated=1675812418&width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 54 Dessau, #16, Ramapo, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/services/broker_reciprocity_logo_95-7772c406dd11313350990b8a0c55a339.jpg",
+                        "caption": "MLS attribution image"
+                    },
+                    {
+                        "url": "https://dvvjkgh94f2v6.fastly.propertybase.com/174ba08a/H6231206/83dcefb7.jpeg?updated=1675812418&width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 56 Dessau, #15, Ramapo, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/services/broker_reciprocity_logo_95-7772c406dd11313350990b8a0c55a339.jpg",
+                        "caption": "MLS attribution image"
+                    },
+                    {
+                        "url": "https://rebny.fastly.propertybase.com/properties/photos/8242faaff0d29cc1448fd9fe4b01fc06.jpg?width=900&optimize=low&auto=webp",
+                        "caption": "Property photo for 210 E 15TH Street, #1N, NewYorkCity, NY"
+                    },
+                    {
+                        "url": "https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/services/broker_reciprocity_logo_95-20dd15c94427cf5027c6ef3cdca76a2a8e90eaf17555fd2b7b8e997a0f3e9558.jpg",
+                        "caption": "Broker Reciprocity Logo"
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/services/rebny-7741f7d00607d3e6ef871c5bf1e3bc04067458cdb647f1d325d92545762da266.png",
+                        "caption": "Real Estate Board of New York RLS Logo"
+                    },
+                    {
+                        "url": "https://00b2a18a1244e27e512f-9c2afc0b16b4a75dfb88c20943bb1815.ssl.cf1.rackcdn.com/map_icons/Transparent.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/transparent.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/undo_poly.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "Company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "https://www.bohemiarealtygroup.com/rental-properties-outside-nyc": {
+                "title": "Rental Properties Outside NYC",
+                "content": [
+                    "Outside NYC",
+                    "Nassau County",
+                    "Orange County",
+                    "Putnam County",
+                    "Rockland County",
+                    "Suffolk County",
+                    "Sullivan County",
+                    "Outside NYC",
+                    "Nassau County",
+                    "Orange County",
+                    "Putnam County",
+                    "Rockland County",
+                    "Suffolk County",
+                    "Sullivan County",
+                    "\u00a9 2023 Bohemia Realty Group.",
+                    "Information was last updated on February 07, 2023 05:40 PM",
+                    "",
+                    "Enter the email you used to create your account, and we will send you a link to reset your password."
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9TeT/olbsh6rh9/IMG_5435.JPG",
+                        "caption": "Property photo for 974 Saint Nicholas Ave, #4B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9TYV/kdyn2ay0h/IMG_2768.jpeg",
+                        "caption": "Property photo for 602 W 139th St, #3A, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9TVU/lrx8z7g2g/DSC_0144.jpeg",
+                        "caption": "Property photo for 605 W 141 St, #21, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9TRX/o40be8dth/Screenshot%202023-02-07%20at%2011.31.48%20AM.jpg",
+                        "caption": "Property photo for 529 W 151st St, #43, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9Smq/zdm3vlcau/image3%281%29_2.jpg",
+                        "caption": "Property photo for 601 W 163rd St, #3B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9SYB/58qyyq4k1/image4%20%281%29_2.jpg",
+                        "caption": "Property photo for 601 W 163rd St, #6H, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9S14/vk6b2wbrc/IMG_0510_edited.jpg",
+                        "caption": "Property photo for 601 W 163rd St, #3B, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9S0z/hy1huagdv/unnamed%20%2815%29_edited.jpg",
+                        "caption": "Property photo for 601 W 163rd St, #6H, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9RD1/pgpbduphc/C1B93DFB-71C8-439E-9A5B-6995DE9AD97C.jpeg",
+                        "caption": "Property photo for 3333 Broadway, #C4C, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9RvL/1434nsiub/ac90a3a0aefa77101bb06638dbc52282.jpeg",
+                        "caption": "Property photo for 10 West 135th Street, #08U, New York, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o9ROT/ut0pk4rlp/IMG_2437.jpg",
+                        "caption": "Property photo for 157 E 57th St, #14D, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5220_23428.jpg",
+                        "caption": "Property photo for 47 East 1st Street, #1F, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5930_7851.JPG",
+                        "caption": "Property photo for 141 Ridge Street, #6, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5524_22750.jpg",
+                        "caption": "Property photo for 210 East 25th Street, #3RE, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5625_22954.jpg",
+                        "caption": "Property photo for 7 East 75th Street, #1C, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5366_3717.JPG",
+                        "caption": "Property photo for 277 East 10th Street, #7, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/6961_24278.jpg",
+                        "caption": "Property photo for 422 East 9th Street, #7, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5697_5764.JPG",
+                        "caption": "Property photo for 134 Orchard Street, #9, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5401_11779.jpg",
+                        "caption": "Property photo for 68 Clinton Street, #1B, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/6163_15181.jpg",
+                        "caption": "Property photo for 68 Clinton Street, #1A, New York, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/6213_21003.jpg",
+                        "caption": "Property photo for 422 East 9th Street, #5, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/6545_20999.jpg",
+                        "caption": "Property photo for 382 East 10th Street, #2A, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5715_18574.jpg",
+                        "caption": "Property photo for 424 East 9th Street, #7, NEW YORK, NY"
+                    },
+                    {
+                        "url": "https://images.realty.mx/345f59ed9a2e43238af98cd189673cf7/images/assets/5599_22628.jpg",
+                        "caption": "Property photo for 202 East 13th Street, #4B, New York, NY"
+                    },
+                    {
+                        "url": "https://00b2a18a1244e27e512f-9c2afc0b16b4a75dfb88c20943bb1815.ssl.cf1.rackcdn.com/map_icons/Transparent.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/transparent.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/undo_poly.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "Company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "https://www.bohemiarealtygroup.com/our-developments": {
+                "title": "Our New Developments | Bohemia Realty Group",
+                "content": [
+                    "",
+                    "\n                By providing your cell phone number, you are agreeing to receive listing alerts and promotional text messages. You can Reply HELP for help and STOP to be unsubscribed at any time. Msg frequency varies. Msg and data rates may apply.\n              ",
+                    "Enter the email you used to create your account, and we will send you a link to reset your password."
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/luxury_buildings/luxury_pic/photo/71941/optimized_13bb8ca6a7292bf268dfac50a773eecd.jpg?width=1200&optimize=low&auto=webp",
+                        "caption": "Savoy Park New York NY"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/luxury_buildings/luxury_pic/photo/71383/optimized_d8fa18e230b100f599ca038333beb3dd.png?width=1200&optimize=low&auto=webp",
+                        "caption": "The Dunbar  New York NY"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/luxury_buildings/luxury_pic/photo/71995/optimized_c9db2675bc4957113fe43955bf58bbdc.png?width=1200&optimize=low&auto=webp",
+                        "caption": "Miroza at Ridge Hill Yonkers NY"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/luxury_buildings/luxury_pic/photo/76907/optimized_8266d73970f5c411614d4570bdbf07e9.png?width=1200&optimize=low&auto=webp",
+                        "caption": "The Henry The Bronx NY"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/luxury_buildings/luxury_pic/photo/76914/optimized_7c16fa2f966c80dfd9c4ef8ed4d0d4af.png?width=1200&optimize=low&auto=webp",
+                        "caption": "The Elston The Bronx NY"
+                    },
+                    {
+                        "url": "https://00b2a18a1244e27e512f-9c2afc0b16b4a75dfb88c20943bb1815.ssl.cf1.rackcdn.com/map_icons/Transparent.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://maps.gstatic.com/mapfiles/transparent.png",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "Company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            },
+            "https://www.bohemiarealtygroup.com/our-developments/the-henry": {
+                "title": "The Henry | Bohemia Realty Group",
+                "content": [
+                    "Website: View Website",
+                    "Welcome to The Henry, a brand-new, boutique 55-unit luxury rental development on the southern tip of Riverdale. From its perch above Spuyten Duyvil Shorefront Park, The Henry features unobstructed light and air on all four sides and expansive views of the Harlem and Hudson rivers and the New Jersey Palisades. Riverdale\u2019s newest rental development offers residents a unique opportunity to ...",
+                    "Welcome to The Henry, a brand-new, boutique 55-unit luxury rental development on the southern tip of Riverdale. From its perch above Spuyten Duyvil Shorefront Park, The Henry features unobstructed light and air on all four sides and expansive views of the Harlem and Hudson rivers and the New Jersey Palisades. Riverdale\u2019s newest rental development offers residents a unique opportunity to enjoy resort-style amenities, easy access to diverse restaurants and caf\u00e9s, and stylish, spacious layouts - all within a quick commute to Manhattan.",
+                    "Data through Feb 5, 2023"
+                ],
+                "images": [
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_header_logo/32108/optimized_96ccbdd946a870843464a22d0fba0a18.png?width=700&optimize=low&auto=webp",
+                        "caption": "Link to Bohemia Realty Group homepage"
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/our-developments/the-henry",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/luxury_buildings/luxury_pic/photo/76907/optimized_8266d73970f5c411614d4570bdbf07e9.png?width=1920&optimize=low&auto=webp",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/our-developments/the-henry",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/our-developments/the-henry",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/our-developments/the-henry",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/our-developments/the-henry",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://www.bohemiarealtygroup.com/our-developments/the-henry",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/luxury_buildings/luxury_pic/photo/76907/optimized_8266d73970f5c411614d4570bdbf07e9.png?width=1920&optimize=low&auto=webp",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001jdTPo/mfdxm3iv8/0acfbdd4bb8e05faabae8b3a622d34d2-se_extra_large_1500_800.jpg",
+                        "caption": "Property photo for 2395 Palisade Ave, #604, Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o959W/xp1oxdouv/2395_Palisades_Ave_502_Living_Dining_Corrected_3.jpg",
+                        "caption": "Property photo for 2395 Palisade Ave, #205, Bronx, NY"
+                    },
+                    {
+                        "url": "https://s3.amazonaws.com/propertybase-clients/00D4W000003c7pkUAA/a0O4W00001o8cEo/26wt7gq1m/2395_Palisade_Ave_PH5_Living_Dining_Kitchen_Corrected.jpg",
+                        "caption": "Property photo for 2395 Palisade Ave, #605, Bronx, NY"
+                    },
+                    {
+                        "url": "https://production-uploads.fastly.propertybase.com/assets/uploads/setting/company_footer_logo/32108/optimized_1d23270bad113b9a5d80956d974817d8.png?width=700&optimize=low&auto=webp",
+                        "caption": "Company logo for Bohemia Realty Group"
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    },
+                    {
+                        "url": "https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/spinner-6936d4b7da6c3bec105e39b5c6ea209fcf90f196af4fe4e34996e547a848e126.gif",
+                        "caption": ""
+                    }
+                ],
+                "documents": []
+            }
+        },
+        "contact": {
+            "phone": "",
+            "address": ""
+        },
+        "social": {
+            "facebook": [
+                "https://www.facebook.com/BohemiaRealtyGroup"
+            ],
+            "instagram": [
+                "https://www.instagram.com/bohemiarealty/"
+            ],
+            "twitter": [
+                "https://twitter.com/BohemiaRealtyGr"
+            ],
+            "youtube": [
+                "https://twitter.com/BohemiaRealtyGr"
+            ],
+            "tiktok": [
+                "https://twitter.com/BohemiaRealtyGr"
+            ]
+        },
+        "documents": [],
+        "links": [
+            "",
+            "https://www.bohemiarealtygroup.com/areas/bronx-nyc",
+            "https://www.bohemiarealtygroup.com/dmca-notice",
+            "https://www.bohemiarealtygroup.com/standard-operating-procedures-for-purchasers",
+            "https://www.bohemiarealtygroup.com/apartments-for-rent-nyc?active=1386&page_1386=16",
+            "https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/luxury_buildings/luxury_pic/photo/76911/optimized_37298f82ca81a75496a6b82414c2267b.png",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-outside-nyc?active=0&page_0=1609",
+            "https://www.bohemiarealtygroup.com/areas/manhattan-upper-west-side-nyc",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-new-york-city?active=0&page_0=3",
+            "https://www.bohemiarealtygroup.com/rental-properties-outside-nyc",
+            "https://www.bohemiarealtygroup.com/areas/queens-nyc",
+            "https://www.bohemiarealtygroup.com/featured",
+            "https://www.bohemiarealtygroup.com/join-our-team",
+            "https://www.bohemiarealtygroup.com/posts",
+            "https://www.bohemiarealtygroup.com/our-developments/the-henry#",
+            "https://www.bohemiarealtygroup.com/areas/brooklyn-nyc",
+            "javascript:popupOpen('/luxury_buildings/listing_sheet/23130', 'listing_sheet', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=1010,height=500,left=100,top=50')",
+            "https://www.bohemiarealtygroup.com/areas/putnam-county",
+            "https://www.bohemiarealtygroup.com/real-estate/263-bennett-ave-6b-new-york-ny-10040/l-447054/124820179",
+            "https://www.bohemiarealtygroup.com/users/new",
+            "https://www.bohemiarealtygroup.com/development-marketing-services",
+            "https://www.bohemiarealtygroup.com/our-developments/the-dunbar",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-new-york-city",
+            "https://www.bohemiarealtygroup.com/real-estate/304-w-151st-st-21-new-york-ny-10039/L-450625/132895304",
+            "https://www.bohemiarealtygroup.com/roommate-finder",
+            "https://www.bohemiarealtygroup.com/agents",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-outside-nyc",
+            "javascript:$('#new_desktop_qs_sales_search').submit();",
+            "https://www.bohemiarealtygroup.com/login",
+            "https://www.linkedin.com/company/bohemia-realty-group",
+            "https://www.bohemiarealtygroup.com/searches/new",
+            "https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/luxury_buildings/luxury_pic/photo/76913/optimized_30e74d7d919ed5546bf94578c3c5fd61.png",
+            "https://www.bohemiarealtygroup.com/apartments-for-rent-nyc",
+            "https://www.bohemiarealtygroup.com/areas/manhattan-upper-east-side-nyc",
+            "https://www.youtube.com/channel/UCafeBO4nW_WUNwT3ei4aUIQ",
+            "https://www.bohemiarealtygroup.com/real-estate/202-east-13th-street-4b-new-york-ny-10003/L-450718/133087942",
+            "https://www.bohemiarealtygroup.com/contact",
+            "https://www.bohemiarealtygroup.com/areas",
+            "https://www.bohemiarealtygroup.com/our-luxury/miroza-at-ridge-hill",
+            "https://www.bohemiarealtygroup.com/market-insights",
+            "https://www.bohemiarealtygroup.com/users/new#quick-search-panel",
+            "https://www.bohemiarealtygroup.com/rental-properties-outside-nyc?active=1386&page_1386=3",
+            "https://www.bohemiarealtygroup.com/fair-housing-notice",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-new-york-city?active=0&page_0=2",
+            "https://www.pinterest.com/bohemiarealty/",
+            "https://www.bohemiarealtygroup.com/our-developments#",
+            "https://www.bohemiarealtygroup.com/privacy-policy",
+            "https://www.bohemiarealtygroup.com/apartments-for-rent-nyc?active=1386&page_1386=2",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-outside-nyc?active=0&page_0=2",
+            "https://www.bohemiarealtygroup.com/forgot_password",
+            "https://www.bohemiarealtygroup.com/areas/orange-county",
+            "https://www.bohemiarealtygroup.com/payment",
+            "tel:(212) 663-6215",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-outside-nyc?active=0&page_0=3",
+            "https://www.bohemiarealtygroup.com/apartments-for-rent-nyc?active=1386&page_1386=17",
+            "https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/luxury_buildings/luxury_pic/photo/76912/optimized_c04f95a6647b2f5a0964abb5d07f2ce7.png",
+            "https://thehenrynyc.com/",
+            "https://www.bohemiarealtygroup.com/login#quick-search-panel",
+            "https://www.bohemiarealtygroup.com/areas/upper-manhattan",
+            "https://www.bohemiarealtygroup.com/portfolio-representation",
+            "https://www.bohemiarealtygroup.com/real-estate/320-manhattan-ave-9-new-york-ny-10026/L-450658/132957978",
+            "tel:(646) 661-1579",
+            "https://www.bohemiarealtygroup.com/real-estate/10-west-135th-street-08u-new-york-ny-10037/L-450544/132765757",
+            "https://www.yelp.com/biz/bohemia-realty-group-new-york",
+            "https://www.bohemiarealtygroup.com/our-developments/savoy-park",
+            "https://www.instagram.com/bohemiarealty/",
+            "https://www.bohemiarealtygroup.com/featured#",
+            "https://www.bohemiarealtygroup.com/real-estate/667-ridge-hill-blvd-501-new-york-city-ny-10710/L-450111/132019043",
+            "https://www.bohemiarealtygroup.com/apartments-for-rent-nyc?active=1386&page_1386=3",
+            "https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/luxury_buildings/luxury_pic/photo/76909/optimized_374e9191a79fcc18ef2a2324a01d9341.png",
+            "https://www.bohemiarealtygroup.com/previous-buildings",
+            "mailto:wash@bohemiarealtygroup.com",
+            "https://www.bohemiarealtygroup.com/real-estate/362-saint-nicholas-ave-9b-new-york-ny-10027/L-450413/132680369",
+            "https://www.bohemiarealtygroup.com/rental-properties-outside-nyc?active=1386&page_1386=2",
+            "https://www.bohemiarealtygroup.com/areas/westchester-county",
+            "https://www.bohemiarealtygroup.com/rental-properties-outside-nyc?active=1386&page_1386=17",
+            "https://www.bohemiarealtygroup.com/",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-new-york-city?active=0&page_0=879",
+            "javascript:void(0);",
+            "https://www.facebook.com/BohemiaRealtyGroup",
+            "https://www.bohemiarealtygroup.com/our-developments",
+            "https://www.bohemiarealtygroup.com/rental-properties-outside-nyc#",
+            "https://www.bohemiarealtygroup.com/real-estate/18-e-132-st-2a-new-york-ny-10037/l-447609/127106292",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-outside-nyc?active=0&page_0=1608",
+            "javascript:void(0)",
+            "https://twitter.com/BohemiaRealtyGr",
+            "https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/luxury_buildings/luxury_pic/photo/76908/optimized_f8aa5c05166bcfe472bf350de87fad46.png",
+            "https://www.bohemiarealtygroup.com/areas/suffolk-county",
+            "https://www.bohemiarealtygroup.com/our-developments/the-henry",
+            "https://www.bohemiarealtygroup.com/offices",
+            "https://www.bohemiarealtygroup.com/real-estate/3602-tibbett-ave-house-bronx-ny-10463/l-449131/130309720",
+            "https://www.bohemiarealtygroup.com/rental-properties-outside-nyc?active=1386&page_1386=16",
+            "https://www.bohemiarealtygroup.com/market-insights/the-bronx?max_price=&min_price=&num_beds=&property_type=",
+            "https://www.bohemiarealtygroup.com/apartments-for-rent-nyc#",
+            "https://www.bohemiarealtygroup.com/real-estate/3686-broadway-building-new-york-ny-10031/l-447482/126625940",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-outside-nyc#",
+            "https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/luxury_buildings/luxury_pic/photo/76907/optimized_8266d73970f5c411614d4570bdbf07e9.png",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-new-york-city#",
+            "https://www.lwolf.com/",
+            "https://www.bohemiarealtygroup.com/list-with-us",
+            "mailto:harlem@bohemiarealtygroup.com",
+            "https://www.bohemiarealtygroup.com/rental-condo-coop-or-townhouse",
+            "https://www.bohemiarealtygroup.com/homes-for-sale-new-york-city?active=0&page_0=878",
+            "https://www.bohemiarealtygroup.com/our-developments/the-henry#p1",
+            "https://www.bohemiarealtygroup.com/bohemia-in-the-press",
+            "https://www.bohemiarealtygroup.com/areas/nassu-county",
+            "https://www.bohemiarealtygroup.com/our-developments/the-henry#p2"
+        ]
+    }
+}

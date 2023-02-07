@@ -2,6 +2,9 @@ import requests
 import json
 from search import Search
 from config import get_template
+from create_customer import create_deployment
+import sys
+from pathlib import Path
 
 
 def query_forefront(data):
@@ -73,7 +76,7 @@ class ChatApp:
 
 
     def handleChat(self, text):
-        relevant_documents = self.search.get_top_results(text,1)
+        relevant_documents = self.search.get_top_results(text,3)
 
         search_info = '\n'.join(list(map(lambda x:x.content, relevant_documents)))
         print(f"Info:{search_info}")
@@ -83,9 +86,28 @@ class ChatApp:
         result = query_forefront(text_query)
         self.chats.append({'from':"Bot",'message':result})
         return result
-        import ipdb
-        ipdb.set_trace()
         
-chatbot = ChatApp("uberduck")
-while True:
-    print(f"Bot:{chatbot.handleChat(input('User:'))}")
+
+
+
+
+
+def main():
+    customer_name = sys.argv[1]
+    path = Path(f'./configs/{customer_name}.json')
+
+    if not path.is_file(): # Deployment doesn't exist
+        print("Customer doesn't exist. Create Deployment?")
+        customer_url = input("Url:")
+        customer_type = input("Template:")
+        create_deployment(customer_name,customer_url,customer_type)
+
+    print(f"Loading {customer_name}")
+    chatbot = ChatApp(customer_name)
+    while True:
+        print(f"Bot:{chatbot.handleChat(input('User:'))}")
+
+
+
+if __name__ == "__main__":
+    main()
