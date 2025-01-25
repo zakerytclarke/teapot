@@ -136,7 +136,7 @@ class TeapotAI:
         
         chat_history = ""
         for message in conversation_history:
-            chat_history += f"{{message['content']}\n"
+            chat_history += f"{message['content']}\n"
 
         if self.settings.verbose:
             print(f"Processing chat history: {chat_history}")
@@ -155,7 +155,7 @@ class TeapotAI:
             print(f"Extracting data for class {class_annotation}")
             
         if self.settings.use_rag and not context:
-            context_documents = self.rag(query)  # Use RAG if no context provided
+            context_documents = self.rag("")  # Use RAG if no context provided
             context = "\n".join(context_documents)  # Concatenate the documents with newlines
             
         output = {}
@@ -165,7 +165,7 @@ class TeapotAI:
             description_annotation = f"({description})" if description else ""
 
             # Simulate query with teapot_ai
-            result = teapot_ai.query(context, f"Extract the field {field_name} {description_annotation} to a {type_annotation}")
+            result = self.query(context, f"Extract the field {field_name} {description_annotation} to a {type_annotation}")
 
             if type_annotation == bool:
                 # Check if the result contains 'yes' or 'true' for True, or 'no' or 'false' for False
