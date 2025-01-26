@@ -1,16 +1,13 @@
-# TeapotAI Library
+# Teapot LLM
 
-TeapotAI is a lightweight language model (~300 million parameters) optimized to run locally on resource-constrained devices such as smartphones and CPUs that can perform a variety of tasks, including hallucination resistance Question Answering, Retrieval Augmented Generation and JSON extraction.
+[Website](https://teapotai.com/) | [Demo](https://huggingface.co/spaces/teapotai/teapotchat) | [Discord](https://discord.gg/hPxGSn5dST)
 
-## Learn More
-Join our Discord [Link](https://discord.gg/hPxGSn5dST)
-View our models [Link](https://huggingface.co/teapotai)
+TeapotAI is a small open-source language model (~300 million parameters) fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones and CPUs. Teapot can perform a variety of tasks, including hallucination-resistant Question Answering (QnA), Retrieval-Augmented Generation (RAG), and JSON extraction. Teapot is a model built by and for the community.
 
+## Getting Started
+We recommend using our library [teapotai](https://pypi.org/project/teapotai/) to quickly integrate our models into production environments, as it handles the overhead of model configuration, document embeddings, error handling and prompt formatting. However, you can directly use the model from the transformers library on huggingface.
 
-## Library
-This library provides a wrapper around the base model to enable easier integrations into production environments.
-
-## Installation
+### Installation
 
 ```bash
 ! pip install teapotai
@@ -18,15 +15,12 @@ This library provides a wrapper around the base model to enable easier integrati
 
 ---
 
-## Use Cases
-
-Here are three key use cases demonstrating how to use TeapotAI for different tasks:
-
----
 
 ### 1. General Question Answering (QA)
 
-Teapot can be used for general question answering based on a passed in context. The model has been optimized to respond conversationally and is trained to not answer questions that can't be answered with a given context to avoid hallucinations.
+Teapot can be used for general question answering based on a provided context. The model is optimized to respond conversationally and is trained to avoid answering questions that can't be answered from the given context, reducing hallucinations.
+
+
 
 #### Example:
 
@@ -65,7 +59,7 @@ print(answer) # => "I don't have information on the height of the Eiffel Tower."
 
 ### 2. Chat with Retrieval Augmented Generation (RAG)
 
-TeapotAI can also use Retrieval Augmented Generation to determine which documents are relevant before answering a question. This is useful when you have multiple documents you want to use as context and want to ensure the model answers based on the most relevant ones.
+Teapot can also use Retrieval-Augmented Generation (RAG) to determine which documents are relevant before answering a question. This is useful when you have many documents you want to use as context, ensuring the model answers based on the most relevant ones.
 
 #### Example:
 
@@ -103,7 +97,7 @@ print(answer) # => The Eiffel Tower was constructed in the 1800s.
 ```
 
 #### Loading RAG Model:
-You may want to save a copy of a model with documents to reduce loading times by leveraging the pre-computed embeddings. TeapotAI is pickle compatible and can be saved/loaded as shown below.
+You can save a model with pre-computed embeddings to reduce loading times. TeapotAI is pickle-compatible and can be saved and loaded as shown below.
 ```python
 import pickle
 
@@ -125,9 +119,9 @@ loaded_teapot_ai.query("What city is the Eiffel Tower in?") # => "The Eiffel Tow
 
 ---
 
-### Information Extraction
+### 3. Information Extraction
 
-TeapotAI can be used to extract structured information from context using pre-defined json structures. The extract method takes a pydantic model that can be used to ensure Teapot extracts correct types. Teapot can infer fields based on names but also will leverage descriptions if available. This method can also be used with the RAG and query functioanlities natively.
+Teapot can be used to extract structured information from context using pre-defined JSON structures. The extract method takes a Pydantic model to ensure Teapot extracts the correct types. Teapot can infer fields based on names and will also leverage descriptions if available. This method can also be used with RAG and query functionalities natively.
 
 #### Example:
 
@@ -160,7 +154,55 @@ extracted_info = teapot_ai.extract(ApartmentInfo, context=apartment_description)
 print(extracted_info) # => ApartmentInfo(rent=2500.0 bedrooms=2 bathrooms=1 phone_number='555-123-4567')
 ```
 
+### Native Transformer Support
+While we recommend using TeapotAI's library, you can load the base model directly with Hugging Face's Transformers library as follows:
+```python
+from transformers import pipeline
+
+# Load the model
+teapot_ai = pipeline("text2text-generation", "teapotai/teapotllm")
+
+context = """
+The Eiffel Tower is a wrought iron lattice tower in Paris, France. It was designed by Gustave Eiffel and completed in 1889.
+It stands at a height of 330 meters and is one of the most recognizable structures in the world.
+"""
+
+question = "What is the height of the Eiffel Tower?"
+
+answer = teapot_ai(context+"\n"+question)
+
+print(answer[0].get('generated_text')) # => The Eiffel Tower stands at a height of 330 meters.
+```
+
 ---
+
+
+## Model Details
+Teapot LLM is fine-tuned from [flan-t5-base](https://huggingface.co/google/flan-t5-base) on a [synthetic dataset](https://huggingface.co/datasets/teapotai/synthqa) of LLM tasks generated using [Llama-3.1-70B](https://huggingface.co/meta-llama/Llama-3.1-70B). Teapot 
+
+### Conversational Question Answering
+Teapot is fine-tuned to provide friendly, conversational answers using context and documents provided as references.
+
+### Hallucination Resistance
+Teapot is trained to only output answers that can be derived from the provided context, ensuring that even though it is a small model, it performs demonstrably better by refusing to answer questions when there is insufficient data.
+
+### Retrieval Augmented Generation
+Teapot is further fine-tuned on the task of retrieval augmented generation by utilizing a custom [embedding model](https://huggingface.co/teapotai/teapotembedding). We perform RAG across multiple documents from our training data and the model is able to learn to extract relevant details for question answering.   
+
+### Information Extraction
+Teapot has been trained to extract succint answers in a variety of format enabling efficient document parsing. Teapot is trained natively to output standard data types such as numbers, strings, and even json.
+
+### Training Details
+- [Dataset] ~4mb synthetic dataset consisting of QnA pairs with a variety of task specific formats.
+- [Methodology] The model is trained to mimic task specific output formats, and is scored based on its ability to output relevant, succint and verifiable answers in the requested format. 
+- [Hardware] Teapot was trained for ~2hr on an A100 provided by Google Colab.
+- [Hyperparameters] The model was trained with various learning rates and monitored to ensure task specific performance was learned without catastrophic forgetting.
+
+### Limitations and Risks
+Teapot is trained specifically for question answering use cases and is not intended to be used for code generation, creative writing or critical decision applications. Teapot has only been trained on specific languages supported by flan-t5 and has not been evaluated for performance in languages other than English.
+
+### License
+This model, the embedding model and the synthetic dataset are all provided open source under the MIT LICENSE.
 
 ## Questions, Feature Requests?
 
