@@ -118,14 +118,10 @@ class TeapotAI:
         Returns:
         - str: The generated output from the model.
         """
-        if self.settings.verbose:
-            print(f"Generating response for input: {input_text}")
         generated_text = self.generator(input_text)
         return generated_text[0]['generated_text']
 
-    def query(self, query: str, context: str) -> str:
-        if self.settings.verbose:
-            print(f"Processing query: {query}")
+    def query(self, query: str, context: str="") -> str:
         if self.settings.use_rag and not context:
             context = self.rag(query)  # Perform RAG if no context is provided
             
@@ -137,9 +133,6 @@ class TeapotAI:
         chat_history = ""
         for message in conversation_history:
             chat_history += f"{message['content']}\n"
-
-        if self.settings.verbose:
-            print(f"Processing chat history: {chat_history}")
         
         if self.settings.use_rag:
             context_documents = self.rag(chat_history)  # Perform RAG on the conversation history
@@ -149,13 +142,10 @@ class TeapotAI:
 
         return self.generate(chat_history+"\n"+"agent:")
 
-    def extract(self, class_annotation, context: str):
-
-        if self.settings.verbose:
-            print(f"Extracting data for class {class_annotation}")
+    def extract(self, class_annotation, query: str="", context: str=""):
             
-        if self.settings.use_rag and not context:
-            context_documents = self.rag("")  # Use RAG if no context provided
+        if self.settings.use_rag:
+            context_documents = self.rag(query)
             context = "\n".join(context_documents)  # Concatenate the documents with newlines
             
         output = {}
@@ -165,7 +155,7 @@ class TeapotAI:
             description_annotation = f"({description})" if description else ""
 
             # Simulate query with teapot_ai
-            result = self.query(context, f"Extract the field {field_name} {description_annotation} to a {type_annotation}")
+            result = self.query(f"Extract the field {field_name} {description_annotation} to a {type_annotation}", context=context)
 
             if type_annotation == bool:
                 # Check if the result contains 'yes' or 'true' for True, or 'no' or 'false' for False
