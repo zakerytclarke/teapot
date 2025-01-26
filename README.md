@@ -127,34 +127,37 @@ loaded_teapot_ai.query("What city is the Eiffel Tower in?") # => "The Eiffel Tow
 
 ### Information Extraction
 
-TeapotAI can be used to extract structured information from context using pre-defined json structures. The extract method takes a pydantic model that can be used to ensure Teapot extracts correct types. This method can also be used with the RAG and query functioanlities natively.
+TeapotAI can be used to extract structured information from context using pre-defined json structures. The extract method takes a pydantic model that can be used to ensure Teapot extracts correct types. Teapot can infer fields based on names but also will leverage descriptions if available. This method can also be used with the RAG and query functioanlities natively.
 
 #### Example:
 
 ```python
 from teapotai import TeapotAI
 from pydantic import BaseModel
+
 # Sample text containing apartment details
 apartment_description = """
 This spacious 2-bedroom apartment is available for rent in downtown New York. The monthly rent is $2500.
 It includes 1 bathrooms and a fully equipped kitchen with modern appliances.
 
-Pets are allowed on a case by case basis.
+Pets are welcome!
+
 Please reach out to us at 555-123-4567 or john@realty.com
 """
 
 # Define a Pydantic model for the data you want to extract
 class ApartmentInfo(BaseModel):
-    rent: float
-    bedrooms: int
-    bathrooms: int
+    rent: float = Field(..., description="the monthly rent in dollars")
+    bedrooms: int = Field(..., description="the number of bedrooms")
+    bathrooms: int = Field(..., description="the number of bathrooms")
+    phone_number: str
 
 # Initialize TeapotAI
 teapot_ai = TeapotAI()
 
 # Extract the apartment details
 extracted_info = teapot_ai.extract(ApartmentInfo, context=apartment_description)
-print(extracted_info) # => Expected output: ApartmentInfo(rent=2500, bedrooms=2, bathrooms=2)
+print(extracted_info) # => ApartmentInfo(rent=2500.0 bedrooms=2 bathrooms=1 phone_number='555-123-4567')
 ```
 
 ---
