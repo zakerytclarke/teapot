@@ -1,40 +1,11 @@
----
-layout: default
-title: Home
----
+Announcement: Teapot LLM Launched!
+
+# Teapot LLM
+Teapot is a small open-source language model (~300 million parameters) fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones and CPUs. Teapot can perform a variety of tasks, including hallucination-resistant Question Answering (QnA), Retrieval-Augmented Generation (RAG), and JSON extraction. Teapot is a model built by and for the community.
+
+![./assets/qna.png](./assets/qna.png)
 
 
-# Teapot AI
-
-Teapot develops secure Reasoning AI Agents that operate entirely within the browser, integrating multimodal language models capable of answering questions from your documents- no coding required.
-
-Solution
-LLM Agents trained on your content- no coding required
-Automatically update data from your website
-Secure models that can run completely on end-user device (browser, phone, etc)
-Demo
-One click chatbot creation
-Enter website:
-https://example.com
- Let's Go
-
-Try out Teapot right in your browser. Enter your website and we will scrape your content and create a custom chatbot.
-
-Use Cases
-Fast & Low Cost Customer Service LLMs
-Private & Offline LLMs for Search and Question Answering
-How it works
 
 
-Teapot understands you Intent
-Teapot uses an advanced AI trained on thousands of conversations that can understand the context behind what your customer is trying to accomplish, in natural language.
-
-Teapot understands your content
-Teapot automatically crawls your website to pull relevant info into our search engine.
-
-Automatically parses images, text, PDFs, and website content
-Can redirect users to live content
-Works with any website or CMS
-
-Contact our Sales team today
-zakerytclarke@gmail.com
+Discover the capabilities.
