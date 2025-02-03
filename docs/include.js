@@ -31,7 +31,7 @@
     }
 
     footer.inner::before {
-      content: "418 I'm a teapot (HTCPCP/1.0) | Brewed with 🤍 in NYC | Copyright 2025";
+      content: "418 I'm a teapot | Brewed with 🤍 in NYC | Copyright 2025";
       color: rgb(242, 242, 242);
       display: block;
       text-align: center; /* Center the text */
