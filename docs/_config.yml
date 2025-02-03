@@ -3,4 +3,4 @@ plugins:
 - jekyll-remote-theme
 
 title: Teapot AI
-description: <a style="color:rgb(242,242,242);" href="./">Home</a> |  <a style="color:rgb(242,242,242);" href="./playground">Playground</a> |  <a style="color:rgb(242,242,242);" href="./docs">Docs</a> |  <a style="color:rgb(242,242,242);" href="https://discord.gg/hPxGSn5dST">Discord</a><br/ >Building AI powered LLM agents, privately brewed in your browser.<script src="./include.js></script>
+description: <a style="color:rgb(242,242,242);" href="./">Home</a> |  <a style="color:rgb(242,242,242);" href="./playground">Playground</a> |  <a style="color:rgb(242,242,242);" href="./docs">Docs</a> |  <a style="color:rgb(242,242,242);" href="https://discord.gg/hPxGSn5dST">Discord</a><br/ >Building AI powered LLM agents, privately brewed in your browser.<script src="./include.js"></script>
