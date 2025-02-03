@@ -1,10 +1,3 @@
-
-# Teapot LLM
-
-[Website](https://teapotai.com/) | [Demo](https://huggingface.co/spaces/teapotai/teapotchat) | [Discord](https://discord.gg/hPxGSn5dST)
-
-Teapot is a small open-source language model (~300 million parameters) fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones and CPUs. Teapot can perform a variety of tasks, including hallucination-resistant Question Answering (QnA), Retrieval-Augmented Generation (RAG), and JSON extraction. Teapot is a model built by and for the community.
-
 ## Getting Started
 We recommend using our library [teapotai](https://pypi.org/project/teapotai/) to quickly integrate our models into production environments, as it handles the overhead of model configuration, document embeddings, error handling and prompt formatting. However, you can directly use the model from the transformers library on huggingface.
 
@@ -183,37 +176,3 @@ answer = teapot_ai(context+"\n"+question)
 
 print(answer[0].get('generated_text')) # => The Eiffel Tower stands at a height of 330 meters.
 ```
-
----
-
-
-## Model Details
-Teapot LLM is fine-tuned from [flan-t5-base](https://huggingface.co/google/flan-t5-base) on a [synthetic dataset](https://huggingface.co/datasets/teapotai/synthqa) of LLM tasks generated using [Llama-3.1-70B](https://huggingface.co/meta-llama/Llama-3.1-70B). Teapot 
-
-### Conversational Question Answering
-Teapot is fine-tuned to provide friendly, conversational answers using context and documents provided as references.
-
-### Hallucination Resistance
-Teapot is trained to only output answers that can be derived from the provided context, ensuring that even though it is a small model, it performs demonstrably better by refusing to answer questions when there is insufficient data.
-
-### Retrieval Augmented Generation
-Teapot is further fine-tuned on the task of retrieval augmented generation by utilizing a custom [embedding model](https://huggingface.co/teapotai/teapotembedding). We perform RAG across multiple documents from our training data and the model is able to learn to extract relevant details for question answering.   
-
-### Information Extraction
-Teapot has been trained to extract succint answers in a variety of format enabling efficient document parsing. Teapot is trained natively to output standard data types such as numbers, strings, and even json.
-
-### Training Details
-- [Dataset] ~4mb synthetic dataset consisting of QnA pairs with a variety of task specific formats.
-- [Methodology] The model is trained to mimic task specific output formats, and is scored based on its ability to output relevant, succint and verifiable answers in the requested format. 
-- [Hardware] Teapot was trained for ~2hr on an A100 provided by Google Colab.
-- [Hyperparameters] The model was trained with various learning rates and monitored to ensure task specific performance was learned without catastrophic forgetting.
-
-### Limitations and Risks
-Teapot is trained specifically for question answering use cases and is not intended to be used for code generation, creative writing or critical decision applications. Teapot has only been trained on specific languages supported by flan-t5 and has not been evaluated for performance in languages other than English.
-
-### License
-This model, the embedding model and the synthetic dataset are all provided open source under the MIT LICENSE.
-
-## Questions, Feature Requests?
-
-We hope you find TeapotAI useful and are continuosuly working to improve our models. Please reach out to us on our [Discord](https://discord.gg/hPxGSn5dST) for any technical help or feature requrests. We look forwarding to seeing what our community can build!
