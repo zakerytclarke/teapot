@@ -1,4 +1,6 @@
 from transformers import pipeline
+import torch
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from pydantic import BaseModel
@@ -68,7 +70,19 @@ class TeapotAI:
             print(f"Loading Model: {self.model} Revision: {self.model_revision or 'Latest'}")
         
         self.generator = pipeline("text2text-generation", model=self.model, revision=self.model_revision) if model_revision else pipeline("text2text-generation", model=self.model)
-        
+
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model)
+        model = AutoModelForSeq2SeqLM.from_pretrained(self.model)
+        model.eval()
+
+         # Quantization settings 
+        quantization_dtype = torch.qint8  # or torch.float16
+        quantization_config = torch.quantization.get_default_qconfig('fbgemm')  # or 'onednn'
+
+        self.quantized_model = torch.quantization.quantize_dynamic(
+            model, {torch.nn.Linear}, dtype=quantization_dtype
+        )
+
         self.documents = documents
         
         if self.settings.use_rag and self.documents:
@@ -128,9 +142,17 @@ class TeapotAI:
         Returns:
             str: The generated output from the model.
         """
-        generated_text = self.generator(input_text)
-        result = generated_text[0]['generated_text']
         
+        inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
+
+          
+        with torch.no_grad():
+            outputs = self.quantized_model.generate(inputs["input_ids"], max_length=512)
+        
+
+        result = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        
+
         if self.settings.log_level == "debug":
             print(input_text)
             print(result)
