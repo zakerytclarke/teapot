@@ -7,6 +7,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 from tqdm import tqdm
 import re
+import os
 
 
 class TeapotAISettings(BaseModel):
@@ -143,7 +144,7 @@ class TeapotAI:
             str: The generated output from the model.
         """
         
-        inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
+        inputs = self.tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
 
           
         with torch.no_grad():
