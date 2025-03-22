@@ -34,6 +34,7 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=[
+        'torch',
         'tqdm',             # for progress bars
         'transformers',     # for huggingface transformer models
         'numpy',            # for numerical operations

@@ -47,7 +47,6 @@ class TeapotAI:
                  documents: List[str] = [], settings: TeapotAISettings = TeapotAISettings()):
         """
         Initializes the TeapotAI class with optional model_revision and api_key.
-
         Parameters:
             model_revision (Optional[str]): The revision/version of the model to use.
             api_key (Optional[str]): The API key for accessing the model if needed.
@@ -72,18 +71,6 @@ class TeapotAI:
         
         self.generator = pipeline("text2text-generation", model=self.model, revision=self.model_revision) if model_revision else pipeline("text2text-generation", model=self.model)
 
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model)
-        model = AutoModelForSeq2SeqLM.from_pretrained(self.model)
-        model.eval()
-
-         # Quantization settings 
-        quantization_dtype = torch.qint8  # or torch.float16
-        quantization_config = torch.quantization.get_default_qconfig('fbgemm')  # or 'onednn'
-
-        self.quantized_model = torch.quantization.quantize_dynamic(
-            model, {torch.nn.Linear}, dtype=quantization_dtype
-        )
-
         self.documents = documents
         
         if self.settings.use_rag and self.documents:
@@ -93,10 +80,8 @@ class TeapotAI:
     def _generate_document_embeddings(self, documents: List[str]) -> np.ndarray:
         """
         Generate embeddings for the provided documents using the embedding model.
-
         Parameters:
             documents (List[str]): A list of document strings to generate embeddings for.
-
         Returns:
             np.ndarray: A NumPy array of document embeddings.
         """
@@ -115,10 +100,8 @@ class TeapotAI:
     def rag(self, query: str) -> List[str]:
         """
         Perform RAG (Retrieve and Generate) by finding the most relevant documents based on cosine similarity.
-
         Parameters:
             query (str): The query string to find relevant documents for.
-
         Returns:
             List[str]: A list of the top N most relevant documents.
         """
@@ -136,22 +119,14 @@ class TeapotAI:
     def generate(self, input_text: str) -> str:
         """
         Generate text based on the input string using the teapotllm model.
-
         Parameters:
             input_text (str): The text prompt to generate a response for.
-
         Returns:
             str: The generated output from the model.
         """
         
-        inputs = self.tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
-
-          
-        with torch.no_grad():
-            outputs = self.quantized_model.generate(inputs["input_ids"], max_length=512)
         
-
-        result = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        result = self.generator(input_text, max_length=512)[0].get("generated_text")
         
 
         if self.settings.log_level == "debug":
@@ -163,11 +138,9 @@ class TeapotAI:
     def query(self, query: str, context: str = "") -> str:
         """
         Handle a query and context, using RAG if no context is provided, and return a generated response.
-
         Parameters:
             query (str): The query string to be answered.
             context (str): The context to guide the response. Defaults to an empty string.
-
         Returns:
             str: The generated response based on the input query and context.
         """
@@ -180,10 +153,8 @@ class TeapotAI:
     def chat(self, conversation_history: List[dict]) -> str:
         """
         Engage in a chat by taking a list of previous messages and generating a response.
-
         Parameters:
             conversation_history (List[dict]): A list of previous messages, each containing 'content'.
-
         Returns:
             str: The generated response based on the conversation history.
         """
@@ -199,12 +170,10 @@ class TeapotAI:
     def extract(self, class_annotation: BaseModel, query: str = "", context: str = "") -> BaseModel:
         """
         Extract fields from a Pydantic class annotation by querying and processing each field.
-
         Parameters:
             class_annotation (BaseModel): The Pydantic class to extract fields from.
             query (str): The query string to guide the extraction. Defaults to an empty string.
             context (str): Optional context for the query.
-
         Returns:
             BaseModel: An instance of the provided Pydantic class with extracted field values.
         """
