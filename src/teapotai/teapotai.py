@@ -74,7 +74,7 @@ class TeapotAI:
         self.documents = documents
         
         if self.settings.use_rag and self.documents:
-            self.embedding_model = pipeline("feature-extraction", model="teapotai/teapotembedding")
+            self.embedding_model = pipeline("feature-extraction", model="teapotai/teapotembedding", truncation=True)
             self.document_embeddings = self._generate_document_embeddings(self.documents)
 
     def _generate_document_embeddings(self, documents: List[str]) -> np.ndarray:
@@ -187,7 +187,7 @@ class TeapotAI:
             description = field.description
             description_annotation = f"({description})" if description else ""
 
-            result = self.query(f"Extract the field {field_name} {description_annotation} to a {type_annotation}", context=context)
+            result = self.query(f"Extract the field {field_name} {description_annotation}", context=context)
 
             # Process result based on field type
             if type_annotation == bool:
