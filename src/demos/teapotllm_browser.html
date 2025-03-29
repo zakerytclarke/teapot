@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teapot AI Simple Demo</title>
+</head>
+<body>
+    <h1>Teapot AI Inference</h1>
+    <textarea id="inputText" placeholder="Type your message here..."></textarea>
+    <br>
+    <button id="runInferenceButton">Run Inference</button>
+    <pre id="output"></pre>
+
+    <script type="module">
+        import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.4.1';
+
+        env.allowRemoteModels = true;
+        // Load the models
+        let model;
+
+        async function loadModels() {
+            // model = await pipeline('text2text-generation', 'Xenova/LaMini-Flan-T5-783M');
+            model = await pipeline('text2text-generation', 'teapotai/teapotllm');
+            console.log("Models Loaded");
+        }
+
+        // Function to run inference
+        async function runInference() {
+            const inputText = document.getElementById('inputText').value;
+            const outputDiv = document.getElementById('output');
+
+            if (!inputText) {
+                outputDiv.textContent = "Please enter some text.";
+                return;
+            }
+
+            if (!model) {
+                outputDiv.textContent = "Models are still loading...";
+                return;
+            }
+
+            // Text generation inference
+            const generatedText = await model(inputText, { max_new_tokens: 50 });
+           
+            // Display results
+            outputDiv.textContent = "Generated Text: " + generatedText[0].generated_text;
+        }
+
+        // Initialize models when the page loads
+        loadModels();
+
+        // Add event listener for button click
+        document.getElementById('runInferenceButton').addEventListener('click', runInference);
+    </script>
+</body>
+</html>

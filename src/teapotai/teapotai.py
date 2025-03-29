@@ -8,7 +8,7 @@ from typing import List, Optional
 from tqdm import tqdm
 import re
 import os
-
+from langsmith import traceable
 
 class TeapotAISettings(BaseModel):
     """
@@ -43,7 +43,7 @@ class TeapotAI:
         document_embeddings (np.ndarray): Embeddings for the provided documents.
     """
     
-    def __init__(self, model_revision: Optional[str] = None, api_key: Optional[str] = None,
+    def __init__(self, model_revision: Optional[str] = "699ab39cbf586674806354e92fbd6179f9a95f4a", api_key: Optional[str] = None,
                  documents: List[str] = [], settings: TeapotAISettings = TeapotAISettings()):
         """
         Initializes the TeapotAI class with optional model_revision and api_key.
@@ -115,7 +115,8 @@ class TeapotAI:
         top_n_indices = sorted(filtered_indices, key=lambda i: similarities[i], reverse=True)[:self.settings.rag_num_results]
 
         return [self.documents[i] for i in top_n_indices]
-
+    
+    @traceable
     def generate(self, input_text: str) -> str:
         """
         Generate text based on the input string using the teapotllm model.

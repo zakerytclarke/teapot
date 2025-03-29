@@ -41,6 +41,7 @@ setuptools.setup(
         'scikit-learn',     # for sklearn (cosine_similarity)
         'pydantic',         # for data validation (BaseModel)
         'regex',            # to handle regex (re is often a wrapper for regex module in modern Python)
+        'langsmith'
     ],
     extras_require={
         'dev': ['check-manifest'],
