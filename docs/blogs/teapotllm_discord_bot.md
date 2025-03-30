@@ -15,14 +15,14 @@ Our bot will follow a simple workflow:
 
 ### Architecture Diagram:
 ```mermaid
-    graph TD
-        Discord Client --> Service;
-        Service --> Discord Client;
-        Service --> TeapotLLM;
-        TeapotLLM --> Service;
-        Service --> Brave Search;
-        Brave Search --> Service;
-        TeapotLLM --> Langsmith;
+graph TD;
+    DiscordClient --> Service;
+    Service --> DiscordClient;
+    Service --> TeapotLLM;
+    TeapotLLM --> Service;
+    Service --> BraveSearch;
+    BraveSearch --> Service;
+    TeapotLLM --> Langsmith;
 ```
 ## Setting Up a Discord Bot
 
