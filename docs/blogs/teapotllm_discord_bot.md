@@ -14,10 +14,16 @@ Our bot will follow a simple workflow:
 4. The response is generated using TeapotLLM and sent back to Discord.  
 
 ### Architecture Diagram:
+```mermaid
+    graph TD
+        Discord Client --> Service;
+        Service --> Discord Client;
+        Service --> TeapotLLM;
+        TeapotLLM --> Service;
+        Service --> Brave Search;
+        Brave Search --> Service;
+        TeapotLLM --> Langsmith;
 ```
-[Discord] --> [Bot Listener] --> [TeapotLLM RAG] --> [Brave Search (if needed)] --> [Response]
-```
-
 ## Setting Up a Discord Bot
 
 To get started, install the necessary dependencies:
