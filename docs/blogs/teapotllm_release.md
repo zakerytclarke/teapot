@@ -1,11 +1,11 @@
 # Teapot LLM
 
-[Website](https://teapotai.com/) | [Demo](https://teapotai-teapotchat.hf.space/) | [Discord](https://discord.gg/hPxGSn5dST)
+[Website](https://teapotai.com/) | [Try out our demo on Discord](https://discord.gg/hPxGSn5dST)
 
 Teapot is an open-source small language model (~800 million parameters) fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones and CPUs. Teapot is trained to only answer using context from documents, reducing hallucinations. Teapot can perform a variety of tasks, including hallucination-resistant Question Answering (QnA), Retrieval-Augmented Generation (RAG), and JSON extraction. Teapot is a model built by and for the community.
 
 ![https://teapotai.com/assets/teapotevalbanner.jpg](https://teapotai.com/assets/teapot_banner.png)
-[Evaluation Details](https://huggingface.co/teapotai/teapotllm#evaluation)
+[Evaluation Details](https://huggingface.co/teapotai/teapotllm#model-evaluation)
 
 ### Conversational Question Answering
 Teapot is fine-tuned to provide friendly, conversational answers using context and documents provided as references.
@@ -204,7 +204,7 @@ print(answer[0].get('generated_text')) # => The Eiffel Tower stands at a height 
 
 
 ## Model Details
-Teapot LLM is fine-tuned from [flan-t5-base](https://huggingface.co/google/flan-t5-base) on a [synthetic dataset](https://huggingface.co/datasets/teapotai/synthqa) of LLM tasks generated using [DeepSeek-V3](https://huggingface.co/deepseek-ai/DeepSeek-V3). 
+Teapot LLM is fine-tuned from [flan-t5-large](https://huggingface.co/google/flan-t5-large) on a [synthetic dataset](https://huggingface.co/datasets/teapotai/synthqa) of LLM tasks generated using [DeepSeek-V3](https://huggingface.co/deepseek-ai/DeepSeek-V3). 
 
 ### Training Details
 - [Dataset] ~10mb synthetic dataset consisting of QnA pairs with a variety of task specific formats.
@@ -212,7 +212,7 @@ Teapot LLM is fine-tuned from [flan-t5-base](https://huggingface.co/google/flan-
 - [Hardware] Teapot was trained for ~10hr on an A100 provided by Google Colab.
 - [Hyperparameters] The model was trained with various learning rates and monitored to ensure task specific performance was learned without catastrophic forgetting.
 
-### Evaluation
+### Model Evaluation
 TeapotLLM is focused on in-context reasoning tasks, and therefore most benchmarks are not suitable for evaluation. We want TeapotLLM to be a practical tool for QnA and information extraction, so we have developed custom datasets to benchmark performance. 
 
 [Evaluation Notebook Here](https://github.com/zakerytclarke/teapot/blob/main/docs/evals/TeapotLLM_Benchmark.ipynb)
