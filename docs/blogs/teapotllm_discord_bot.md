@@ -1,4 +1,4 @@
-# Building a Discord FAQ Bot with TeapotLLM
+# Building a Discord Bot with TeapotLLM
 
 ## Introduction
 
