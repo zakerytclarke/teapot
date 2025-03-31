@@ -116,7 +116,7 @@ async def on_message(message):
 
 ## Integrating Brave Search for Additional Context
 
-Our local teapotai instance now has the ability to answer using our knowledge base, but what if a user asks a more general question that is outside of the scope of our documents? That is where Brave Search comes in- we can perform a Brave Search with the user query and return the top result in the chat it's context; This ensures our model can answer questions about current events or other topics not covered by our RAG pipeline. You'll need a brave api token, learn more about getting set up on the Brave Search API [here](https://brave.com/search/api/).
+Our local teapotai instance now has the ability to answer using our knowledge base, but what if a user asks a more general question that is outside of the scope of our documents? That is where Brave Search comes in- we can perform a Brave Search with the user query and return the top result in the chat's context; This ensures our model can answer questions about current events or other topics not covered by our RAG pipeline. You'll need a brave api token, learn more about getting set up on the Brave Search API [here](https://brave.com/search/api/).
 
 ### Fetching Brave Search Results
 
