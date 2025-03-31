@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[TeapotLLM](https://huggingface.co/teapotai/teapotllm) is an open-source, hallucination-resistant language model optimized to run entirely on CPUs, making it ideal for running low cost chatbots applications.
+[TeapotLLM](https://huggingface.co/teapotai/teapotllm) is an open-source, hallucination-resistant language model optimized to run entirely on CPUs, making it ideal for building low cost chatbot applications.
 
 In this post, we’ll walk through building a Discord bot using TeapotLLM to answer frequently asked questions from a knowledge source. We’ll integrate retrieval-augmented generation (RAG) for document-based responses, utilize Brave Search for real-time context, and explore how to monitor performance using LangSmith.
 
