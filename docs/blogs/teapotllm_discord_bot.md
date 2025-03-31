@@ -8,6 +8,7 @@ In this post, we’ll walk through building a Discord bot using TeapotLLM to ans
 
 Come join our [Discord](https://discord.gg/jvfjpGXu) to build along with us!
 
+![https://teapotai.com/assets/whatisagpu.jpg](https://teapotai.com/assets/whatisagpu.jpg)
 
 ## High-Level Architecture
 
@@ -19,16 +20,7 @@ Our bot will follow a simple workflow:
 4. The response is generated using TeapotLLM and sent back to Discord.  
 
 ### Architecture Diagram:
-```mermaid
-graph TD;
-    DiscordClient --> Service;
-    Service --> DiscordClient;
-    Service --> TeapotLLM;
-    TeapotLLM --> Service;
-    Service --> BraveSearch;
-    BraveSearch --> Service;
-    TeapotLLM --> Langsmith;
-```
+![https://teapotai.com/assets/teapotdisordarchitecture.png](https://teapotai.com/assets/teapotdisordarchitecture.png)
 
 ## Setting Up a Discord Bot
 
