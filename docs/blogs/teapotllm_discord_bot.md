@@ -36,24 +36,30 @@ First, let's write a simple python script that creates a Discord bot that respon
 
 ```python
 import discord
-from discord.ext import commands
 
 intents = discord.Intents.default()
 intents.messages = True
-bot = commands.Bot(command_prefix="!", intents=intents)
+client = discord.Client(intents=intents)
 
-@bot.event
+@client.event
 async def on_ready():
-    print(f'Logged in as {bot.user}')
+    print(f'Logged in as {client.user}')
 
-@bot.event
+
+@client.event
 async def on_message(message):
-    if message.author == bot.user:
+    if message.author == client.user:
         return
-    async with message.channel.typing():
-        await message.reply("Hello, World!")
 
-bot.run("YOUR_DISCORD_BOT_TOKEN")
+    if f'<@{client.user.id}>' not in message.content:
+        return
+
+    
+    async with message.channel.typing():
+        response = "Hello World!"
+        sent_message = await message.reply(response)
+
+client.run("YOUR_DISCORD_BOT_TOKEN")
 ```
 
 
@@ -93,15 +99,19 @@ To ensure each document fits into the context, we split our documentation into l
 Now that we've set up our knowledge base, we can invoke our teapot_ai instance within our Discord bot code. Here we are using the `teapot_ai.query()` method to respond to the user query. This method automatically pulls in relevant results from the RAG pipeline that will be used to inform the response.
 
 ```python
-@bot.event
+@client.event
 async def on_message(message):
-    if message.author == bot.user:
+    if message.author == client.user:
         return
+
+    if f'<@{client.user.id}>' not in message.content:
+        return
+    
     async with message.channel.typing():
-        answer = teapot_ai.query(
+        response = teapot_ai.query(
             query=message.content
         )
-        await message.reply(answer)
+        sent_message = await message.reply(response)
 ```
 
 ## Integrating Brave Search for Additional Context
@@ -138,16 +148,20 @@ def search_brave(query, count=1):
 We can drop any additional context information in the `context` parameter of our query method. This will always be included, regardless of what the RAG pipeline returns. Now we have live search results in our model's context!
 
 ```python
-@bot.event
+@client.event
 async def on_message(message):
-    if message.author == bot.user:
+    if message.author == client.user:
         return
+
+    if f'<@{client.user.id}>' not in message.content:
+        return
+    
     async with message.channel.typing():
-        answer = teapot_ai.query(
-                    query=message.content,
-                    context=search_brave(message.content)
-                    )
-        await message.reply(answer)
+        response = teapot_ai.query(
+            query=message.content,
+            context=search_brave(message.content)
+        )
+        sent_message = await message.reply(response)
 ```
 
 ## Deployment & Monitoring
