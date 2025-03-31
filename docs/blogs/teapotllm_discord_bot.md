@@ -104,11 +104,26 @@ Our local teapotai instance now has the ability to answer using our knowledge ba
 ### Fetching Brave Search Results
 
 ```python
+import os
 import requests
 
-def search_brave(query):
-    response = requests.get(f"https://api.search.brave.com/search?q={query}")
-    return " ".join(result["snippet"] for result in response.json().get("results", []))
+def search_brave(query, count=1):
+    url = "https://api.search.brave.com/res/v1/web/search"
+    headers = {
+        "Accept": "application/json", 
+        "X-Subscription-Token": os.environ.get("brave_api_key")
+    }
+    params = {"q": query, "count": count}
+    
+    response = requests.get(url, headers=headers, params=params)
+    
+    if response.status_code == 200:
+        results = response.json()
+        return results[0]get("web", {}).get("results", []).get("description","")
+    else:
+        print(f"Error: {response.status_code}, {response.text}")
+        return ""
+
 ```
 
 ### Enhancing the Bot with Brave Search
