@@ -8,7 +8,7 @@ In this post, we’ll walk through building a Discord bot using TeapotLLM to ans
 
 Come join our [Discord](https://discord.gg/jvfjpGXu) to build along with us!
 
-![https://teapotai.com/assets/whatisagpu.jpg](https://teapotai.com/assets/whatisagpu.jpg)
+![https://teapotai.com/assets/whatisagpu.png](https://teapotai.com/assets/whatisagpu.png)
 
 ## High-Level Architecture
 
