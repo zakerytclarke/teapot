@@ -20,7 +20,7 @@ Our bot will follow a simple workflow:
 4. The response is generated using TeapotLLM and sent back to Discord.  
 
 ### Architecture Diagram:
-![https://teapotai.com/assets/teapotdisordarchitecture.png](https://teapotai.com/assets/teapotdisordarchitecture.png)
+![https://teapotai.com/assets/teapotdiscordarchitecture.png](https://teapotai.com/assets/teapotdiscordarchitecture.png)
 
 ## Setting Up a Discord Bot
 
@@ -76,14 +76,14 @@ documents = [
     "TeapotLLM can be hosted on low-power devices with as little as 2GB of CPU RAM such as a Raspberry Pi.",
 ]
 
-teapot_ai = TeapotAI(documents=documents, settings=TeapotAISettings(num_rag_results=3))
+teapot_ai = TeapotAI(documents=documents, settings=TeapotAISettings(rag_num_results=3))
 ```
 
-To ensure each document fits into the context, we split our documentation into logical chunks. this can be done automatically by parsing at paragraphs or page breaks, but will vary depending on your knowledge base's format. You can play with the document set up and examine how it impacts the RAG results. We've also configured the number of results to return for RAG to ensure we have enough context remaining for live search results.
+To ensure each document fits into the context, we split our documentation into logical chunks. This can be done automatically by parsing at paragraphs or page breaks, but will vary depending on the format of your knowledge base. You can play with the document set up and examine how it impacts the RAG results. We've also configured the number of results to return for RAG to ensure we have enough context remaining for live search results.
 
 ### Querying TeapotLLM in the Discord Bot
 
-Now that we've set up our knowledge base, we can invoke our teapot_ai instance within our Discord bot code. Here we are using the `teapot_ai.query()` method to respond to the user query. This method automatically pulls in relevant results from the RAG pipeline that will be used to I from the response.
+Now that we've set up our knowledge base, we can invoke our teapot_ai instance within our Discord bot code. Here we are using the `teapot_ai.query()` method to respond to the user query. This method automatically pulls in relevant results from the RAG pipeline that will be used to inform the response.
 
 ```python
 @bot.event
@@ -99,7 +99,7 @@ async def on_message(message):
 
 ## Integrating Brave Search for Additional Context
 
-Our local teapotai instance now has the ability to answer using our knowledge base, but what if a user asks a more general question that is outside of the scope of our documents? That is where Brave Search comes in- we can perform a Brave Search with the user query and return the top result in the chat it's context; This ensures our model can answer questions about current events or other topics not covered by our RAG pipeline.
+Our local teapotai instance now has the ability to answer using our knowledge base, but what if a user asks a more general question that is outside of the scope of our documents? That is where Brave Search comes in- we can perform a Brave Search with the user query and return the top result in the chat it's context; This ensures our model can answer questions about current events or other topics not covered by our RAG pipeline. You'll need a brave api token, learn more about getting set up on the Brave Search API [here](https://brave.com/search/api/).
 
 ### Fetching Brave Search Results
 
@@ -113,7 +113,7 @@ def search_brave(query):
 
 ### Enhancing the Bot with Brave Search
 
-We can drop any addition context information in the `context` parameter of our query method. This will always be included, regardless of what the RAG pipeline returns.
+We can drop any additional context information in the `context` parameter of our query method. This will always be included, regardless of what the RAG pipeline returns. Now we have live search results in our model's context!
 
 ```python
 @bot.event
@@ -127,12 +127,13 @@ async def on_message(message):
 
 ## Deployment & Monitoring
 
-Teapotllm is small enough to run on almost any device, as it requires ~2GB of RAM and can be run entirely on the CPU. Simply run your Discord bot code on a local laptop or hosted server. You should now be able to tag your chatbot in the server and watch it reply 
+Teapotllm is small enough to run on almost any device, as it requires ~2GB of RAM and can be run entirely on the CPU. Simply run your Discord bot code on a local laptop or hosted server. You should now be able to tag your chatbot in the server and watch it reply. 
 
+![https://teapotai.com/assets/teapotllmdiscordscreenshot.png](https://teapotai.com/assets/teapotllmdiscordscreenshot.png)
 
 ### Example Test Cases
 
-To ensure accuracy before deployment, it's always good to select several test case questions to evaluate your model and RAG pipeline. We recommend picking at least 10 questions, preferably sourced from real users. Running a simple script like this allows us to validate that Teapot has the right data and configuration to effectively answer user questions.
+To ensure accuracy before deployment, it's always good to select several test case questions to evaluate your model and RAG pipeline. We recommend picking at least 10 questions, preferably sourced from real user queries. Running a simple script like this allows us to validate that Teapot has the right data and configuration to effectively answer user questions.
 
 ```python
 teapot_ai.query("What is TeapotLLM?") # =>
@@ -149,6 +150,8 @@ teapot_ai.queryHow many parameters does Deepseek have?") # =>
 
 That's great that we now have some local test cases, but we want to ensure we can monitor performance when we deploy our chatbot to the real world. That is where [Langsmith](https://www.langchain.com/langsmith) comes in. Langsmith is a tool that makes it easy to track traces from your application to evaluate their latency and performance, and you can even use the responses to further fine-tune or validate your models.
 
+![https://teapotai.com/assets/langsmith.png](https://teapotai.com/assets/langsmith.png)
+
 Teapot AI natively supports langsmith in the library. Just add the following environment variables to automatically add any responses generated from your RAG pipeline.
 
 ```
@@ -163,4 +166,4 @@ LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 
 By leveraging TeapotLLM, Teapot AI's RAG pipeline library and Brave Search, we’ve built a Discord bot capable of answering FAQs efficiently while running entirely on your CPU. TeapotLLM’s low resource usage allows it to run on low end devices like the Raspberry Pi, and with LangSmith, we can track performance and improve accuracy over time.
 
-If you found this article interesting or need help with your project, we'd love to meet you in our [Discord](https://discord.gg/jvfjpGXu)!
+If you found this article interesting or want help with your project, we'd love to meet you in our [Discord](https://discord.gg/jvfjpGXu)!
