@@ -76,7 +76,10 @@ documents = [
     "TeapotLLM can be hosted on low-power devices with as little as 2GB of CPU RAM such as a Raspberry Pi.",
 ]
 
-teapot_ai = TeapotAI(documents=documents, settings=TeapotAISettings(rag_num_results=3))
+teapot_ai = TeapotAI(
+                documents=documents,
+                settings=TeapotAISettings(rag_num_results=3)
+            )
 ```
 
 To ensure each document fits into the context, we split our documentation into logical chunks. This can be done automatically by parsing at paragraphs or page breaks, but will vary depending on the format of your knowledge base. You can play with the document set up and examine how it impacts the RAG results. We've also configured the number of results to return for RAG to ensure we have enough context remaining for live search results.
@@ -136,7 +139,10 @@ async def on_message(message):
     if message.author == bot.user:
         return
     async with message.channel.typing():
-        answer = teapot_ai.query(query=message.content, context=search_brave(message.content))
+        answer = teapot_ai.query(
+                    query=message.content,
+                    context=search_brave(message.content)
+                    )
         await message.reply(answer)
 ```
 
