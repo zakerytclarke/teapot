@@ -1,6 +1,5 @@
-from transformers import pipeline
+from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM, logging
 import torch
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from pydantic import BaseModel
@@ -10,83 +9,125 @@ import re
 import os
 from langsmith import traceable
 
+logging.set_verbosity_error()
+
+DEFAULT_MODEL = "teapotai/teapotllm"
+DEFAULT_MODEL_REVISION = "699ab39cbf586674806354e92fbd6179f9a95f4a"
+
 class TeapotAISettings(BaseModel):
     """
-    Pydantic settings model for TeapotAI configuration.
+    Settings configuration for TeapotAI.
     
     Attributes:
         use_rag (bool): Whether to use RAG (Retrieve and Generate).
         rag_num_results (int): Number of top documents to retrieve based on similarity.
         rag_similarity_threshold (float): Similarity threshold for document relevance.
+        max_context_length (int): Maximum length of context to consider.
+        context_chunking (bool): Whether to chunk context for processing.
         verbose (bool): Whether to print verbose updates.
-        log_level (str): The log level for the application (e.g., "info", "debug").
+        log_level (str): Log level setting (e.g., 'info', 'debug').
     """
-    use_rag: bool = True  # Whether to use RAG (Retrieve and Generate)
-    rag_num_results: int = 3  # Number of top documents to retrieve based on similarity
-    rag_similarity_threshold: float = 0.5  # Similarity threshold for document relevance
-    verbose: bool = True  # Whether to print verbose updates
-    log_level: str = "info"  # Log level setting (e.g., 'info', 'debug')
+    use_rag: bool = True
+    rag_num_results: int = 3
+    rag_similarity_threshold: float = 0.5
+    max_context_length: int = 512
+    context_chunking: bool = True
+    verbose: bool = True
+    log_level: str = "info"
 
 
 class TeapotAI:
     """
-    TeapotAI class that interacts with a language model for text generation and retrieval tasks.
-    
+    TeapotAI class for generating responses based on queries and context, optionally using RAG.
+
     Attributes:
-        model (str): The model identifier.
-        model_revision (Optional[str]): The revision/version of the model.
-        api_key (Optional[str]): API key for accessing the model (if required).
-        settings (TeapotAISettings): Configuration settings for the AI instance.
-        generator (callable): The pipeline for text generation.
-        embedding_model (callable): The pipeline for feature extraction (document embeddings).
-        documents (List[str]): List of documents for retrieval.
-        document_embeddings (np.ndarray): Embeddings for the provided documents.
+        model (str): The model name for TeapotAI.
+        settings (TeapotAISettings): Settings configuration for TeapotAI.
+        tokenizer (AutoTokenizer): The tokenizer for the model.
+        generator (pipeline): The text-to-text generation pipeline.
+        documents (List[str]): List of documents used for context retrieval.
+        embedding_model (pipeline): Embedding model for document retrieval.
+        document_embeddings (np.ndarray): Pre-generated embeddings for the documents.
     """
     
-    def __init__(self, model_revision: Optional[str] = "699ab39cbf586674806354e92fbd6179f9a95f4a", api_key: Optional[str] = None,
-                 documents: List[str] = [], settings: TeapotAISettings = TeapotAISettings()):
+    def __init__(self, model = None, tokenizer = None, documents: List[str] = [], settings: TeapotAISettings = TeapotAISettings()):
         """
-        Initializes the TeapotAI class with optional model_revision and api_key.
-        Parameters:
-            model_revision (Optional[str]): The revision/version of the model to use.
-            api_key (Optional[str]): The API key for accessing the model if needed.
-            documents (List[str]): A list of documents for retrieval. Defaults to an empty list.
-            settings (TeapotAISettings): The settings configuration (defaults to TeapotAISettings()).
+        Initializes the TeapotAI class.
+
+        Args:
+            model (str): The model name for TeapotAI.
+            model_taks (Optional[str]): The model task for pipeline (if provided).
+            documents (List[str]): List of documents to use for context retrieval.
+            settings (TeapotAISettings): The settings configuration for TeapotAI.
         """
-        self.model = "teapotai/teapotllm"
-        self.model_revision = model_revision
-        self.api_key = api_key
+        if model is None:
+            model = AutoModelForSeq2SeqLM.from_pretrained(DEFAULT_MODEL, revision=DEFAULT_MODEL_REVISION)
+        if tokenizer is None:
+            tokenizer = AutoTokenizer.from_pretrained(DEFAULT_MODEL, revision=DEFAULT_MODEL_REVISION)
+            
+        self.model = model
+        self.tokenizer = tokenizer
         self.settings = settings
-        
+
         if self.settings.verbose:
-            print(""" _____                      _         _    ___        __o__    _;; 
+            print(""" _____                      _         _    ___        __o__    _;;
 |_   _|__  __ _ _ __   ___ | |_      / \  |_ _|   __ /-___-\__/ /
   | |/ _ \/ _` | '_ \ / _ \| __|    / _ \  | |   (  |       |__/
   | |  __/ (_| | |_) | (_) | |_    / ___ \ | |    \_|~~~~~~~|
   |_|\___|\__,_| .__/ \___/ \__/  /_/   \_\___|      \_____/
                |_|   """)
-        
-        if self.settings.verbose:
-            print(f"Loading Model: {self.model} Revision: {self.model_revision or 'Latest'}")
-        
-        self.generator = pipeline("text2text-generation", model=self.model, revision=self.model_revision) if model_revision else pipeline("text2text-generation", model=self.model)
 
-        self.documents = documents
-        
-        if self.settings.use_rag and self.documents:
+        if self.settings.verbose:
+            print(f"Loading Model")
+
+        self.documents = [chunk for document in documents for chunk in self._chunk_document(document)]
+
+        if self.settings.use_rag:
             self.embedding_model = pipeline("feature-extraction", model="teapotai/teapotembedding", truncation=True)
             self.document_embeddings = self._generate_document_embeddings(self.documents)
+    
+    def _chunk_document(self, context: str) -> List[str]:
+        """
+        Chunk the input context into smaller segments if necessary based on the settings.
+
+        Args:
+            context (str): The document context to chunk.
+
+        Returns:
+            List[str]: A list of chunked document strings.
+        """
+        if self.settings.context_chunking:
+            tokenized_context = self.tokenizer(context).get("input_ids")
+            if len(tokenized_context) > self.tokenizer.model_max_length:
+                paragraphs = context.split("\n\n")
+                documents = []
+                for paragraph in paragraphs:
+                    tokens = self.tokenizer(paragraph).get("input_ids")
+                    if len(tokens) > self.tokenizer.model_max_length:
+                        for i in range(0, len(tokens), self.tokenizer.model_max_length):
+                            chunk_tokens = tokens[i:i + self.tokenizer.model_max_length]
+                            chunk_text = self.tokenizer.decode(chunk_tokens, skip_special_tokens=True)
+                            documents.append(chunk_text)
+                    else:
+                        documents.append(paragraph)
+                return documents
+            else:
+                return [context]
+        else:
+            return [context]
 
     def _generate_document_embeddings(self, documents: List[str]) -> np.ndarray:
         """
         Generate embeddings for the provided documents using the embedding model.
-        Parameters:
+
+        Args:
             documents (List[str]): A list of document strings to generate embeddings for.
+
         Returns:
             np.ndarray: A NumPy array of document embeddings.
         """
         embeddings = []
-        
+
         if self.settings.verbose:
             print("Generating embeddings for documents...")
             for doc in tqdm(documents, desc="Document Embedding", unit="doc"):
@@ -94,103 +135,154 @@ class TeapotAI:
         else:
             for doc in documents:
                 embeddings.append(self.embedding_model(doc)[0][0])
-                
+
         return np.array(embeddings)
+        
+    def _retrieval(self, query: str, documents: List[str], document_embeddings: np.ndarray) -> List[str]:
+        """
+        Retrieve the most relevant documents based on cosine similarity to the query.
+
+        Args:
+            query (str): The query string for retrieval.
+            documents (List[str]): List of document strings to search through.
+            document_embeddings (np.ndarray): The embeddings for the documents.
+
+        Returns:
+            List[str]: A list of top relevant documents based on the query.
+        """
+        query_embedding = self.embedding_model(query)[0][0]
+        similarities = cosine_similarity([query_embedding], document_embeddings)[0]
+        filtered_indices = [i for i, similarity in enumerate(similarities) if similarity >= self.settings.rag_similarity_threshold]
+        top_n_indices = sorted(filtered_indices, key=lambda i: similarities[i], reverse=True)[:self.settings.rag_num_results]
+
+        return [documents[i] for i in top_n_indices]
 
     def rag(self, query: str) -> List[str]:
         """
-        Perform RAG (Retrieve and Generate) by finding the most relevant documents based on cosine similarity.
-        Parameters:
-            query (str): The query string to find relevant documents for.
+        Perform Retrieval-Augmented Generation (RAG) based on the query and the documents.
+
+        Args:
+            query (str): The query string to perform RAG on.
+
         Returns:
-            List[str]: A list of the top N most relevant documents.
+            List[str]: A list of top documents retrieved using RAG.
         """
         if not self.settings.use_rag or not self.documents:
             return []
 
-        query_embedding = self.embedding_model(query)[0][0]
-        similarities = cosine_similarity([query_embedding], self.document_embeddings)[0]
+        return self._retrieval(query, self.documents, self.document_embeddings)
 
-        filtered_indices = [i for i, similarity in enumerate(similarities) if similarity >= self.settings.rag_similarity_threshold]
-        top_n_indices = sorted(filtered_indices, key=lambda i: similarities[i], reverse=True)[:self.settings.rag_num_results]
-
-        return [self.documents[i] for i in top_n_indices]
-    
     @traceable
     def generate(self, input_text: str) -> str:
         """
-        Generate text based on the input string using the teapotllm model.
-        Parameters:
+        Generate text based on the input string using the TeapotLLM model.
+
+        Args:
             input_text (str): The text prompt to generate a response for.
+
         Returns:
             str: The generated output from the model.
         """
-        
-        
-        result = self.generator(input_text, max_length=512)[0].get("generated_text")
+        # Tokenize the input text
+        inputs = self.tokenizer(input_text, return_tensors="pt")
+
+        # Generate output (model inference)
+        outputs = self.model.generate(**inputs, max_length=512)
+
+        # Decode the generated output
+        result = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         
 
         if self.settings.log_level == "debug":
             print(input_text)
             print(result)
-        
+
         return result
 
-    def query(self, query: str, context: str = "") -> str:
+    @traceable
+    def query(self, query: str, context: str = "", system_prompt: str = "") -> str:
         """
         Handle a query and context, using RAG if no context is provided, and return a generated response.
-        Parameters:
+
+        Args:
             query (str): The query string to be answered.
             context (str): The context to guide the response. Defaults to an empty string.
+
         Returns:
             str: The generated response based on the input query and context.
         """
-        if self.settings.use_rag and not context:
-            context = "\n".join(self.rag(query))  # Perform RAG if no context is provided
-        
-        input_text = f"Context: {context}\nQuery: {query}"
+        if self.settings.use_rag:
+            rag_context = "\n\n".join(self.rag(query))
+
+        full_context = f"{rag_context}\n{context}"
+
+        if self.settings.context_chunking:
+            documents = self._chunk_document(context)
+            if len(documents) > self.settings.rag_num_results:
+                document_embeddings = self._generate_document_embeddings(documents)
+                rag_documents = self._retrieval(query, documents, document_embeddings)
+                full_context = rag_context + "\n\n" + "\n\n".join(rag_documents)
+
+        input_text = f"{full_context}\n{system_prompt}\n{query}"
+
         return self.generate(input_text)
 
+    @traceable
     def chat(self, conversation_history: List[dict]) -> str:
         """
         Engage in a chat by taking a list of previous messages and generating a response.
-        Parameters:
+
+        Args:
             conversation_history (List[dict]): A list of previous messages, each containing 'content'.
+
         Returns:
             str: The generated response based on the conversation history.
         """
-        chat_history = "".join([message['content'] + "\n" for message in conversation_history])
+        last_user_index = next(
+            (i for i in reversed(range(len(conversation_history))) if conversation_history[i].get('role') == 'user'),
+            None
+        )
 
-        if self.settings.use_rag:
-            context_documents = self.rag(chat_history)  # Perform RAG on the conversation history
-            context = "\n".join(context_documents)
-            chat_history = f"Context: {context}\n" + chat_history
+        if last_user_index is not None:
+            last_user_message = conversation_history[last_user_index]
+            history_without_last_user = conversation_history[:last_user_index] + conversation_history[last_user_index + 1:]
 
-        return self.generate(chat_history + "\n" + "agent:")
+            chat_history = "".join([
+                f"{msg.get('role', '')}: {msg.get('content', '')}\n"
+                for msg in history_without_last_user
+            ])
+            formatted_last_user = f"user: {last_user_message.get('content', '')}"
+        else:
+            chat_history = ""
+            formatted_last_user = ""
 
+        return self.query(query=formatted_last_user, context=chat_history)
+
+    @traceable
     def extract(self, class_annotation: BaseModel, query: str = "", context: str = "") -> BaseModel:
         """
         Extract fields from a Pydantic class annotation by querying and processing each field.
-        Parameters:
+
+        Args:
             class_annotation (BaseModel): The Pydantic class to extract fields from.
             query (str): The query string to guide the extraction. Defaults to an empty string.
             context (str): Optional context for the query.
+
         Returns:
             BaseModel: An instance of the provided Pydantic class with extracted field values.
         """
         if self.settings.use_rag:
             context_documents = self.rag(query)
             context = "\n".join(context_documents) + context
-        
+
         output = {}
         for field_name, field in class_annotation.__fields__.items():
             type_annotation = field.annotation
             description = field.description
             description_annotation = f"({description})" if description else ""
 
-            result = self.query(f"Extract the field {field_name} {description_annotation}", context=context)
+            result = self.query(query=f"Extract the field {field_name} {description_annotation}", context=context)
 
-            # Process result based on field type
             if type_annotation == bool:
                 parsed_result = (
                     True if re.search(r'\b(yes|true)\b', result, re.IGNORECASE)
@@ -211,5 +303,5 @@ class TeapotAI:
                 raise ValueError(f"Unsupported type annotation: {type_annotation}")
 
             output[field_name] = parsed_result
-        
+
         return class_annotation(**output)
