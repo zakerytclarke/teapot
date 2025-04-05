@@ -3,9 +3,10 @@ We've updated the library with some exciting new features in teapotai@1.0.1!
 
 ## Automatic Context Chunking
 You can now pass in arbitrary sized documents and the library will automatically chunk them to fit in the models context:
-```
+```python
 from teapotai import TeapotAI
 import requests
+
 washington_context = requests.get("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&explaintext=true&titles=George_Washington").json()['query']['pages'].popitem()[1]['extract']
 adams_context = requests.get("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&explaintext=true&titles=John_Adams").json()['query']['pages'].popitem()[1]['extract']
 jefferson_context = requests.get("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&explaintext=true&titles=Thomas_Jefferson").json()['query']['pages'].popitem()[1]['extract']
@@ -22,7 +23,7 @@ teapot_ai.query("Tell me about george washington")
 
 ## Custom Models & Tokenizers
 We've also added the ability to pass in your own custom model & tokenizer that leverage the teapot library.
-```
+```python
 from teapotai import TeapotAI
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
