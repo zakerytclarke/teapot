@@ -13,6 +13,8 @@ logging.set_verbosity_error()
 
 DEFAULT_MODEL = "teapotai/teapotllm"
 DEFAULT_MODEL_REVISION = "699ab39cbf586674806354e92fbd6179f9a95f4a"
+DEFAULT_SYSTEM_PROMPT = """You are Teapot, an open-source AI assistant optimized for low-end devices, providing short, accurate responses without hallucinating while excelling at information extraction and text summarization. If a user asks who you are reply "I am Teapot". When a user says 'you' they mean 'Teapot', so answer question from the perspective of Teapot."""
+    
 
 class TeapotAISettings(BaseModel):
     """
@@ -60,15 +62,7 @@ class TeapotAI:
             documents (List[str]): List of documents to use for context retrieval.
             settings (TeapotAISettings): The settings configuration for TeapotAI.
         """
-        if model is None:
-            model = AutoModelForSeq2SeqLM.from_pretrained(DEFAULT_MODEL, revision=DEFAULT_MODEL_REVISION)
-        if tokenizer is None:
-            tokenizer = AutoTokenizer.from_pretrained(DEFAULT_MODEL, revision=DEFAULT_MODEL_REVISION)
-            
-        self.model = model
-        self.tokenizer = tokenizer
         self.settings = settings
-
         if self.settings.verbose:
             print(""" _____                      _         _    ___        __o__    _;;
 |_   _|__  __ _ _ __   ___ | |_      / \  |_ _|   __ /-___-\__/ /
@@ -79,6 +73,21 @@ class TeapotAI:
 
         if self.settings.verbose:
             print(f"Loading Model")
+        
+        if model is None:
+            model = AutoModelForSeq2SeqLM.from_pretrained(
+                DEFAULT_MODEL, 
+                revision=DEFAULT_MODEL_REVISION, 
+              )
+        if tokenizer is None:
+            tokenizer = AutoTokenizer.from_pretrained(
+                DEFAULT_MODEL, 
+                revision=DEFAULT_MODEL_REVISION
+            )
+            
+        self.model = model
+        self.tokenizer = tokenizer
+       
 
         self.documents = [chunk for document in documents for chunk in self._chunk_document(document)]
 
@@ -200,7 +209,7 @@ class TeapotAI:
         return result
 
     @traceable
-    def query(self, query: str, context: str = "", system_prompt: str = "") -> str:
+    def query(self, query: str, context: str = "", system_prompt: str = DEFAULT_SYSTEM_PROMPT) -> str:
         """
         Handle a query and context, using RAG if no context is provided, and return a generated response.
 
