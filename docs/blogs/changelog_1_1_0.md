@@ -1,5 +1,5 @@
 # Teapot LLM Changelog 1.1.0
-We've updated the library with some exciting new features in teapotai@1.0.1!
+We've updated the library with some exciting new features in teapotai@1.1.0!
 
 ## Automatic Context Chunking
 You can now pass in arbitrary sized documents and the library will automatically chunk them to fit in the models context:
