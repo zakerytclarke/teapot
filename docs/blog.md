@@ -2,6 +2,11 @@
 
 
 ---
+## [Changelog@1.1.0](https://teapotai.com/blogs/changelog_1_1_0)
+Apr 4 2025
+
+---
+
 ## [Building a Discord Bot using TeapotLLM](https://teapotai.com/blogs/teapotllm_discord_bot)
 Mar 30 2025
 
