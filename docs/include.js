@@ -4,7 +4,7 @@
 (function() {
   // Create the image element and set its attributes
   const logoImg = document.createElement('img');
-  logoImg.src = './assets/logo.gif';
+  logoImg.src = 'https://teapotai.com/assets/logo.gif';
   logoImg.style.minWidth = '100px';
   logoImg.style.width = '5vw';
   logoImg.style.border = 'none';
