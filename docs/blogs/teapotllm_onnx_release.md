@@ -1,5 +1,3 @@
-Sure! Here's the raw markdown:
-
 # TeapotLLM ONNX Release
 
 ## Introduction
