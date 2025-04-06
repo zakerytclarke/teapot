@@ -1,4 +1,4 @@
-# TeapotLLM ONNX Release
+# Running TeapotLLM in the Browser- ONNX Release
 
 ## Introduction
 
@@ -10,10 +10,10 @@ We’ve now added support for loading TeapotLLM directly in the browser using [T
 
 ## Library Support
 
-We’re actively working on an npm package that brings TeapotLLM to the browser. The library will include all the key features of the Python version—like retrieval-augmented generation (RAG), intelligent context chunking, prompt formatting, and answer extraction.
+We’re actively working on an npm package that brings TeapotLLM to the browser. The library will include all the key features of the Python version—like retrieval-augmented generation (RAG), intelligent context chunking, prompt formatting, and answer extraction. Our goal is to have feature parity between both ecosystems and continue to ship enhancements to all environments so that you can deploy teapotllm wherever makes the most sense for your use case.
 
 ## Demo 
-We have a demo on our website that you can try out [here](https://teapotai.com/playground)
+We have a demo on our website that you can try out [here](https://teapotai.com/playground).
 
 ![https://teapotai.com/assets/webdemo.png](https://teapotai.com/assets/webdemo.png)
 
@@ -29,8 +29,11 @@ import { pipeline } from '@xenova/transformers';
 const generate = await pipeline('text2text-generation', 'teapotai/teapotllm');
 
 // Run inference
-const result = await generate('What is the capital of France?');
-console.log(result[0].generated_text);  // → "Paris"
+const context = "The Eiffel Tower is a wrought iron lattice tower in Paris, France. It was designed by Gustave Eiffel and completed in 1889."
+const query = "What is the height of the Eiffel Tower?"
+const result = await generate(context+"\n"+query);
+console.log(result[0].generated_text);  // → "The Eiffel Tower stands at a height of 330 meters."
+```
 
 No GPU or server needed—everything runs right in the browser using ONNX under the hood.
 
@@ -40,7 +43,7 @@ A huge thanks to the community members who contributed to the ONNX conversion an
 
 Conclusion
 
-Our goal is to make TeapotLLM run everywhere—from laptops and smartphones to edge servers. If you’re curious, building something, or just want to say hi, join us on Discord!
+Our goal is to make TeapotLLM run everywhere—from laptops and smartphones to edge servers. If you’re curious, building something, or just want to say hi, join us on [Discord](https://discord.com/invite/hPxGSn5dST)!
 
 
 
