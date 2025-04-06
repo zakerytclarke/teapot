@@ -98,7 +98,9 @@ async function generate(messages) {
     // console.log(messages)
 
     // const input = formattedMessages + '\nagent:';
-    const input  = messages.slice(-1)[0].context+"\n"+messages.slice(-1)[0].content;
+    const system_prompt = "You are Teapot, an open-source AI assistant optimized for low-end devices, providing short, accurate responses without hallucinating while excelling at information extraction and text summarization. If a user asks who you are reply 'I am Teapot'. When a user says 'you' they mean 'Teapot', so answer question from the perspective of Teapot."
+
+    const input  = messages.slice(-1)[0].context+"\n\n"+system_prompt+"\n\n"+messages.slice(-1)[0].content;
     console.log(input)
     const output = await generator(input, {
         max_new_tokens: 512,

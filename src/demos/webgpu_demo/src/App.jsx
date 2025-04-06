@@ -128,11 +128,11 @@ function App() {
       >
         {status === null && messages.length === 0 && (
           <div className="h-full overflow-auto scrollbar-thin flex justify-center items-center flex-col relative">
-            <div className="flex flex-col items-center mb-1 text-center">
+            {/* <div className="flex flex-col items-center mb-1 text-center">
               <img src="https://cdn-avatars.huggingface.co/v1/production/uploads/605383845e96cd4dd1fc6d5c/je8Szo8Db8CjU4l0d-fd2.jpeg" width="150" height="150" className="block mb-4 rounded-lg" />
               <h1 className="text-4xl font-bold mb-1">TeapotLLM WebGPU</h1>
               <h2 className="font-semibold">A private and RAG AI chatbot that runs locally in your browser.</h2>
-            </div>
+            </div> */}
 
             <div className="flex flex-col items-center px-4">
               <p className="max-w-[514px] mb-4">
@@ -170,14 +170,14 @@ function App() {
             className="overflow-y-auto scrollbar-thin w-full flex flex-col items-center h-full"
           >
             <Chat messages={messages} />
-            <p className="text-center text-sm min-h-6 text-gray-500 dark:text-gray-300">
+            <p className="text-center text-sm min-h-6">
               {tps && messages.length > 0 && (
                 <>
                   {!isRunning && (
                     <span>Generated {numTokens} tokens in {(numTokens / tps).toFixed(2)} seconds&nbsp;&#40;</span>
                   )}
-                  <span className="font-medium text-center mr-1 text-black dark:text-white">{tps.toFixed(2)}</span>
-                  <span className="text-gray-500 dark:text-gray-300">tokens/second</span>
+                  <span className="font-medium text-center mr-1 text-black">{tps.toFixed(2)}</span>
+                  <span className="">tokens/second</span>
                   {!isRunning && (
                     <>
                       <span className="mr-1">&#41;.</span>
