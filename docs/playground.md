@@ -1,5 +1,5 @@
 <iframe
-    src="https://teapotai-teapotchat.hf.space"
+    src="https://teapotai.com/web_demo.html"
     frameborder="0"
     width="100%"
     height="450"
