@@ -2,7 +2,7 @@
 
 
 ---
-## [Running TeapotLLM in the Browser- ONNX Release](https://teapotai.com/blogs/teapotllm_onnx_release)
+## [Running TeapotLLM in the Browser](https://teapotai.com/blogs/teapotllm_onnx_release)
 Apr 6 2025
 
 ---
