@@ -87,17 +87,19 @@ async function generate(messages) {
     self.postMessage({ status: 'start' });
 
     // Format messages into a single string handling both content and context
-    const formattedMessages = messages.map(m => {
-        let messageText = '';
-        if (m.context) {
-            messageText += `Context: ${m.context}\n`;
-        }
-        messageText += m.content;
-        return messageText;
-    }).join('\n');
+    // const formattedMessages = messages.map(m => {
+    //     let messageText = '';
+    //     if (m.context) {
+    //         messageText += `Context: ${m.context}\n`;
+    //     }
+    //     messageText += m.content;
+    //     return messageText;
+    // }).join('\n');
+    // console.log(messages)
 
-    const input = formattedMessages + '\nagent:';
-
+    // const input = formattedMessages + '\nagent:';
+    const input  = messages.slice(-1)[0].context+"\n"+messages.slice(-1)[0].content;
+    console.log(input)
     const output = await generator(input, {
         max_new_tokens: 512,
         streamer,
