@@ -41,7 +41,7 @@ No GPU or server needed—everything runs right in the browser using ONNX under 
 
 A huge thanks to the community members who contributed to the ONNX conversion and helped test the web demo. Your support has been critical in making TeapotLLM more accessible, and we’re grateful for our amazing community collaboration and feedback.
 
-Conclusion
+## Conclusion
 
 Our goal is to make TeapotLLM run everywhere—from laptops and smartphones to edge servers. If you’re curious, building something, or just want to say hi, join us on [Discord](https://discord.com/invite/hPxGSn5dST)!
 
