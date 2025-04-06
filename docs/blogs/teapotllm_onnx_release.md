@@ -1,4 +1,4 @@
-# Running TeapotLLM in the Browser- ONNX Release
+# Running TeapotLLM in the Browser
 
 ## Introduction
 
