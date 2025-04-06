@@ -3,4 +3,4 @@ plugins:
 - jekyll-remote-theme
 
 title: Teapot AI
-description: <a style="color:rgb(242,242,242);" href="https://teapotai.com">Home</a> |  <a style="color:rgb(242,242,242);" href="https://teapotai.com/docs">Docs</a>  |  <a style="color:rgb(242,242,242);" href="https://teapotai.com/blog">Blog</a> |  <a style="color:rgb(242,242,242);" href="https://discord.gg/hPxGSn5dST">Demo on Discord</a><script src="https://teapotai.com/include.js"></script>
+description: <a style="color:rgb(242,242,242);" href="https://teapotai.com">Home</a> |  <a style="color:rgb(242,242,242);" href="https://teapotai.com/docs">Docs</a>  |  <a style="color:rgb(242,242,242);" href="https://teapotai.com/blog">Blog</a> |  <a style="color:rgb(242,242,242);" href="https://teapotai.com/playground">Demo</a> | <a style="color:rgb(242,242,242);" href="https://discord.gg/hPxGSn5dST">Discord</a><script src="https://teapotai.com/include.js"></script>
