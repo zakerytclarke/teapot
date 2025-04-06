@@ -138,7 +138,7 @@ function App() {
               <p className="max-w-[514px] mb-4">
                 <br />
                 You are about to load <a href="https://huggingface.co/teapotai/teapotllm" target="_blank" rel="noreferrer" className="font-medium underline">teapotai/teapotllm</a>,
-                a 783M parameter LLM that is optimized for inference on the web.Everything runs directly in your browser using <a href="https://huggingface.co/docs/transformers.js" target="_blank" rel="noreferrer" className="underline">🤗 Transformers.js</a> and ONNX Runtime Web <br /><br />
+                a 783M parameter LLM that is optimized for inference on the web. Everything runs directly in your browser using <a href="https://huggingface.co/docs/transformers.js" target="_blank" rel="noreferrer" className="underline">🤗 Transformers.js</a> and ONNX Runtime Web.<br /><br />
               </p>
 
               <button
