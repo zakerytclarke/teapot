@@ -1,9 +1,15 @@
 from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM, logging
+import joblib
 import torch
 import numpy as np
+from sklearn.neural_network import MLPClassifier
 from sklearn.metrics.pairwise import cosine_similarity
-from pydantic import BaseModel
-from typing import List, Optional
+from pydantic import BaseModel, Field, ValidationError
+from pydantic.functional_validators import BeforeValidator
+from pydantic_core.core_schema import no_info_plain_validator_function
+from pydantic import field_validator
+import inspect
+from typing import List, Optional, Callable, get_origin, get_args, Type
 from tqdm import tqdm
 import re
 import os
@@ -14,18 +20,19 @@ logging.set_verbosity_error()
 DEFAULT_MODEL = "teapotai/teapotllm"
 DEFAULT_MODEL_REVISION = "5aa6f84b5bd59da85552d55cc00efb702869cbf8"
 DEFAULT_SYSTEM_PROMPT = """You are Teapot, an open-source AI assistant optimized for low-end devices, providing short, accurate responses without hallucinating while excelling at information extraction and text summarization."""
-    
+
 
 class TeapotAISettings(BaseModel):
     """
     Settings configuration for TeapotAI.
-    
+
     Attributes:
         use_rag (bool): Whether to use RAG (Retrieve and Generate).
         rag_num_results (int): Number of top documents to retrieve based on similarity.
         rag_similarity_threshold (float): Similarity threshold for document relevance.
         max_context_length (int): Maximum length of context to consider.
         context_chunking (bool): Whether to chunk context for processing.
+        max_tool_calls (int): Maximum number of tool calls allowed.
         verbose (bool): Whether to print verbose updates.
         log_level (str): Log level setting (e.g., 'info', 'debug').
     """
@@ -34,9 +41,20 @@ class TeapotAISettings(BaseModel):
     rag_similarity_threshold: float = 0.5
     max_context_length: int = 512
     context_chunking: bool = True
+    allow_tool_use:bool = True
+    max_tool_calls:int = 1
     verbose: bool = True
     log_level: str = "info"
 
+class TeapotTool(BaseModel):
+    name: str = Field(..., description="The name of the tool.")
+    description: str = Field(..., description="A description of what the tool does.")
+    schema: Type[BaseModel] = Field(..., description="A Pydantic model defining the tool's input schema.")
+    fn: Callable = Field(..., description="The function that implements the tool logic.")
+    directly_return_result: bool = False
+
+    class Config:
+        arbitrary_types_allowed = True
 
 class TeapotAI:
     """
@@ -51,14 +69,13 @@ class TeapotAI:
         embedding_model (pipeline): Embedding model for document retrieval.
         document_embeddings (np.ndarray): Pre-generated embeddings for the documents.
     """
-    
-    def __init__(self, model = None, tokenizer = None, documents: List[str] = [], settings: TeapotAISettings = TeapotAISettings()):
+
+    def __init__(self, model = None, tokenizer = None, documents: List[str] = [], tools: List[TeapotTool] = [], settings: TeapotAISettings = TeapotAISettings()):
         """
         Initializes the TeapotAI class.
 
         Args:
             model (str): The model name for TeapotAI.
-            model_taks (Optional[str]): The model task for pipeline (if provided).
             documents (List[str]): List of documents to use for context retrieval.
             settings (TeapotAISettings): The settings configuration for TeapotAI.
         """
@@ -73,28 +90,39 @@ class TeapotAI:
 
         if self.settings.verbose:
             print(f"Loading Model")
-        
+
         if model is None:
             model = AutoModelForSeq2SeqLM.from_pretrained(
-                DEFAULT_MODEL, 
-                revision=DEFAULT_MODEL_REVISION, 
+                DEFAULT_MODEL,
+                revision=DEFAULT_MODEL_REVISION,
               )
         if tokenizer is None:
             tokenizer = AutoTokenizer.from_pretrained(
-                DEFAULT_MODEL, 
+                DEFAULT_MODEL,
                 revision=DEFAULT_MODEL_REVISION
             )
-            
+
         self.model = model
         self.tokenizer = tokenizer
-       
+
+        try:
+            # Normal case: part of a library or script
+            module_dir = os.path.dirname(__file__)
+        except NameError:
+            # Fallback: running interactively
+            module_dir = os.getcwd()
+        model_path = os.path.join(module_dir, "teapot_refusal_classifier.joblib")
+        self.refusal_detector = joblib.load(model_path)
+
 
         self.documents = [chunk for document in documents for chunk in self._chunk_document(document)]
+        self.tools = tools
+        self._recursive_depth = self.settings.max_tool_calls
 
         if self.settings.use_rag:
             self.embedding_model = pipeline("feature-extraction", model="teapotai/teapotembedding", truncation=True)
             self.document_embeddings = self._generate_document_embeddings(self.documents)
-    
+
     def _chunk_document(self, context: str) -> List[str]:
         """
         Chunk the input context into smaller segments if necessary based on the settings.
@@ -139,14 +167,14 @@ class TeapotAI:
 
         if self.settings.verbose:
             print("Generating embeddings for documents...")
-            for doc in tqdm(documents, desc="Document Embedding", unit="doc"):
-                embeddings.append(self.embedding_model(doc)[0][0])
+            for doc in tqdm(documents, desc="Document Embedding", unit=" doc"):
+                embeddings.append(np.mean(self.embedding_model(doc, truncation=True)[0], axis=0))
         else:
             for doc in documents:
-                embeddings.append(self.embedding_model(doc)[0][0])
+                embeddings.append(np.mean(self.embedding_model(doc, truncation=True)[0], axis=0))
 
         return np.array(embeddings)
-        
+
     def _retrieval(self, query: str, documents: List[str], document_embeddings: np.ndarray) -> List[str]:
         """
         Retrieve the most relevant documents based on cosine similarity to the query.
@@ -159,7 +187,7 @@ class TeapotAI:
         Returns:
             List[str]: A list of top relevant documents based on the query.
         """
-        query_embedding = self.embedding_model(query)[0][0]
+        query_embedding = np.mean(self.embedding_model(query, truncation=True)[0], axis=0)
         similarities = cosine_similarity([query_embedding], document_embeddings)[0]
         filtered_indices = [i for i, similarity in enumerate(similarities) if similarity >= self.settings.rag_similarity_threshold]
         top_n_indices = sorted(filtered_indices, key=lambda i: similarities[i], reverse=True)[:self.settings.rag_num_results]
@@ -181,6 +209,12 @@ class TeapotAI:
 
         return self._retrieval(query, self.documents, self.document_embeddings)
 
+    def _detect_refusal(self, input_text:str) -> bool:
+      embedding = np.mean(self.embedding_model(input_text, truncation=True)[0], axis=0)
+      score = float(self.refusal_detector.predict_proba([embedding])[0][1])
+      return score > 0.5
+
+
     @traceable
     def generate(self, input_text: str) -> str:
         """
@@ -200,9 +234,10 @@ class TeapotAI:
 
         # Decode the generated output
         result = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
-        
+
 
         if self.settings.log_level == "debug":
+            print("="*100)
             print(input_text)
             print(result)
 
@@ -234,7 +269,29 @@ class TeapotAI:
 
         input_text = f"{full_context}\n{system_prompt}\n{query}"
 
-        return self.generate(input_text)
+        result = self.generate(input_text)
+
+        if self.settings.allow_tool_use and len(self.tools) > 0: # Tool use enabled
+            # Check if we have hit recusrve depth
+            if self._recursive_depth > 0:
+              self._recursive_depth -= 1
+              if self._detect_refusal(result):
+                  selected_tool_name = self.generate(f"{chr(10).join(f'{t.name} - {t.description}' for t in self.tools)}\nQuery: '{query}'\nExtract the name of the tool to use:")
+                  selected_tool = [tool for tool in self.tools if tool.name.lower()==selected_tool_name.lower()]
+                  if len(selected_tool) > 0:
+                    try: # Attempt to extract tool schema and use
+                      tool_extraction = self.extract(selected_tool[0].schema, query=f"Query:'{query}' (If you can't extract return None)")
+                      tool_result = selected_tool[0].fn(tool_extraction)
+                    except ValidationError as e:
+                      tool_result = f"Error: Unable to use tool"
+                    if selected_tool[0].directly_return_result:
+                      result = tool_result
+                    else:
+                      result = self.query(query=input_text, context=f"{selected_tool[0].name}({tool_extraction}) => {tool_result}", system_prompt=system_prompt)
+            else:
+              self._recursive_depth = self.settings.max_tool_calls
+
+        return result
 
     @traceable
     def chat(self, conversation_history: List[dict]) -> str:
@@ -280,36 +337,40 @@ class TeapotAI:
         Returns:
             BaseModel: An instance of the provided Pydantic class with extracted field values.
         """
-        if self.settings.use_rag:
+        if self.settings.use_rag and context is not None:
             context_documents = self.rag(query)
             context = "\n".join(context_documents) + context
 
         output = {}
-        for field_name, field in class_annotation.__fields__.items():
+        for field_name, field in class_annotation.model_fields.items():
             type_annotation = field.annotation
             description = field.description
             description_annotation = f"({description})" if description else ""
 
-            result = self.query(query=f"Extract the field {field_name} {description_annotation}", context=context)
+            result = self.generate(f"{query}\nExtract the field {field_name} {description_annotation}")
 
-            if type_annotation == bool:
+            if type_annotation == bool or type_annotation == Optional[bool]:
                 parsed_result = (
                     True if re.search(r'\b(yes|true)\b', result, re.IGNORECASE)
                     else (False if re.search(r'\b(no|false)\b', result, re.IGNORECASE) else None)
                 )
-            elif type_annotation in [int, float]:
-                parsed_result = re.sub(r'[^0-9.]', '', result)
-                if parsed_result:
+            elif type_annotation in [int, float, Optional[int], Optional[float]]:
+                cleaned = re.sub(r'[^0-9.-]', '', result)  # Allow negative and decimal
+                if cleaned:
                     try:
-                        parsed_result = type_annotation(parsed_result)
+                        parsed_result = type_annotation(cleaned)
                     except Exception:
                         parsed_result = None
                 else:
                     parsed_result = None
-            elif type_annotation == str:
-                parsed_result = result.strip()
+            elif type_annotation == str or type_annotation == Optional[str]:
+                if result is not None:
+                  parsed_result = result.strip()
+                else:
+                  parsed_result = result
             else:
-                raise ValueError(f"Unsupported type annotation: {type_annotation}")
+                raise ValueError(f"Teapot- Unsupported type annotation: {type_annotation}")
+
 
             output[field_name] = parsed_result
 

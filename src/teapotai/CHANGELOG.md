@@ -1,5 +1,10 @@
 # Changelog
 
+[2.0.0] - 2025-04-24
+## Added
+- Added tool calling beta feature
+
+
 [1.1.2] - 2025-04-04
 ## Added
 - Updated library to default to using chat fine-tuned teapotllm
