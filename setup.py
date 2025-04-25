@@ -13,12 +13,15 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     url='https://github.com/zakerytclarke/teapotai_lib/teapotai',
     project_urls={
-        'Documentation': 'https://github.com/zakerytclarke/teapotai_lib/teapotai',
-        'Bug Reports': 'https://github.com/tomchen/example_pypi_package/issues',
-        'Source Code': 'https://github.com/tomchen/example_pypi_package',
+        'Documentation': 'https://teapotai.com/docs',
+        'Bug Reports': 'https://github.com/zakerytclarke/teapot/issues',
+        'Source Code': 'https://github.com/zakerytclarke/teapot',
     },
     package_dir={'': 'src'},
     packages=setuptools.find_packages(where='src'),
+    package_data={
+        'teapotai': ['teapot_refusal_classifier.joblib'],  # Make sure this points to your joblib file
+    },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

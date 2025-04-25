@@ -14,11 +14,13 @@ from tqdm import tqdm
 import re
 import os
 from langsmith import traceable
+import joblib
+import pkg_resources
 
 logging.set_verbosity_error()
 
 DEFAULT_MODEL = "teapotai/teapotllm"
-DEFAULT_MODEL_REVISION = "5aa6f84b5bd59da85552d55cc00efb702869cbf8"
+DEFAULT_MODEL_REVISION = "699ab39cbf586674806354e92fbd6179f9a95f4a"
 DEFAULT_SYSTEM_PROMPT = """You are Teapot, an open-source AI assistant optimized for low-end devices, providing short, accurate responses without hallucinating while excelling at information extraction and text summarization."""
 
 
@@ -105,13 +107,10 @@ class TeapotAI:
         self.model = model
         self.tokenizer = tokenizer
 
-        try:
-            # Normal case: part of a library or script
-            module_dir = os.path.dirname(__file__)
-        except NameError:
-            # Fallback: running interactively
-            module_dir = os.getcwd()
-        model_path = os.path.join(module_dir, "teapot_refusal_classifier.joblib")
+        # Get the path of the model file within the package
+        model_path = pkg_resources.resource_filename('teapotai', 'teapot_refusal_classifier.joblib')
+
+        
         self.refusal_detector = joblib.load(model_path)
 
 
@@ -168,10 +167,12 @@ class TeapotAI:
         if self.settings.verbose:
             print("Generating embeddings for documents...")
             for doc in tqdm(documents, desc="Document Embedding", unit=" doc"):
-                embeddings.append(np.mean(self.embedding_model(doc, truncation=True)[0], axis=0))
+                embeddings.append(self.embedding_model(doc)[0][0])
+                # embeddings.append(np.mean(self.embedding_model(doc, truncation=True)[0], axis=0))
         else:
             for doc in documents:
-                embeddings.append(np.mean(self.embedding_model(doc, truncation=True)[0], axis=0))
+                embeddings.append(self.embedding_model(doc)[0][0])
+                # embeddings.append(np.mean(self.embedding_model(doc, truncation=True)[0], axis=0))
 
         return np.array(embeddings)
 
@@ -187,7 +188,8 @@ class TeapotAI:
         Returns:
             List[str]: A list of top relevant documents based on the query.
         """
-        query_embedding = np.mean(self.embedding_model(query, truncation=True)[0], axis=0)
+        query_embedding = self.embedding_model(query)[0][0]
+        # query_embedding = np.mean(self.embedding_model(query, truncation=True)[0], axis=0)
         similarities = cosine_similarity([query_embedding], document_embeddings)[0]
         filtered_indices = [i for i, similarity in enumerate(similarities) if similarity >= self.settings.rag_similarity_threshold]
         top_n_indices = sorted(filtered_indices, key=lambda i: similarities[i], reverse=True)[:self.settings.rag_num_results]
