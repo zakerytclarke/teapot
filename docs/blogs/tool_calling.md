@@ -24,7 +24,7 @@ We built a tool calling library levearging o
 
 
 
-![[https://teapotai.com/assets/teapottools_flow.png](https://teapotai.com/assets/teapottools_flow_notools.png)
+![https://teapotai.com/assets/teapottools_flow_notools.png](https://teapotai.com/assets/teapottools_flow_notools.png)
 
 ![https://teapotai.com/assets/teapottools_flow.png](https://teapotai.com/assets/teapottools_flow.png)
 
