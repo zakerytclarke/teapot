@@ -282,7 +282,7 @@ class TeapotAI:
             if recursive_depth is None:
                 recursive_depth = self.settings.max_tool_calls
             # Check if we have hit recusrve depth
-            if recursive_depth < 0:
+            if recursive_depth > 0:
               if self._detect_refusal(result):
                   selected_tool_name = self.generate(f"{chr(10).join(f'{t.name} - {t.description}' for t in self.tools)}\nQuery: '{query}'\nExtract the name of the tool to use:")
                   selected_tool = [tool for tool in self.tools if tool.name.lower()==selected_tool_name.lower()]
