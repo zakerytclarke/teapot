@@ -204,7 +204,7 @@ teapot_ai = TeapotAI(
 
 
 answer = teapot_ai.query("What is the weather like in New York today?")
-print(answer) # => "It is humid and 75F in New York today."
+print(answer) # => "The weather in New York is clear sky with a temperature of 62°F."
 ```
 
 ---
