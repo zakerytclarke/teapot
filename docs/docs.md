@@ -156,6 +156,59 @@ extracted_info = teapot_ai.extract(
 )
 print(extracted_info) # => ApartmentInfo(rent=2500.0 bedrooms=2 bathrooms=1 phone_number='555-123-4567')
 ```
+---
+
+### 4. Tool Use
+
+Teapot can use arbitrary tools to access external apis, store user information and perform actions for a user. Specify a tool schema and a function that takes that schema as input, and teapotllm will decide which tool makes the most sense to use and extract the parameters for that tool. This example shows how you can use Teapot to query for up to date weather information based on city name.
+
+#### Example:
+
+```python
+from teapotai import TeapotAI, TeapotTool
+from pydantic import BaseModel
+import requests
+
+WEATHER_API_KEY = os.environ.get("weather_api_key")
+
+# Define a Pydantic model for the parameters to your function
+class Weather(BaseModel):
+    city_name: str = Field(..., description="The name of the city to pull the weather for")
+
+# Function to fetch the weather based on city name 
+def get_weather(city_name):
+    # OpenWeatherMap API endpoint
+    url = f'https://api.openweathermap.org/data/2.5/weather?appid={WEATHER_API_KEY}&units=imperial&q={city_name}'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        city = data['name']
+        temperature = round(data['main']['temp'])
+        weather_description = data['weather'][0]['description']
+        return f"The weather in {city} is {weather_description} with a temperature of {temperature}°F."
+    else:
+        return "City not found or there was an error with the request."
+
+
+# Initialize TeapotAI
+teapot_ai = TeapotAI(
+    tools = [ # Add tools for Teapotllm to use
+        TeapotTool(
+            name="weather",
+            description="Can pull today's weather information for any city.",
+            schema=Weather,
+            fn=get_weather
+        )
+    ]
+)
+
+
+answer = teapot_ai.query("What is the weather like in New York today?")
+print(answer) # => "It is humid and 75F in New York today."
+```
+
+---
+
 
 ### Native Transformer Support
 While we recommend using TeapotAI's library, you can load the base model directly with Hugging Face's Transformers library as follows:
