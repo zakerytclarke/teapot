@@ -116,8 +116,7 @@ class TeapotAI:
 
         self.documents = [chunk for document in documents for chunk in self._chunk_document(document)]
         self.tools = tools
-        self._recursive_depth = self.settings.max_tool_calls
-
+        
         if self.settings.use_rag:
             self.embedding_model = pipeline("feature-extraction", model="teapotai/teapotembedding", truncation=True)
             self.document_embeddings = self._generate_document_embeddings(self.documents)
@@ -250,7 +249,7 @@ class TeapotAI:
         return result
 
     @traceable
-    def query(self, query: str, context: str = "", system_prompt: str = DEFAULT_SYSTEM_PROMPT) -> str:
+    def query(self, query: str, context: str = "", system_prompt: str = DEFAULT_SYSTEM_PROMPT, recursive_depth: int = None) -> str:
         """
         Handle a query and context, using RAG if no context is provided, and return a generated response.
 
@@ -261,6 +260,8 @@ class TeapotAI:
         Returns:
             str: The generated response based on the input query and context.
         """
+
+
         if self.settings.use_rag:
             rag_context = "\n\n".join(self.rag(query))
 
@@ -278,9 +279,10 @@ class TeapotAI:
         result = self.generate(input_text)
 
         if self.settings.allow_tool_use and len(self.tools) > 0: # Tool use enabled
+            if recursive_depth is None:
+                recursive_depth = self.settings.max_tool_calls
             # Check if we have hit recusrve depth
-            if self._recursive_depth > 0:
-              self._recursive_depth -= 1
+            if recursive_depth < 0:
               if self._detect_refusal(result):
                   selected_tool_name = self.generate(f"{chr(10).join(f'{t.name} - {t.description}' for t in self.tools)}\nQuery: '{query}'\nExtract the name of the tool to use:")
                   selected_tool = [tool for tool in self.tools if tool.name.lower()==selected_tool_name.lower()]
@@ -293,9 +295,7 @@ class TeapotAI:
                     if selected_tool[0].directly_return_result:
                       result = tool_result
                     else:
-                      result = self.query(query=input_text, context=f"{selected_tool[0].name}({tool_extraction}) => {tool_result}", system_prompt=system_prompt)
-            else:
-              self._recursive_depth = self.settings.max_tool_calls
+                      result = self.query(query=input_text, context=f"{selected_tool[0].name}({tool_extraction}) => {tool_result}", system_prompt=system_prompt, recursive_depth = recursive_depth - 1)
 
         return result
 
