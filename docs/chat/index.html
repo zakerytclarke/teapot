@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeapotAI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script type="module" src="app.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <img src="https://teapotai.com/assets/logo.gif" alt="Teapot Loading" class="loading-logo">
+            <p id="loading-text">Loading Teapot Model...</p>
+            <div class="progress-container">
+                <div id="loading-bar" class="progress-bar"></div>
+            </div>
+            <p id="loading-percent">0%</p>
+        </div>
+
+        <!-- Left Sidebar: History -->
+        <aside class="sidebar left-sidebar" id="left-sidebar">
+            <div class="sidebar-header">
+                <button id="new-chat-btn" class="btn-primary">
+                    <i class="ph ph-plus"></i> New Chat
+                </button>
+                <button class="toggle-btn mobile-only" id="close-left-sidebar">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="chat-history" id="chat-history">
+                <!-- History items will be injected here -->
+            </div>
+            <div class="sidebar-footer">
+                <!-- User Profile Removed -->
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <header class="chat-header">
+                <button class="toggle-btn" id="toggle-left-sidebar">
+                    <i class="ph ph-list"></i>
+                </button>
+
+                <div class="model-selectors">
+                    <div class="select-wrapper">
+                        <label for="llm-select" class="sr-only">LLM Model</label>
+                        <select id="llm-select">
+                            <option value="teapotai/teapotllm">Teapot LLM (Standard)</option>
+                            <option value="teapotai/tinyteapot">Tiny Teapot (Fast)</option>
+                        </select>
+                    </div>
+                    <div class="select-wrapper">
+                        <label for="embedding-select" class="sr-only">Embedding Model</label>
+                        <select id="embedding-select">
+                            <option value="teapotai/teapotembedding">Teapot Embedding</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="toggle-btn" id="toggle-right-sidebar">
+                    <i class="ph ph-gear"></i>
+                </button>
+            </header>
+
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Welcome Screen (Default) -->
+                    <div class="welcome-screen" id="welcome-screen">
+                        <div class="logo-large">
+                            <img src="https://teapotai.com/assets/logo.gif" alt="Teapot Logo" width="80">
+                        </div>
+                        <h1>How can I help you today?</h1>
+                        <div class="sample-prompts">
+                            <button class="sample-prompt" data-prompt="Explain quantum computing in simple terms">
+                                "Explain quantum computing..."
+                            </button>
+                            <button class="sample-prompt" data-prompt="Write a poem about a tea party">
+                                "Write a poem about a tea party..."
+                            </button>
+                            <button class="sample-prompt" data-prompt="How do I make a perfect cup of tea?">
+                                "How do I make a perfect cup of tea?"
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <div class="input-wrapper">
+                        <textarea id="user-input" placeholder="Message TeapotAI..." rows="1"></textarea>
+                        <button id="send-btn" disabled>
+                            <i class="ph ph-paper-plane-right"></i>
+                        </button>
+                    </div>
+                    <div class="disclaimer">TeapotAI can make mistakes. Consider checking important information.</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar: Context & Tools -->
+        <aside class="sidebar right-sidebar" id="right-sidebar">
+            <div class="sidebar-header dark-header">
+                <h2>Context & Tools</h2>
+                <button class="toggle-btn mobile-only" id="close-right-sidebar">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                <!-- System Prompt Section -->
+                <section class="tool-section">
+                    <div class="section-header" id="toggle-system">
+                        <h3 class="dark-text"><i class="ph ph-terminal-window"></i> System Prompt</h3>
+                        <i class="ph ph-caret-right toggle-icon dark-text"></i>
+                    </div>
+                    <div class="section-body collapsed" id="system-body">
+                        <textarea id="system-input"
+                            rows="4">You are Teapot, an open-source AI assistant optimized for low-end devices, providing short, accurate responses without hallucinating while excelling at information extraction and text summarization.</textarea>
+                    </div>
+                </section>
+
+                <!-- Context Section -->
+                <section class="tool-section">
+                    <div class="section-header" id="toggle-context">
+                        <h3 class="dark-text"><i class="ph ph-files"></i> Context (RAG)</h3>
+                        <i class="ph ph-caret-down toggle-icon dark-text"></i>
+                    </div>
+                    <div class="section-body" id="context-body">
+                        <!-- Add New Snippet Area -->
+                        <div class="context-add-area">
+                            <textarea id="context-input-new" placeholder="Paste text here to add as a document..."
+                                rows="3"></textarea>
+                            <div class="file-actions">
+                                <button id="btn-add-snippet" class="btn-secondary btn-sm"><i class="ph ph-plus"></i> Add
+                                    Text</button>
+                                <button id="btn-upload-file" class="btn-secondary btn-sm"><i
+                                        class="ph ph-upload-simple"></i> Upload File</button>
+                            </div>
+                            <input type="file" id="context-file-upload" accept=".txt,.md,.json,.js,.html,.css" multiple
+                                style="display: none;">
+                        </div>
+
+                        <!-- Processed Documents List -->
+                        <div id="context-documents-list" class="documents-list">
+                            <!-- Items will be injected here via JS -->
+                            <div class="empty-state">No documents added.</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tools Section -->
+                <section class="tool-section">
+                    <div class="section-header" id="toggle-tools">
+                        <h3><i class="ph ph-wrench"></i> Tools</h3>
+                        <i class="ph ph-caret-down toggle-icon"></i>
+                    </div>
+                    <div class="section-body" id="tools-body">
+
+                        <!-- Web Search Tool -->
+                        <div class="tool-item">
+                            <div class="tool-header">
+                                <span class="tool-name"><i class="ph ph-globe"></i> Web Search</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="tool-websearch" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="tool-settings hidden" id="settings-websearch">
+                                <input type="password" id="api-key-websearch" placeholder="Enter Search API Key">
+                            </div>
+                        </div>
+
+                        <!-- Calculator Tool -->
+                        <div class="tool-item">
+                            <div class="tool-header">
+                                <span class="tool-name"><i class="ph ph-calculator"></i> Calculator</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="tool-calculator" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- RAG Tool -->
+                        <div class="tool-item">
+                            <div class="tool-header">
+                                <span class="tool-name"><i class="ph ph-brain"></i> RAG</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="tool-rag" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Memory Tool -->
+                        <div class="tool-item">
+                            <div class="tool-header">
+                                <span class="tool-name"><i class="ph ph-clock-counter-clockwise"></i> Memory</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="tool-memory" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Weather API Tool -->
+                        <div class="tool-item">
+                            <div class="tool-header">
+                                <span class="tool-name"><i class="ph ph-cloud-sun"></i> Weather API</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="tool-weather" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="tool-settings hidden" id="settings-weather">
+                                <input type="password" id="api-key-weather" placeholder="Enter Weather API Key">
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </aside>
+    </div>
+</body>
+
+</html>

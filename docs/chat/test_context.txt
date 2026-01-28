@@ -1,0 +1,8 @@
+Teapot AI is a revolutionary model.
+It is designed for efficiency.
+
+This is the second paragraph.
+It should be a separate chunk if the logic works correctly.
+
+This is the third paragraph.
+It concludes the test file.
