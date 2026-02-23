@@ -1,5 +1,5 @@
 ## Models
-Teapot models are designed to run anywhere- from local CPUs and edge devices to production scale systems, while staying strong on general-purpose tasks like question answering, summarization, and information extraction. They’re optimized for fast, efficient, and grounded responses, making them a good fit when latency, cost, and reliability matter.
+Teapot models are designed to run anywhere — from local CPUs and edge devices to production-scale systems — while staying strong on general-purpose tasks like question answering, summarization, and information extraction. They’re optimized for fast, efficient, and grounded responses, making them a good fit when latency, cost, and reliability matter.
 
 Whether you need a lightweight model for on-device inference or a larger model for higher accuracy, the Teapot family provides flexible options that excel at in-context reasoning and hallucination-resistant outputs. If you’re looking to fine-tune for your specific use case (proprietary data, domain workflows, custom formatting/refusals), get in contact with us to discuss custom training and deployment.
 
@@ -15,19 +15,12 @@ Whether you need a lightweight model for on-device inference or a larger model f
   }
 
   .teapot-card{
-    position:relative;
     border:1px solid rgba(127,127,127,.25);
     border-radius:16px;
     padding:18px 18px 16px 18px;
     background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
     box-shadow: 0 8px 24px rgba(0,0,0,.08);
-    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     overflow:hidden;
-  }
-  .teapot-card:hover{
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 14px 40px rgba(0,0,0,.14);
-    border-color: rgba(127,127,127,.45);
   }
 
   .teapot-card .toprow{
@@ -70,7 +63,7 @@ Whether you need a lightweight model for on-device inference or a larger model f
 
   .teapot-stats{
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     margin: 12px 0 14px 0;
   }
@@ -108,13 +101,8 @@ Whether you need a lightweight model for on-device inference or a larger model f
     font-weight: 650;
     font-size: .92rem;
     background: rgba(127,127,127,.08);
-    transition: background .15s ease, transform .15s ease, border-color .15s ease;
   }
-  .teapot-btn:hover{
-    background: rgba(127,127,127,.14);
-    border-color: rgba(127,127,127,.45);
-    transform: translateY(-1px);
-  }
+
   .teapot-subtle{
     font-size: .82rem;
     opacity: .7;
@@ -143,12 +131,8 @@ Whether you need a lightweight model for on-device inference or a larger model f
 
     <div class="teapot-stats">
       <div class="teapot-stat">
-        <div class="label">Downloads (last 30 days)</div>
-        <div class="value" id="tiny_downloads_30d">—</div>
-      </div>
-      <div class="teapot-stat">
-        <div class="label">Downloads (all time)</div>
-        <div class="value" id="tiny_downloads_all">—</div>
+        <div class="label">Total downloads</div>
+        <div class="value" id="tiny_downloads_all">1k+</div>
       </div>
     </div>
 
@@ -180,12 +164,8 @@ Whether you need a lightweight model for on-device inference or a larger model f
 
     <div class="teapot-stats">
       <div class="teapot-stat">
-        <div class="label">Downloads (last 30 days)</div>
-        <div class="value" id="llm_downloads_30d">—</div>
-      </div>
-      <div class="teapot-stat">
-        <div class="label">Downloads (all time)</div>
-        <div class="value" id="llm_downloads_all">—</div>
+        <div class="label">Total downloads</div>
+        <div class="value" id="llm_downloads_all">10k+</div>
       </div>
     </div>
 
@@ -201,39 +181,55 @@ Whether you need a lightweight model for on-device inference or a larger model f
 </div>
 
 <script>
-  // Fetch HF stats (downloads last 30d + downloads all time) and populate the cards.
-  // NOTE: Some GitHub Pages setups/themes may block cross-origin fetches; if so, values will stay as "—".
+  // Static cards + fetch total downloads (all time). If fetch fails, we keep the fallbacks:
+  // TinyTeapot => 1k+ ; TeapotLLM => 10k+
+
+  const FALLBACKS = {
+    tiny: "1k+",
+    llm:  "10k+",
+  };
 
   const HF_ENDPOINTS = {
-    tiny: "https://huggingface.co/api/models/teapotai/tinyteapot?expand[]=downloads&expand[]=downloadsAllTime",
-    llm:  "https://huggingface.co/api/models/teapotai/teapotllm?expand[]=downloads&expand[]=downloadsAllTime"
+    tiny: "https://huggingface.co/api/models/teapotai/tinyteapot?expand[]=downloadsAllTime",
+    llm:  "https://huggingface.co/api/models/teapotai/teapotllm?expand[]=downloadsAllTime"
   };
 
   const fmt = (n) => {
-    if (typeof n !== "number") return "—";
+    if (typeof n !== "number" || !Number.isFinite(n)) return null;
     try { return new Intl.NumberFormat().format(n); } catch { return String(n); }
   };
 
-  async function loadModelStats(url) {
+  async function loadDownloadsAllTime(url) {
     const r = await fetch(url, { headers: { "Accept": "application/json" } });
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    return await r.json();
+    const j = await r.json();
+    return j.downloadsAllTime;
   }
 
   async function main() {
+    // prevent double-run on some themes that re-inject markdown
+    if (window.__teapot_downloads_loaded) return;
+    window.__teapot_downloads_loaded = true;
+
+    const tinyEl = document.getElementById("tiny_downloads_all");
+    const llmEl  = document.getElementById("llm_downloads_all");
+
     try {
-      const [tiny, llm] = await Promise.all([
-        loadModelStats(HF_ENDPOINTS.tiny),
-        loadModelStats(HF_ENDPOINTS.llm)
+      const [tinyAll, llmAll] = await Promise.all([
+        loadDownloadsAllTime(HF_ENDPOINTS.tiny),
+        loadDownloadsAllTime(HF_ENDPOINTS.llm)
       ]);
 
-      document.getElementById("tiny_downloads_30d").textContent = fmt(tiny.downloads);
-      document.getElementById("tiny_downloads_all").textContent = fmt(tiny.downloadsAllTime);
+      const tinyFmt = fmt(tinyAll);
+      const llmFmt  = fmt(llmAll);
 
-      document.getElementById("llm_downloads_30d").textContent = fmt(llm.downloads);
-      document.getElementById("llm_downloads_all").textContent = fmt(llm.downloadsAllTime);
+      if (tinyEl && tinyFmt) tinyEl.textContent = tinyFmt;
+      if (llmEl  && llmFmt)  llmEl.textContent  = llmFmt;
     } catch (e) {
-      console.warn("Failed to load Hugging Face download stats:", e);
+      // keep fallbacks already set in HTML; optionally re-assert:
+      if (tinyEl) tinyEl.textContent = FALLBACKS.tiny;
+      if (llmEl)  llmEl.textContent  = FALLBACKS.llm;
+      console.warn("HF downloads fetch failed; using fallbacks.", e);
     }
   }
 
