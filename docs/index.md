@@ -6,55 +6,56 @@
 <!-- Announcement Banner -->
 <div style="
 max-width: 1000px;
-margin: 10px auto 30px;
+margin: 10px auto 28px;
 background: #ffffff;
 border-radius: 999px;
 padding: 12px 18px;
-box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+box-shadow: 0 10px 26px rgba(0,0,0,0.08);
 font-size: 14px;
 color: #111827;
 text-align: center;
 ">
 🚀 <strong>Announcement:</strong> TinyTeapotLLM Launched!
 &nbsp; <a href="https://huggingface.co/teapotai/tinyteapot" style="font-weight:600; text-decoration:none;">
-Check out the Model →
+Check out the 🤖 model →
 </a>
 </div>
 
-<!-- Short Org Description (1–2 sentences as requested) -->
+<!-- Short Org Description (professional, 2 sentences) -->
 <div style="
-max-width: 900px;
-margin: 0 auto 36px;
-font-size: 18px;
-line-height: 1.7;
+max-width: 920px;
+margin: 0 auto 34px;
+font-size: 17px;
+line-height: 1.65;
 color: #374151;
 text-align: center;
 ">
-TeapotAI is an open-source organization building small, efficient language models that can run anywhere —
-on CPUs, mobile devices, and in the browser. Our models are designed for low latency, privacy, and real-world deployment.
+TeapotAI is an open-source organization building small, efficient language 🤖 models that run anywhere — on CPUs, mobile devices, and in the browser.
+Our 🤖 models are designed for low latency, privacy, and real-world deployment.
 </div>
 
 <!-- Dual CTA Boxes -->
 <div style="
 max-width: 1000px;
-margin: 0 auto 50px;
+margin: 0 auto 52px;
 display: grid;
 grid-template-columns: repeat(12, 1fr);
-gap: 24px;
+gap: 22px;
 ">
 
-  <!-- Explore Models Box -->
+  <!-- Explore Models -->
   <div style="
   grid-column: span 6;
   background: #ffffff;
-  border-radius: 28px;
-  padding: 32px 28px;
-  box-shadow: 0 26px 70px rgba(0,0,0,0.14);
+  border-radius: 22px;
+  padding: 28px 26px;
+  box-shadow: 0 20px 55px rgba(0,0,0,0.12);
+  border: 1px solid rgba(17,24,39,0.06);
   ">
 
     <div style="
-    font-size: 13px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #6b7280;
     font-weight: 700;
@@ -64,64 +65,66 @@ gap: 24px;
     </div>
 
     <h2 style="
-    margin: 0 0 12px 0;
-    font-size: 30px;
+    margin: 0 0 10px 0;
+    font-size: 28px;
     color: #111827;
+    line-height: 1.2;
     ">
-      🧠 Explore Models
+      🤖 Explore Models
     </h2>
 
     <p style="
     font-size: 15px;
     color: #4b5563;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin: 0 0 18px 0;
     ">
-      Browse TinyTeapot, TeapotLLM, and other open-source small LLMs optimized for fast local inference,
-      RAG workflows, and grounded reasoning in production environments.
+      Browse TinyTeapot, TeapotLLM, and other open-source small 🤖 models optimized for fast local inference,
+      RAG workflows, and grounded reasoning.
     </p>
 
     <ul style="
     color: #374151;
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 1.75;
     padding-left: 18px;
-    margin-bottom: 26px;
+    margin: 0 0 22px 0;
     ">
-      <li>Ultra-low latency small language models</li>
+      <li>Ultra-low latency small 🤖 models</li>
       <li>Local CPU, mobile, and browser inference</li>
-      <li>RAG, extraction, and classification support</li>
-      <li>Fully open-source and community driven</li>
+      <li>RAG, extraction, and classification</li>
+      <li>Open-source and community driven</li>
     </ul>
 
     <a href="/models" style="
       display: inline-block;
       background: #111827;
       color: #ffffff;
-      padding: 14px 24px;
-      border-radius: 999px;
+      padding: 12px 18px;
+      border-radius: 12px;
       font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.16);
       font-size: 15px;
     ">
-      View Models →
+      View 🤖 models →
     </a>
 
   </div>
 
-  <!-- Enterprise Box -->
+  <!-- Enterprise -->
   <div style="
   grid-column: span 6;
   background: #ffffff;
-  border-radius: 28px;
-  padding: 32px 28px;
-  box-shadow: 0 26px 70px rgba(0,0,0,0.14);
+  border-radius: 22px;
+  padding: 28px 26px;
+  box-shadow: 0 20px 55px rgba(0,0,0,0.12);
+  border: 1px solid rgba(17,24,39,0.06);
   ">
 
     <div style="
-    font-size: 13px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #6b7280;
     font-weight: 700;
@@ -131,48 +134,49 @@ gap: 24px;
     </div>
 
     <h2 style="
-    margin: 0 0 12px 0;
-    font-size: 30px;
+    margin: 0 0 10px 0;
+    font-size: 28px;
     color: #111827;
+    line-height: 1.2;
     ">
-      🏢 Enterprise & Deployment
+      Enterprise & Deployment
     </h2>
 
     <p style="
     font-size: 15px;
     color: #4b5563;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin: 0 0 18px 0;
     ">
-      Partner with the TeapotAI team to deploy, fine-tune, and optimize lightweight LLMs
-      for production systems, private AI environments, and large-scale applications.
+      Partner with the TeapotAI team to deploy, fine-tune, and optimize lightweight 🤖 models
+      for production systems and private AI environments.
     </p>
 
     <ul style="
     color: #374151;
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 1.75;
     padding-left: 18px;
-    margin-bottom: 26px;
+    margin: 0 0 22px 0;
     ">
-      <li>Custom fine-tuning & model alignment</li>
+      <li>Fine-tuning & alignment for your domain</li>
       <li>Hosting & low-latency inference optimization</li>
-      <li>Private / on-device AI deployments</li>
-      <li>Evaluation, integration, and ongoing support</li>
+      <li>Private / on-device deployments</li>
+      <li>Evaluation, integration, and support</li>
     </ul>
 
     <a href="/enterprise" style="
       display: inline-block;
       background: #f3f4f6;
       color: #111827;
-      padding: 14px 24px;
-      border-radius: 999px;
+      padding: 12px 18px;
+      border-radius: 12px;
       font-weight: 700;
       text-decoration: none;
-      border: 2px solid #e5e7eb;
+      border: 1px solid rgba(17,24,39,0.12);
       font-size: 15px;
     ">
-      Learn About Enterprise →
+      Learn more →
     </a>
 
   </div>
@@ -181,9 +185,9 @@ gap: 24px;
 
 ---
 
-# 🫖 Teapot LLM
+# Teapot LLM
 
-Teapot is a small open-source language model (~800M parameters) fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones, browsers, and CPUs. It is built for grounded reasoning, efficient inference, and real-world AI deployment.
+Teapot is a small open-source language 🤖 model (~800M parameters) fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones, browsers, and CPUs. It is built for grounded reasoning, efficient inference, and real-world deployment.
 
 ### Key Capabilities
 - 📚 Hallucination-resistant Question Answering (Q&A)
