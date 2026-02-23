@@ -30,8 +30,8 @@ line-height: 1.65;
 color: #374151;
 text-align: center;
 ">
-TeapotAI is an open-source organization building small, efficient language models that can run anywhere — on CPUs, mobile devices, and in the browser.  
-Our models are designed for low latency, privacy, and real-world deployment.
+TeapotAI builds open-source small language models that can run anywhere- on CPUs, mobile devices, and even in the browser.
+Our models are designed for low latency and private deployment, enabling organizations to own their AI infrastructure and models end-to-end without relying on costly external APIs.
 </div>
 
 <!-- Dual CTA Cards -->
@@ -165,7 +165,7 @@ gap: 24px;
       <li>Evaluation, integration, and ongoing support</li>
     </ul>
 
-    <a href="/enterprise" style="
+    <a href="/solutions" style="
       display: inline-block;
       background: #f3f4f6;
       color: #111827;
@@ -187,7 +187,7 @@ gap: 24px;
 
 # Teapot LLM
 
-Teapot is a small open-source language model (~800M parameters) fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones, browsers, and CPUs. It is built for grounded reasoning, efficient inference, and real-world deployment.
+Teapot is a fmaily of small open-source language models fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones, browsers, and CPUs. It is built for grounded reasoning, efficient inference, and real-world deployment.
 
 ### Key Capabilities
 - Hallucination-resistant Question Answering (Q&A)
