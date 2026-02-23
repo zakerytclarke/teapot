@@ -187,7 +187,7 @@ gap: 24px;
 
 # Teapot LLM
 
-Teapot is a fmaily of small open-source language models fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones, browsers, and CPUs. It is built for grounded reasoning, efficient inference, and real-world deployment.
+Teapot is a family of small open-source language models fine-tuned on synthetic data and optimized to run locally on resource-constrained devices such as smartphones, browsers, and CPUs. It is built for grounded reasoning, efficient inference, and real-world deployment.
 
 ### Key Capabilities
 - Hallucination-resistant Question Answering (Q&A)
