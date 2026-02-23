@@ -1,315 +1,296 @@
----
-title: Enterprise
----
-
 <style>
-  :root{
-    --bg: #0b0f14;
-    --panel: rgba(255,255,255,0.06);
-    --panel2: rgba(255,255,255,0.04);
-    --border: rgba(255,255,255,0.10);
-    --text: rgba(255,255,255,0.92);
-    --muted: rgba(255,255,255,0.70);
-    --muted2: rgba(255,255,255,0.58);
-    --shadow: 0 10px 35px rgba(0,0,0,0.35);
-    --radius: 18px;
-  }
+:root{
+  --bg: #0e1116;
+  --card: #151a22;
+  --card-soft: #1b2230;
+  --border: rgba(255,255,255,0.08);
+  --text: #e6eaf2;
+  --muted: #a8b0c0;
+  --accent: #ffffff;
+  --cta: #ffffff;
+  --cta-text: #0e1116;
+}
 
-  /* Page wrapper */
-  .tp-wrap{
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 22px 16px 56px;
-    color: var(--text);
-  }
+/* Page Container */
+.enterprise-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  color: var(--text);
+}
 
-  /* Hero */
-  .tp-hero{
-    border: 1px solid var(--border);
-    background: linear-gradient(180deg, var(--panel), var(--panel2));
-    border-radius: calc(var(--radius) + 6px);
-    box-shadow: var(--shadow);
-    padding: 26px 22px;
-  }
-  .tp-kicker{
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted2);
-    margin: 0 0 10px 0;
-  }
-  .tp-title{
-    font-size: 34px;
-    line-height: 1.15;
-    margin: 0 0 10px 0;
-  }
-  .tp-subtitle{
-    font-size: 16px;
-    line-height: 1.55;
-    color: var(--muted);
-    margin: 0 0 18px 0;
-    max-width: 78ch;
-  }
+/* Hero */
+.enterprise-hero{
+  background: linear-gradient(180deg, #161c26, #121720);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
 
-  /* Buttons */
-  .tp-actions{
-    display:flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-  }
-  .tp-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap: 8px;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    text-decoration:none;
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--text);
-    background: rgba(255,255,255,0.06);
-  }
-  .tp-btn:hover{ transform: translateY(-1px); }
-  .tp-btn-primary{
-    background: rgba(255,255,255,0.92);
-    color: #0b0f14 !important;
-    border-color: rgba(255,255,255,0.0);
-  }
-  .tp-btn-primary:hover{ opacity: 0.95; }
+.kicker{
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
 
-  /* Section */
-  .tp-section{
-    margin-top: 18px;
-  }
-  .tp-h2{
-    font-size: 18px;
-    margin: 0 0 10px 0;
-  }
-  .tp-note{
-    color: var(--muted2);
-    font-size: 13px;
-    line-height: 1.55;
-    margin: 0 0 14px 0;
-  }
+.hero-title{
+  font-size: 40px;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
 
-  /* Grid / Cards */
-  .tp-grid{
-    display:grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 12px;
-  }
-  .tp-card{
-    grid-column: span 6;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.05);
-    border-radius: var(--radius);
-    padding: 16px 16px 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  }
-  .tp-card h3{
-    margin: 0 0 6px 0;
-    font-size: 16px;
-  }
-  .tp-card p{
-    margin: 0 0 10px 0;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.55;
-  }
-  .tp-bullets{
-    margin: 0;
-    padding-left: 18px;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.55;
-  }
-  .tp-bullets li{ margin: 6px 0; }
+.hero-subtitle{
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 780px;
+  margin-bottom: 24px;
+}
 
-  /* Full width cards */
-  .tp-card-wide{ grid-column: span 12; }
+/* CTA Buttons */
+.cta-row{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
-  /* CTA Footer */
-  .tp-cta{
-    margin-top: 18px;
-    border: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-    border-radius: calc(var(--radius) + 6px);
-    padding: 18px 16px;
-    box-shadow: var(--shadow);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .tp-cta strong{ font-size: 16px; }
-  .tp-cta span{
-    display:block;
-    margin-top: 4px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.5;
-    max-width: 80ch;
-  }
+.btn-primary{
+  background: var(--cta);
+  color: var(--cta-text) !important;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+}
 
-  @media (max-width: 860px){
-    .tp-card{ grid-column: span 12; }
-    .tp-title{ font-size: 28px; }
+.btn-secondary{
+  background: transparent;
+  color: var(--text);
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--border);
+}
+
+/* Section */
+.section{
+  margin-top: 42px;
+}
+
+.section h2{
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.section p{
+  color: var(--muted);
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+
+/* Use Case Banners (Model-card style) */
+.usecase-grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.usecase-card{
+  grid-column: span 6;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px 20px;
+  transition: transform 0.15s ease, border 0.15s ease;
+}
+
+.usecase-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.usecase-title{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.usecase-desc{
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Big CTA Footer */
+.enterprise-cta{
+  margin-top: 50px;
+  background: linear-gradient(180deg, #171e29, #111722);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  text-align: center;
+}
+
+.enterprise-cta h3{
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.enterprise-cta p{
+  color: var(--muted);
+  margin-bottom: 22px;
+  font-size: 15px;
+}
+
+@media (max-width: 900px){
+  .usecase-card{
+    grid-column: span 12;
   }
+  .hero-title{
+    font-size: 32px;
+  }
+}
 </style>
 
-<div class="tp-wrap">
+<div class="enterprise-wrap">
 
-  <div class="tp-hero">
-    <p class="tp-kicker">Open source models • Paid enterprise support</p>
-    <h1 class="tp-title">Enterprise TeapotAI</h1>
-    <p class="tp-subtitle">
-      TeapotAI helps teams deploy fast, private, and cost-efficient AI using the Teapot model family.
-      Our models are optimized for <strong>ultra-low latency</strong> and can run on <strong>client devices</strong>
-      (CPU, mobile, browser) — ideal when privacy, cost, and responsiveness matter.
+  <!-- HERO -->
+  <div class="enterprise-hero">
+    <div class="kicker">Open Source Models · Enterprise Support</div>
+    <h1 class="hero-title">Enterprise TeapotAI</h1>
+    <p class="hero-subtitle">
+      TeapotAI helps organizations deploy ultra-low latency AI that runs locally on CPUs, mobile devices, and browsers.
+      Our Teapot model family is optimized for private, cost-efficient, and production-grade inference — without relying
+      on expensive cloud APIs or large GPU infrastructure.
     </p>
 
-    <div class="tp-actions">
-      <a class="tp-btn tp-btn-primary" href="mailto:hello@teapotai.com?subject=TeapotAI%20Enterprise%20Inquiry">Contact Sales</a>
-      <a class="tp-btn" href="/models">Explore Models</a>
-      <a class="tp-btn" href="/docs.html">Read Docs</a>
+    <div class="cta-row">
+      <a class="btn-primary" href="mailto:hello@teapotai.com?subject=TeapotAI Enterprise Inquiry">
+        Contact Sales
+      </a>
+      <a class="btn-secondary" href="/models">
+        View Models
+      </a>
     </div>
-
-    <p class="tp-note" style="margin-top:12px;">
-      Teapot models are free to use. Organizations pay us when they want help with deployment, fine-tuning,
-      hosting, evaluation, and long-term support.
-    </p>
   </div>
 
-  <div class="tp-section">
-    <h2 class="tp-h2">What we do</h2>
-    <p class="tp-note">
-      We partner with product and ML teams end-to-end: architecture → model alignment → productionization → support.
-      Typical timelines range from fast proof-of-concept to full production rollout.
+  <!-- WHAT WE DO -->
+  <div class="section">
+    <h2>Enterprise Use Cases</h2>
+    <p>
+      Teapot models are designed for real production systems where latency, privacy, and cost constraints matter.
+      Below are common high-impact deployments across startups and large organizations.
     </p>
 
-    <div class="tp-grid">
-      <div class="tp-card">
-        <h3>⚡ Deployment & Productionization</h3>
-        <p>Get Teapot running in your stack with predictable latency and clean integration patterns.</p>
-        <ul class="tp-bullets">
-          <li>On-device inference (mobile / browser / edge)</li>
-          <li>CPU-optimized hosting and batching</li>
-          <li>RAG pipelines (retrieval, chunking, caching)</li>
-          <li>Monitoring, evals, and regression testing</li>
-        </ul>
+    <div class="usecase-grid">
+
+      <div class="usecase-card">
+        <div class="usecase-title">📚 In-Context Q&A (RAG)</div>
+        <div class="usecase-desc">
+          Grounded question answering over internal documents, knowledge bases, and proprietary datasets.
+          Ideal for enterprise copilots, internal assistants, and documentation search with hallucination-resistant outputs.
+        </div>
       </div>
 
-      <div class="tp-card">
-        <h3>🧠 Custom Fine-Tuning & Alignment</h3>
-        <p>Make the model behave the way your product needs: formatting, tone, refusals, and domain workflows.</p>
-        <ul class="tp-bullets">
-          <li>Instruction tuning & domain specialization</li>
-          <li>Grounded QA / extraction tuning</li>
-          <li>Dataset design (incl. synthetic augmentation)</li>
-          <li>Benchmarking + acceptance criteria</li>
-        </ul>
+      <div class="usecase-card">
+        <div class="usecase-title">🔒 Local / Private Q&A</div>
+        <div class="usecase-desc">
+          Fully on-device or on-prem AI assistants that never send sensitive data to external APIs.
+          Perfect for healthcare, finance, and compliance-heavy environments.
+        </div>
       </div>
 
-      <div class="tp-card">
-        <h3>🔒 Private AI & Compliance</h3>
-        <p>Keep sensitive data local. Reduce exposure by avoiding third-party API calls.</p>
-        <ul class="tp-bullets">
-          <li>On-prem / air-gapped deployments</li>
-          <li>Device-local inference and retrieval</li>
-          <li>PII-aware pipelines and auditability</li>
-          <li>Security review + threat modeling support</li>
-        </ul>
+      <div class="usecase-card">
+        <div class="usecase-title">🧾 Text Extraction & Structured Outputs</div>
+        <div class="usecase-desc">
+          Reliable extraction of structured data (JSON) from documents, forms, logs, and unstructured text.
+          Used for automation pipelines, document intelligence, and workflow tooling.
+        </div>
       </div>
 
-      <div class="tp-card">
-        <h3>📚 Enterprise RAG & Knowledge Systems</h3>
-        <p>Turn internal docs into trustworthy assistants with grounded answers and structured outputs.</p>
-        <ul class="tp-bullets">
-          <li>Knowledge-base Q&A assistants</li>
-          <li>Document understanding + extraction (JSON)</li>
-          <li>Hybrid retrieval strategies + reranking</li>
-          <li>Latency/cost optimization at scale</li>
-        </ul>
+      <div class="usecase-card">
+        <div class="usecase-title">🏷️ Text Classification</div>
+        <div class="usecase-desc">
+          Fast, lightweight classification models for tagging, moderation, intent detection,
+          and large-scale content processing with low latency.
+        </div>
       </div>
 
-      <div class="tp-card tp-card-wide">
-        <h3>Why Teapot models</h3>
-        <p>
-          Teapot is built for real production constraints — not just cloud GPUs. It’s optimized for low-latency,
-          grounded responses and can run in environments where large models are too slow, too expensive, or too risky.
-        </p>
-        <div class="tp-grid" style="margin-top:10px;">
-          <div class="tp-card" style="grid-column: span 4;">
-            <h3>🚀 Speed</h3>
-            <p>Low-latency inference, including CPU + edge scenarios where response time matters.</p>
-          </div>
-          <div class="tp-card" style="grid-column: span 4;">
-            <h3>🔐 Privacy</h3>
-            <p>Run locally to keep user and company data on-device or inside your network boundary.</p>
-          </div>
-          <div class="tp-card" style="grid-column: span 4;">
-            <h3>💸 Cost</h3>
-            <p>Reduce or eliminate per-token API spend with efficient deployment and lightweight models.</p>
-          </div>
+      <div class="usecase-card">
+        <div class="usecase-title">📊 Recommendations & Ranking</div>
+        <div class="usecase-desc">
+          Re-ranking, retrieval scoring, and semantic matching for search systems,
+          feeds, and personalized experiences where inference speed is critical.
+        </div>
+      </div>
+
+      <div class="usecase-card">
+        <div class="usecase-title">⚡ On-Device & Edge AI Applications</div>
+        <div class="usecase-desc">
+          Deploy AI directly on mobile apps, browsers, and edge environments.
+          Enables real-time UX with near-zero latency and significantly lower infrastructure costs.
         </div>
       </div>
 
     </div>
   </div>
 
-  <div class="tp-section">
-    <h2 class="tp-h2">Engagement models</h2>
-    <p class="tp-note">Pick what fits your org. We can start small and expand once value is proven.</p>
+  <!-- WHY TEAPOT -->
+  <div class="section">
+    <h2>Why Companies Choose TeapotAI</h2>
+    <p>
+      Unlike large API-only models, Teapot is built for efficient, production-ready deployment.
+      Models can run locally, scale cheaply, and provide predictable latency for real-world products.
+    </p>
 
-    <div class="tp-grid">
-      <div class="tp-card">
-        <h3>Starter</h3>
-        <p>Best for teams deploying Teapot for the first time.</p>
-        <ul class="tp-bullets">
-          <li>Architecture + integration plan</li>
-          <li>Deployment support</li>
-          <li>Baseline eval harness</li>
-        </ul>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-title">🚀 Ultra Low Latency</div>
+        <div class="usecase-desc">
+          Optimized small models that respond significantly faster than large LLMs,
+          especially on CPU and edge environments.
+        </div>
       </div>
 
-      <div class="tp-card">
-        <h3>Production</h3>
-        <p>Best for live product workloads and performance targets.</p>
-        <ul class="tp-bullets">
-          <li>Latency/cost optimization</li>
-          <li>RAG tuning + caching strategies</li>
-          <li>Monitoring + regression evals</li>
-        </ul>
+      <div class="usecase-card">
+        <div class="usecase-title">💸 Cost Efficient Inference</div>
+        <div class="usecase-desc">
+          Reduce or eliminate per-token API costs by running models locally or on lightweight infrastructure.
+        </div>
       </div>
 
-      <div class="tp-card tp-card-wide">
-        <h3>Custom</h3>
-        <p>For fine-tuning, proprietary workflows, or complex compliance requirements.</p>
-        <ul class="tp-bullets">
-          <li>Custom fine-tuning + alignment</li>
-          <li>On-prem / air-gapped deployment</li>
-          <li>Dedicated support and roadmap collaboration</li>
-        </ul>
+      <div class="usecase-card">
+        <div class="usecase-title">🔐 Privacy First Architecture</div>
+        <div class="usecase-desc">
+          Keep user and enterprise data fully private with on-device and on-prem deployments.
+        </div>
+      </div>
+
+      <div class="usecase-card">
+        <div class="usecase-title">🫖 Open Source + Enterprise Support</div>
+        <div class="usecase-desc">
+          Use Teapot models for free. Work with us when you need deployment, fine-tuning,
+          hosting, evaluation, or long-term support.
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="tp-cta">
-    <div>
-      <strong>Ready to deploy TeapotAI in production?</strong>
-      <span>
-        Tell us your use case, latency target, and deployment environment (mobile, browser, CPU, on-prem, cloud).
-        We’ll respond with a recommended plan and next steps.
-      </span>
-    </div>
-    <div class="tp-actions" style="margin:0;">
-      <a class="tp-btn tp-btn-primary" href="mailto:hello@teapotai.com?subject=TeapotAI%20Enterprise%20Inquiry">Contact Sales</a>
-      <a class="tp-btn" href="mailto:hello@teapotai.com?subject=TeapotAI%20Enterprise%20-%20Request%20a%20demo">Request a Demo</a>
-    </div>
+  <!-- BIG CTA -->
+  <div class="enterprise-cta">
+    <h3>Deploy TeapotAI in Production</h3>
+    <p>
+      Tell us your use case, latency requirements, and deployment environment (mobile, browser, CPU, or on-prem).
+      We’ll recommend the optimal architecture and model setup for your product.
+    </p>
+    <a class="btn-primary" href="mailto:hello@teapotai.com?subject=TeapotAI Enterprise Inquiry">
+      Contact Sales — hello@teapotai.com
+    </a>
   </div>
 
 </div>
